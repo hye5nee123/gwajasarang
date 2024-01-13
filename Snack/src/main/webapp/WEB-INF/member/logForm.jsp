@@ -12,15 +12,21 @@
 	<form>
 		<table class="table">
 			<tr>
-				<label for="m_id">아이디</label>
-				<input type="text" name="m_id" id="m_id">
+				<td>				
+					<label for="m_id">아이디</label>
+					<input type="text" name="m_id" id="m_id">
+				</td>
 			</tr>
 			<tr>
-				<label for="m_pw">비밀번호</label>
-				<iput type="password" name="m_pw" id="m_pw">
+				<td>				
+					<label for="m_pw">비밀번호</label>
+					<iput type="password" name="m_pw" id="m_pw">
+				</td>
 			</tr>
 			<tr>
-				<button class="btn">로그인</button>
+				<td colspan="2">
+					<button class="btn">로그인</button>
+				</td>
 			</tr>
 		</table>
 	</form>
