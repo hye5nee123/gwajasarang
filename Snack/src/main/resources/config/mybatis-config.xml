@@ -22,6 +22,6 @@
   </environments>
 
   <mappers>
-  	<mapper resource="com/yedam/snack/mapper/SnackMapper.xml"/>
+  	<mapper resource="com/yedam/snack/mapper/OrdersMapper.xml"/>
   </mappers>
 </configuration>
