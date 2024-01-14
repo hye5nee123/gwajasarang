@@ -10,18 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.goods.command.GoodsListControl;
+
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> map;
 
 	public FrontController() {
+		System.out.println("생성자 호출");
 		map = new HashMap<String, Control>();
 	}
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-	
-		super.init(config);
+		System.out.println("init() 호출");
+		map.put("/goodsList.do", new GoodsListControl());
 	}
 	
 	@Override
@@ -29,6 +32,7 @@ public class FrontController extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/json;charset=utf-8");
 
+		System.out.println("service() 호출");
 		String url = req.getRequestURI(); // /BoardWeb/main.do
 		String context = req.getContextPath(); // /BoardWeb
 		String path = url.substring(context.length());
@@ -41,6 +45,6 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void destroy() {
-		System.out.println("destroy() 호출.");
+		System.out.println("destroy() 호출");
 	}
 }
