@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.member.command.LoginFormControl;
+
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> map;
@@ -21,8 +23,11 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 	
+		map.put("/loginForm.do", new LoginFormControl());
+		
 		super.init(config);
 	}
+	
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
