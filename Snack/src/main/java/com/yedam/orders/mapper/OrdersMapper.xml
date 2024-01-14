@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="com.yedam.orders.mapper.Ordersmapper">
+  <select id="selectList" resultType="orders">
+    SELECT * FROM orders ORDER BY 1
+  </select>
+  
+  <select id="selectOne" resultType="order" parameterType="orders">
+    SELECT * FROM orders WHERE order_code = #{ono}
+  </select>
+  
+  </mapper>
