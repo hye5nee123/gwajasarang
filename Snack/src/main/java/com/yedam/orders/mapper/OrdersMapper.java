@@ -5,10 +5,12 @@ import java.util.List;
 import com.yedam.orders.vo.OrdersVO;
 
 public interface OrdersMapper {
+	List<OrdersVO> selectList = null;
+
 	//test
 	List<OrdersVO> selectList();
 
 	OrdersVO selectOne(String ono);
-
-	String insertOrder(OrdersVO vo);
+	//b
+	int insertOrders(OrdersVO vo);
 }

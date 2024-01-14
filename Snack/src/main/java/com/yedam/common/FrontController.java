@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.orders.command.AddOrdersControl;
+
 public class FrontController extends HttpServlet {
-	
+
 	Map<String, Control> map;
 
 	public FrontController() {
@@ -20,10 +22,14 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-	
+		System.out.println("init() 호출.");
+
+		// 주문관련.
+		map.put("/addOrders.do", new AddOrdersControl());
+
 		super.init(config);
 	}
-	
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");

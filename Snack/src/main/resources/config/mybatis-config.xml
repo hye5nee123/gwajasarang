@@ -8,6 +8,9 @@
     <setting name="mapUnderscoreToCamelCase" value="true"/>
     <setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
+  <typeAliases>
+  <typeAlias alias="order" type="com.yedam.orders.vo.OrdersVO"/>
+</typeAliases>
 
   <environments default="development">
     <environment id="development">
