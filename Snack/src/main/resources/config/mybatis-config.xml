@@ -23,5 +23,6 @@
 
   <mappers>
   	<mapper resource="com/yedam/snack/mapper/SnackMapper.xml"/>
+  	<mapper resource="com/yedam/member/mapper/MemberMapper.xml"/>
   </mappers>
 </configuration>

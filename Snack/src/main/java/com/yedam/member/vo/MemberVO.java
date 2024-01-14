@@ -1,6 +1,8 @@
 package com.yedam.member.vo;
 
-@data
+import lombok.Data;
+
+@Data
 public class MemberVO {
 	private String MemberCode;
 	private String id;
