@@ -4,7 +4,16 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.yedam.review.mapper.ReviewMapper">
-	<select id="selectList" resultType="review">
-		SELECT * FROM review
+	<select id="selectList" resultType="review" parameterType="String">
+		SELECT * 
+		FROM review
+		WHERE goods_code = #{goodsCode}
+		ORDER BY 1
+	</select>
+	
+	<select id="selectOne" resultType="review" parameterType="int">
+		SELECT *
+		FROM review
+		WHERE review_code = #{reviewCode}
 	</select>
 </mapper>

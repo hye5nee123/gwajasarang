@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.review.command.GetLReviewControl;
 import com.yedam.review.command.ReviewListControl;
 
 public class FrontController extends HttpServlet {
@@ -25,7 +26,9 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init() 호출");
 		
-		map.put("/reviewList.do", new ReviewListControl());
+		// 리뷰 게시판 기능
+		map.put("/reviewList.do", new ReviewListControl()); // 리뷰 목록
+		map.put("/getReview.do", new GetLReviewControl());  // 리뷰 단건조회
 	}
 	
 	@Override
@@ -34,8 +37,8 @@ public class FrontController extends HttpServlet {
 		resp.setContentType("text/json;charset=utf-8");
 
 		System.out.println("service() 호출");
-		String url = req.getRequestURI(); // /BoardWeb/main.do
-		String context = req.getContextPath(); // /BoardWeb
+		String url = req.getRequestURI();
+		String context = req.getContextPath();
 		String path = url.substring(context.length());
 		System.out.println(path);
 

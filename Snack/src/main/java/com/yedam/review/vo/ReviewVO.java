@@ -8,6 +8,6 @@ public class ReviewVO {
 	private String goodsCode;
 	private String title;
 	private String content;
-	private int star;
+	private int stars;
 	private String reviewDate;
 }
