@@ -4,5 +4,10 @@ import lombok.Data;
 
 @Data
 public class ReviewVO {
-	private  
+	private int reviewCode;
+	private String goodsCode;
+	private String title;
+	private String content;
+	private int star;
+	private String reviewDate;
 }

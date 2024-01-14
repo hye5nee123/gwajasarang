@@ -8,6 +8,10 @@
     <setting name="mapUnderscoreToCamelCase" value="true"/>
     <setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
+  
+<typeAliases>
+  <typeAlias alias="review" type="com.yedam.review.vo.ReviewVO"/>
+</typeAliases>
 
   <environments default="development">
     <environment id="development">
@@ -22,6 +26,6 @@
   </environments>
 
   <mappers>
-  	<mapper resource="com/yedam/*"/>
+  	<mapper resource="com/yedam/review/mapper/ReviewMapper.xml"/>
   </mappers>
 </configuration>
