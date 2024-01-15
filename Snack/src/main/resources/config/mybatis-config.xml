@@ -9,9 +9,10 @@
     <setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
   
-  <typeAliases>
-    <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
-  </typeAliases>
+<typeAliases>
+  <typeAlias alias="review" type="com.yedam.review.vo.ReviewVO"/>
+  <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
+</typeAliases>
   
   <environments default="development">
     <environment id="development">
@@ -26,6 +27,7 @@
   </environments>
 
   <mappers>
+  	<mapper resource="com/yedam/review/mapper/ReviewMapper.xml"/>
   	<mapper resource="com/yedam/member/mapper/MemberMapper.xml"/>
   </mappers>
 </configuration>
