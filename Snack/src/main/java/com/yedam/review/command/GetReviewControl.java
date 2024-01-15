@@ -12,7 +12,7 @@ import com.yedam.review.service.ReviewService;
 import com.yedam.review.serviceImpl.ReviewServiceImpl;
 import com.yedam.review.vo.ReviewVO;
 
-public class GetLReviewControl implements Control {
+public class GetReviewControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {

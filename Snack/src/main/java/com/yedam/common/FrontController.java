@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.review.command.GetLReviewControl;
-import com.yedam.review.command.ReviewListControl;
-
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> map;
@@ -28,14 +25,14 @@ public class FrontController extends HttpServlet {
 		
 		AFrontController a = new AFrontController();
 		map.putAll(a.getMap());
-//		BFrontController b = new BFrontController();
-//		map.putAll(b.getMap());
-//		CFrontController c = new CFrontController();
-//		map.putAll(c.getMap());
-//		DFrontController d = new DFrontController();
-//		map.putAll(d.getMap());
-//		EFrontController e = new EFrontController();
-//		map.putAll(e.getMap());
+		BFrontController b = new BFrontController();
+		map.putAll(b.getMap());
+		CFrontController c = new CFrontController();
+		map.putAll(c.getMap());
+		DFrontController d = new DFrontController();
+		map.putAll(d.getMap());
+		EFrontController e = new EFrontController();
+		map.putAll(e.getMap());
 	}
 	
 	@Override
@@ -50,7 +47,6 @@ public class FrontController extends HttpServlet {
 
 		Control ctrl = map.get(path);
 		ctrl.execute(req, resp);
-
 	}
 
 	@Override
