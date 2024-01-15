@@ -4,14 +4,14 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
   
 <mapper namespace="com.yedam.orders.mapper.Ordersmapper">
-  <select id="selectList" resultType="orders">
+  <select id="selectList" resultType="order">
     SELECT * FROM orders ORDER BY 1
   </select>
 
 
-    <insert id="insertOrders" parameterType="orders">
-    INSERT INTO orders (order_code, member_code, order_date, order_address, order_name, order_phone, memo, delivery_fee, total_price)
-    VALUES(orders_seq.nextval, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
+    <insert id="insertOrders" parameterType="order">
+    INSERT INTO orders 
+    VALUES(#{order_code}, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
   </insert>
 
     

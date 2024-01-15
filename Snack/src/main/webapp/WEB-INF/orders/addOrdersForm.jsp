@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <h3>등록화면</h3>
-<form action="addBoard.do" method="get" enctype="multipart/form-data">
+<form action="addOrders.do" method="get" enctype="multipart/form-data">
 	<table class="table">
 		<tr>
 			<th>주문번호</th>
@@ -41,7 +41,7 @@
 		</tr>
 		<tr>
 			<th>총 상품가격</th>
-			<td><input type="text" name="totalPrice" value="${orderDate }"></td>
+			<td><input type="text" name="totalPrice" value="${totalPrice }"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="저장">

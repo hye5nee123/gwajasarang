@@ -5,7 +5,7 @@ import java.util.List;
 import com.yedam.orders.vo.OrdersVO;
 
 public interface OrdersMapper {
-	List<OrdersVO> selectList = null;
+
 
 	//test
 	List<OrdersVO> selectList();
