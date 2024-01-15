@@ -17,10 +17,10 @@ public class GoodsListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-//		GoodsService svc = new GoodsServiceImpl();
-//		List<GoodsVO> list = svc.goodsList();
-//		
-//		req.setAttribute("goodsList", list);
+		GoodsService svc = new GoodsServiceImpl();
+		List<GoodsVO> list = svc.goodsList();
+		
+		req.setAttribute("goodsList", list);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/goodsList.jsp");
 		try {
