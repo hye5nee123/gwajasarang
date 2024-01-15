@@ -10,41 +10,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.orders.command.OrdersListControl;
-import com.yedam.orders.command.RemoveFormControl;
-import com.yedam.orders.command.RemoveOrdersControl;
-import com.yedam.orders.command.getOrdersControl;
-
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> map;
 
 	public FrontController() {
+		System.out.println("생성자 호출.");
 		map = new HashMap<String, Control>();
 	}
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("init() 호출.");
-		map.put("/ordersList.do", new OrdersListControl());  // 주문 목록
-		map.put("/getOrders.do", new getOrdersControl());    //주문 상세내역
-		map.put("/removeOrdersAll.do", new RemoveFormControl());  // 전체 삭제
-		map.put("/remOrders.do", new RemoveOrdersControl()); //단건삭제
-		//map.put("/modifyOrders.do", new ModifyOrdersControl());
+		System.out.println("init() 호출");
+		
+		AFrontController a = new AFrontController();
+		map.putAll(a.getMap());
+		BFrontController b = new BFrontController();
+		map.putAll(b.getMap());
+		CFrontController c = new CFrontController();
+		map.putAll(c.getMap());
+		DFrontController d = new DFrontController();
+		map.putAll(d.getMap());
+		EFrontController e = new EFrontController();
+		map.putAll(e.getMap());
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 
-		String url = req.getRequestURI(); // /BoardWeb/main.do
-		String context = req.getContextPath(); // /BoardWeb
+		System.out.println("service() 호출");
+		String url = req.getRequestURI();
+		String context = req.getContextPath();
 		String path = url.substring(context.length());
 		System.out.println(path);
 
 		Control ctrl = map.get(path);
 		ctrl.execute(req, resp);
-
 	}
 
 	@Override
