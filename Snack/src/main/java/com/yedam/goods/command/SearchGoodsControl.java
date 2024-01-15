@@ -13,16 +13,18 @@ import com.yedam.goods.service.GoodsService;
 import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
 
-public class GoodsListControl implements Control {
-
+public class SearchGoodsControl implements Control {
+	
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-//		GoodsService svc = new GoodsServiceImpl();
-//		List<GoodsVO> list = svc.goodsList();
-//		
-//		req.setAttribute("goodsList", list);
+		String gname = req.getParameter("gname");
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/goodsList.jsp");
+		GoodsService svc = new GoodsServiceImpl();
+		List<GoodsVO> list = svc.searchList(gname);
+		
+		req.setAttribute("searchList", list);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/searchList.jsp");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException e) {
@@ -32,7 +34,5 @@ public class GoodsListControl implements Control {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
 }

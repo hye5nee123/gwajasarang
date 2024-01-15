@@ -20,8 +20,13 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public GoodsVO getGoods(int gcode) {
-		return mapper.selecOne(gcode);
+	public GoodsVO getGoods(String gcode) {
+		return mapper.selectOne(gcode);
+	}
+
+	@Override
+	public List<GoodsVO> searchList(String gname) {
+		return mapper.search(gname);
 	}
 
 }

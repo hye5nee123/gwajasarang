@@ -6,5 +6,6 @@ import com.yedam.goods.vo.GoodsVO;
 
 public interface GoodsMapper {
 	List<GoodsVO> selectList();
-	GoodsVO selecOne(int gcode);
+	GoodsVO selectOne(String gcode);
+	List<GoodsVO> search(String gname);
 }

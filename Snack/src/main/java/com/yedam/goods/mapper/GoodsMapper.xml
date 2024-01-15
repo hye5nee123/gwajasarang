@@ -8,7 +8,11 @@
 		select * from goods order by 1
 	</select>
 	
-<!-- 	<select id="selectOne" resultType="goods" parameterType="goods">
+ 	<select id="selectOne" resultType="goods" parameterType="string">
 		select * from goods where goods_code = #{gcode}
-	</select> -->
+	</select>
+	
+ 	<select id="search" resultType="goods" parameterType="string">
+		select * from goods where goods_name like %#{gname}%
+	</select>
 </mapper>

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.goods.command.GoodsListControl;
-
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> map;
@@ -24,7 +22,8 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init() 호출");
-		map.put("/goodsList.do", new GoodsListControl());
+		GoodsController goods = new GoodsController();
+		map.putAll(goods.getMap());
 	}
 	
 	@Override

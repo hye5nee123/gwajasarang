@@ -1,7 +1,6 @@
 package com.yedam.goods.command;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,16 +12,18 @@ import com.yedam.goods.service.GoodsService;
 import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
 
-public class GoodsListControl implements Control {
+public class GetGoodsControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-//		GoodsService svc = new GoodsServiceImpl();
-//		List<GoodsVO> list = svc.goodsList();
-//		
-//		req.setAttribute("goodsList", list);
+		String gcode = req.getParameter("gcode");
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/goodsList.jsp");
+		GoodsService svc = new GoodsServiceImpl();
+		GoodsVO vo = svc.getGoods(gcode);
+		
+		req.setAttribute("vo", vo);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/getGoods.jsp");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException e) {

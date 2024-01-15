@@ -3,36 +3,33 @@ package com.yedam.goods.command;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 import com.yedam.goods.service.GoodsService;
 import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
 
-public class GoodsListControl implements Control {
-
+public class GoodsListJson implements Control {
+	
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-//		GoodsService svc = new GoodsServiceImpl();
-//		List<GoodsVO> list = svc.goodsList();
-//		
-//		req.setAttribute("goodsList", list);
+		GoodsService svc = new GoodsServiceImpl();
+		List<GoodsVO> list = svc.goodsList();
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/goodsList.jsp");
+		resp.setContentType("text/json;charset=utf-8");
+		Gson gson = new GsonBuilder().create();
+		
 		try {
-			rd.forward(req, resp);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			resp.getWriter().print(gson.toJson(list));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-
+	
 }
