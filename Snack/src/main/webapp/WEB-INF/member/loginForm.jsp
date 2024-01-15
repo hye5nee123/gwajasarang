@@ -31,13 +31,17 @@
 			</div>
 		</div>
 		<form>
-			<table class="table">	
-				<tbody>
-					<tr>
-						<td>123</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="checkout__order col-lg-6 mx-auto">	
+				<div class="checkout__input">
+					<p class="checkout__order__products">아이디</p>
+					<input type="text" name="m_id">
+				</div>
+				<div class="checkout__input">
+					<p class="checkout__order__products">비밀번호</p>
+					<input type="password" name="m_pw">
+				</div>
+				<button class="site-btn">로그인</button>
+			</div>
 		</form>
 	</div>
 </section>
