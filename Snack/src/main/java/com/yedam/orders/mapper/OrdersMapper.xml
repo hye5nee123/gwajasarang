@@ -8,12 +8,10 @@
     SELECT * FROM orders ORDER BY 1
   </select>
 
-  <select id="selectOne" resultType="order" parameterType="orders">
-    SELECT * FROM orders WHERE order_code = #{ono}
-  </select>
+
     <insert id="insertOrders" parameterType="orders">
     INSERT INTO orders (order_code, member_code, order_date, order_address, order_name, order_phone, memo, delivery_fee, total_price)
-    values(orders_seq.nextval, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
+    VALUES(orders_seq.nextval, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
   </insert>
 
     

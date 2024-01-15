@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <a href="bookList.do">목록이동</a>
+  <a href="addOrders.do">목록이동</a>
 </body>
 </html>

@@ -27,13 +27,12 @@ public class FrontController extends HttpServlet {
 		// 주문관련.
 		map.put("/addOrders.do", new AddOrdersControl());
 
-		super.init(config);
+		//super.init(config);
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/json;charset=utf-8");
 
 		String url = req.getRequestURI(); // /BoardWeb/main.do
 		String context = req.getContextPath(); // /BoardWeb
