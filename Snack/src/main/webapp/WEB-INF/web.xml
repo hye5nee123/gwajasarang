@@ -23,7 +23,6 @@
 	<servlet>
 		<servlet-name>front</servlet-name>
 		<servlet-class>com.yedam.common.FrontController</servlet-class>
-		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>front</servlet-name>
