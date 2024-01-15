@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.main.command.mainPageControl;
 import com.yedam.member.command.LoginFormControl;
 
 public class FrontController extends HttpServlet {
@@ -22,18 +23,19 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-	
+		System.out.println("init() 호출.");
+		map.put("/mainPage.do", new mainPageControl());
 		map.put("/loginForm.do", new LoginFormControl());
 		
-		super.init(config);
+		//super.init(config);
 	}
 	
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/json;charset=utf-8");
 
+		System.out.println("service() 호출");
 		String url = req.getRequestURI(); // /BoardWeb/main.do
 		String context = req.getContextPath(); // /BoardWeb
 		String path = url.substring(context.length());

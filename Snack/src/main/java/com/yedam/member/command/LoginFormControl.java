@@ -23,7 +23,7 @@ public class LoginFormControl implements Control {
 		req.setAttribute("memberList", list);
 		
 		try {
-			req.getRequestDispatcher("/WEB-INF/member/logForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("member/loginForm.tiles").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		} 
