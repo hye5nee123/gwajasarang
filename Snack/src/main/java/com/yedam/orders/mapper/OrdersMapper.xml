@@ -13,8 +13,9 @@
     SELECT * FROM orders WHERE order_code = #{orderCode}
   </select>
   
-<delete id="ordersMember" parameterType="String">
+<delete id="remOrdersone" parameterType="String">
 	delete from orders where order_code = #{orderCode}
 	</delete>
+	
  
   </mapper>

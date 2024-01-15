@@ -4,7 +4,7 @@
 
     <h3>삭제화면</h3>
     <form name="myForm" action="removeOrders.do">
-    <input type="hidden" name="ordersCode" value="${vo.ordersCode }">
+    <input type="hidden" name="orderCode" value="${vo.orderCode }">
     <table class="table">
     <tbody>
     <tr>

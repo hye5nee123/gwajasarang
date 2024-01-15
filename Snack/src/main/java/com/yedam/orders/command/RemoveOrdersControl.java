@@ -13,14 +13,15 @@ public class RemoveOrdersControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String orderCode = req.getParameter("ordercode");
+		String orderCode = req.getParameter("orderCode");
 		OrdersService svc = new OrdersServiceImpl();
 		boolean rem = svc.remOrders(orderCode);
+		System.out.println(rem);
 		try {
 			if (rem) {
 				resp.sendRedirect("ordersList.do");
 			} else {
-				resp.sendRedirect("removeOrders.do");
+				resp.sendRedirect("getOrders.do?orderCode="+orderCode);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

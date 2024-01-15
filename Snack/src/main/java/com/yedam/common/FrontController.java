@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.orders.command.OrdersListControl;
+import com.yedam.orders.command.RemoveFormControl;
 import com.yedam.orders.command.RemoveOrdersControl;
 import com.yedam.orders.command.getOrdersControl;
 
@@ -25,15 +26,16 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init() 호출.");
-		map.put("/ordersList.do", new OrdersListControl());
-		map.put("/getOrders.do", new getOrdersControl());
-		map.put("/removeOrders.do", new RemoveOrdersControl());
+		map.put("/ordersList.do", new OrdersListControl());  // 주문 목록
+		map.put("/getOrders.do", new getOrdersControl());    //주문 상세내역
+		map.put("/removeOrdersAll.do", new RemoveFormControl());  // 전체 삭제
+		map.put("/remOrders.do", new RemoveOrdersControl()); //단건삭제
+		//map.put("/modifyOrders.do", new ModifyOrdersControl());
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/json;charset=utf-8");
 
 		String url = req.getRequestURI(); // /BoardWeb/main.do
 		String context = req.getContextPath(); // /BoardWeb

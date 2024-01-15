@@ -12,4 +12,5 @@ public interface OrdersMapper {
 	List<OrdersVO> selectList();
 	OrdersVO selectOne(@Param("orderCode") String orderCode);
 	
+	int remOrdersone(String orderCode);
 }

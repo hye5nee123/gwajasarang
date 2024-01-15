@@ -25,7 +25,16 @@ public class OrdersServiceImpl implements OrdersService {
 	@Override
 	public boolean remOrders(String orderCode) {
 		// TODO Auto-generated method stub
+		return mapper.remOrdersone(orderCode)==1;
+	}
+	@Override
+	public boolean remForm(String orderCode) {
+		// TODO Auto-generated method stub
+		//return mapper.deleteOrdersAllCode(orderCode) ==1;
 		return false;
 	}
+
+
+
 
 }

@@ -1,10 +1,12 @@
     <%@page import="com.yedam.orders.vo.OrdersVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <h3>상세 화면</h3>
 
-<form name="mtForm">
-<input type="hidden" name="orderCode" value="${vo.orderCode }">
+<form name="myForm">
+
+<input id="c" type="hidden" name="orderCode" value="${vo.orderCode }">
 <table calss="table" border = "2">
 <tbody>
 <tr>
@@ -45,14 +47,20 @@
 </tr>
  
 <tr>
-				<td colspan="4" align="center"><c:choose>
-						<c:when >
-							<input type="submit" value="주문수정">
-							<input type="button"  onclick="deleteFun()" value="주문취소">
-						</c:when>
+
+				<td colspan="4" align="center">
 						
-					</c:choose></td>
+							<input type="submit" value="주문수정">
+							<input type="button"  onclick="deletefunc('${vo.orderCode}')" value="주문삭제">
+							
+					</td>
 			</tr>
+			
 </tbody>
 </table>
 </form>
+<script>
+function deletefunc(orderCode){
+	location.href="remOrders.do?orderCode="+orderCode;
+}
+</script>

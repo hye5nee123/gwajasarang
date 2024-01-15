@@ -11,7 +11,7 @@ public interface OrdersService {
 
 	public boolean remOrders(String orderCode);
 
+	public boolean remForm(String orderCode);
 	
-	
-	
+
 } 
