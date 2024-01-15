@@ -16,4 +16,20 @@
 		FROM review
 		WHERE review_code = #{reviewCode}
 	</select>
+	
+	<insert id="insertReview" parameterType="review">
+		INSERT INTO review
+		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{title}, #{content}, #{stars}, SYSDATE)
+	</insert>
+	
+	<update id="updateReview" parameterType="review" >
+		UPDATE review
+		SET title = #{title}, content=#{content}, stars=#{stars}
+		WHERE review_code = #{reviewCode}
+	</update>
+	
+	<delete id="deleteReview" parameterType="int">
+		DELETE review
+		WHERE review_code = #{reviewCode}
+	</delete>
 </mapper>

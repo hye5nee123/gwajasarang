@@ -26,15 +26,21 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init() 호출");
 		
-		// 리뷰 게시판 기능
-		map.put("/reviewList.do", new ReviewListControl()); // 리뷰 목록
-		map.put("/getReview.do", new GetLReviewControl());  // 리뷰 단건조회
+		AFrontController a = new AFrontController();
+		map.putAll(a.getMap());
+//		BFrontController b = new BFrontController();
+//		map.putAll(b.getMap());
+//		CFrontController c = new CFrontController();
+//		map.putAll(c.getMap());
+//		DFrontController d = new DFrontController();
+//		map.putAll(d.getMap());
+//		EFrontController e = new EFrontController();
+//		map.putAll(e.getMap());
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/json;charset=utf-8");
 
 		System.out.println("service() 호출");
 		String url = req.getRequestURI();
