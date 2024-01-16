@@ -5,8 +5,17 @@
   
 <mapper namespace="com.yedam.member.mapper.MemberMapper"> 
 
+  <select id="selectMember" resultType="member">
+    select * from member where id=#{id} and pw=#{pw}
+  </select>
+
   <select id="selectList" resultType="member">
 	select * from member
   </select>
+  
+  <insert id="insertMember" resultType="member">
+  	insert into member(id, pw, member_name, member_phone, member_adress, email)
+  	values(#{id}, #{pw}, #{memeberName}, #{memberPhone}, #{memberAdress}, #{email})
+  </insert>
   
 </mapper>

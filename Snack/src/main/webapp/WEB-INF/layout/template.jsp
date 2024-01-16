@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="bootstrap/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="bootstrap/css/style.css" type="text/css">
+    
+    <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -106,7 +108,7 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="bootstrap/js/jquery-3.3.1.min.js"></script>
+
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/jquery.nice-select.min.js"></script>
     <script src="bootstrap/js/jquery-ui.min.js"></script>
