@@ -1,13 +1,14 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.yedam.cart.mapper.CartMapper">
-	<select id="selectList" resultType="cart" parameterType="int">
-  		select c.cart_code, c.quantity, c.goods_code, c.member_code, g.goods_name, g.price, g.thumb_image
-		from cart c join goods g on c.cart_code = g.goods_code
-		where member_code = #{memberCode}
-		order by 1
+	<select id="selectList" resultType="cart" parameterType="String">
+		SELECT c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
+		FROM cart c JOIN goods g 
+		ON c.goods_code = g.goods_code
+		WHERE c.member_code = #{memberCode}
   	</select>
   	<insert id="insertCart" parameterType="cart">
   		insert into cart values (cart_seq.nextval, #{quantity}, #{memberCode}, #{goodsCode})
@@ -18,3 +19,5 @@
   	<update id="updateCart" parameterType="cart">
   		update cart set quantity = #{quantity} where cart_code = #{cartCode}
  	</update>
+ 	</mapper>
+

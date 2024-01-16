@@ -1,8 +1,11 @@
+
 package com.yedam.cart.vo;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import lombok.Data;
+@Data
 public class CartVO {
 	// 테이블에 있음.
 	private int cartCode;
@@ -14,7 +17,6 @@ public class CartVO {
 	private String name;
 	private int price;
 	private String img;
-
 	private int totalPrice;
 	private String putDate;
 
@@ -31,3 +33,4 @@ public class CartVO {
 	
 	}
 }
+
