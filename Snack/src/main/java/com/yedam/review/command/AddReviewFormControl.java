@@ -14,7 +14,7 @@ public class AddReviewFormControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/review/addReviewForm.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/review/addReviewForm.tiles");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {

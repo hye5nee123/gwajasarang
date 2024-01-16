@@ -24,7 +24,7 @@ public class GetReviewControl implements Control {
 		
 		req.setAttribute("vo", vo);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/review/getReview.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/review/getReview.tiles");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {

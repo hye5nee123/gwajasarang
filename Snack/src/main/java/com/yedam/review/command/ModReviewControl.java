@@ -10,13 +10,12 @@ import com.yedam.review.service.ReviewService;
 import com.yedam.review.serviceImpl.ReviewServiceImpl;
 import com.yedam.review.vo.ReviewVO;
 
-public class AddReviewControl implements Control {
+public class ModReviewControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-
 		ReviewVO vo = new ReviewVO();
-
+		String reviewCode = req.getParameter("reviewCode");
 		String goodsCode = req.getParameter("goodsCode");
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
