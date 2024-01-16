@@ -56,6 +56,6 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void destroy() {
-		System.out.println("destroy() 호출.");
+		System.out.println("destroy() 호출");
 	}
 }
