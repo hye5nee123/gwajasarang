@@ -12,7 +12,7 @@ import com.yedam.cart.serviceImpl.CartServiceImpl;
 import com.yedam.cart.vo.CartVO;
 import com.yedam.common.Control;
 
-public class ShowCartControl implements Control {
+public class CartListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {

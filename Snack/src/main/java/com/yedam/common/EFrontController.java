@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
 
-import com.yedam.cart.command.ShowCartControl;
+import com.yedam.cart.command.CartListControl;
 import com.yedam.orders2.command.AddOrdersControl;
 
 public class EFrontController extends HttpServlet{
@@ -16,7 +16,7 @@ public class EFrontController extends HttpServlet{
 		map.put("/addOrders.do", new AddOrdersControl());
 		
 		//장바구니
-		map.put("/showCart.do", new ShowCartControl());
+		map.put("/showCart.do", new CartListControl());
 		map.put("/cartListJson.do", new CartListJson());
 		return map;
 	}
