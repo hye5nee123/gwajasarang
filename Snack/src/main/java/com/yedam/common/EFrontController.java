@@ -17,7 +17,7 @@ public class EFrontController extends HttpServlet{
 		
 		//장바구니
 		map.put("/showCart.do", new CartListControl());
-		map.put("/cartListJson.do", new CartListJson());
+//		map.put("/cartListJson.do", new CartListJson());
 		return map;
 	}
 	
