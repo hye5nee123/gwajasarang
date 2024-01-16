@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+"https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
   <settings>
     <setting name="mapUnderscoreToCamelCase" value="true"/>
     <setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
-
+<typeAliases>
+  <typeAlias alias="goods" type="com.yedam.goods.vo.GoodsVO"/>
+  <typeAlias alias="orders" type="com.yedam.orders.vo.OrdersVO"/>
+  <typeAlias alias="review" type="com.yedam.review.vo.ReviewVO"/>
+  <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
+</typeAliases>
+  
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@192.168.0.29:1521:xe"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/> 
         <property name="username" value="snacksarang"/>
         <property name="password" value="0000"/>
       </dataSource>
@@ -22,6 +28,9 @@
   </environments>
 
   <mappers>
-  	<mapper resource="com/yedam/snack/mapper/SnackMapper.xml"/>
+  	<mapper resource="com/yedam/goods/mapper/GoodsMapper.xml"/>
+  	<mapper resource="com/yedam/orders/mapper/OrdersMapper.xml"/>
+  	<mapper resource="com/yedam/review/mapper/ReviewMapper.xml"/>
+  	<mapper resource="com/yedam/member/mapper/MemberMapper.xml"/>
   </mappers>
 </configuration>

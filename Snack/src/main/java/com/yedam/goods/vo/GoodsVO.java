@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class GoodsVO {
-    private String gCode;
-    private String gName;
-    private int price;
-    private String made;
-    private String thumb;
-    private String img;
-    private String category;
+	private String goodsCode;
+	private String goodsName;
+	private String company;
+	private int price;
+	private String category;
+	private String thumbImage;
+	private String detailImage;
 }

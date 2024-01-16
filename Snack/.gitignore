@@ -4,3 +4,8 @@
 *.class
 .project
 .classpath
+<<<<<<< HEAD
+.settings/
+=======
+.settings/
+>>>>>>> branch 'main' of https://github.com/hey5nee123/gwajasarang.git
