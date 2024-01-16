@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div class="container">
+<input type="hidden" name="goodsCode" value="${vo.goodsCode }">
+<input type="hidden" name="reviewCode" value="${vo.reviewCode }">
 	<h3>상세화면</h3>
 	<br>
 	<form>
@@ -32,8 +34,8 @@
 				<tr>
 					<td colspan="3" align="center">
 						<input type="button" value="수정" onclick="modFunc(`${vo.reviewCode}`)"> 
-						<input type="button" value="삭제" onclick="delFunc(`${vo.reviewCode}`)"> 
-						<input type="reset" value="취소">
+						<input type="button" value="삭제" onclick="delFunc(`${vo.reviewCode}`, `${vo.goodsCode }`)"> 
+						<input type="button" value="목록으로" onclick="showReviewList(`${vo.goodsCode}`)">
 					</td>
 				</tr>
 			</tbody>
@@ -42,9 +44,12 @@
 </div>
 <script>
 	function modFunc(reviewCode) {
-		window.location.href = "modReviewForm.do?reviewCode=" + reviewCode
+		window.location.href = "modReviewForm.do?reviewCode=" + reviewCode;
 	}
-	function delFunc(reviewCode) {
-		window.location.href = "delReviewForm.do?reviewCode=" + reviewCode
+	function delFunc(reviewCode, goodsCode) {
+		window.location.href = "remReview.do?goodsCode=" + goodsCode + "&reviewCode=" + reviewCode;
+	}
+	function showReviewList(goodsCode) {
+		window.location.href = "reviewList.do?goodsCode=" + goodsCode;
 	}
 </script>

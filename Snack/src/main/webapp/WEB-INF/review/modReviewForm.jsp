@@ -6,12 +6,15 @@
 <div class="container">
 <form action="modReview.do">
 <h3>리뷰 수정</h3>
-	<input type="hidden" name="reviewCode" value="${vo.reviewCode }">
 	<table class="table">
 		<tbody>
 			<tr>
 				<th>리뷰코드</th>
-				<td colspan='5'>${vo.reviewCode }</td>
+				<td colspan='5'>${vo.reviewCode}</td>
+			</tr>
+			<tr>
+				<th>상품코드</th>
+				<td colspan='5'>${vo.goodsCode}</td>
 			</tr>
 			<tr>
 				<th>제목</th>
@@ -29,12 +32,19 @@
 				<th>작성일</th>
 				<td colspan="5">${vo.reviewDate }</td>
 			</tr>
-			<tr>
-				<td colspan="5" align="center">
-				<input type="submit" value="저장">
-				<input type="reset" value="취소"></td>
+				<tr>
+					<td colspan="5" align="center">
+					<input type="submit" value="저장">
+					<input type="button" value="취소" onclick="showGetReview(`${vo.reviewCode}`)">
+				</td>
 			</tr>
 		</tbody>
 	</table>
 </form>
 </div>
+<script>
+function showGetReview(reviewCode){
+	window.location.href = "getReview.do?reviewCode=" + reviewCode;
+	console.log(reviewCode);
+}	
+</script>

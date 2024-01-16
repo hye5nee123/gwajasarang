@@ -4,8 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div class="container">
-	<h3>상품평</h3><br>
-	<table class="table">
+	<h3>상품평</h3>
+	<br>
+	<table class="table" >
 		<thead>
 			<tr>
 				<th>제목</th>
@@ -22,18 +23,20 @@
 					<td>${vo.reviewDate}</td>
 				</tr>
 			</c:forEach>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="button" value="리뷰 등록" onclick="addFunc(`${goodsCode}`)"></td>
+			</tr>
 		</tbody>
-		<tr>
-			<td colspan="3" align="center">
-				<input type="button" value="리뷰 등록"  onclick="addFunc('${vo.goodsCode}')">
-				<input type="reset" value="취소">
-			</td>
-		</tr>
+	
 	</table>
+
+
+
 </div>
 <script>
-	function addFunc(goodsCode){
+	function addFunc(goodsCode) {
 		window.location.href = "addReviewForm.do?goodsCode=" + goodsCode
-	}	
-	
+	}
 </script>

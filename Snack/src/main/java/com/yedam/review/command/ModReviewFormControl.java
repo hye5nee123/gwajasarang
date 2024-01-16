@@ -16,12 +16,13 @@ public class ModReviewFormControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+
 		String reviewCode = req.getParameter("reviewCode");
-
 		ReviewService svc = new ReviewServiceImpl();
+		
 		ReviewVO vo = svc.getReview(Integer.parseInt(reviewCode));
-
 		req.setAttribute("vo", vo);
+
 		RequestDispatcher rd = req.getRequestDispatcher("review/modReviewForm.tiles");
 		try {
 			rd.forward(req, resp);
