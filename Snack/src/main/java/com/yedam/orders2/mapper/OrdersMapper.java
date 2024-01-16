@@ -1,8 +1,8 @@
-package com.yedam.orders.mapper;
+package com.yedam.orders2.mapper;
 
 import java.util.List;
 
-import com.yedam.orders.vo.OrdersVO;
+import com.yedam.orders2.vo.OrdersVO;
 
 public interface OrdersMapper {
 

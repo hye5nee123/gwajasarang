@@ -1,4 +1,4 @@
-package com.yedam.orders.command;
+package com.yedam.orders2.command;
 
 import java.io.IOException;
 
@@ -9,9 +9,9 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import com.yedam.common.Control;
-import com.yedam.orders.service.OrdersService;
-import com.yedam.orders.serviceImpl.OrdersServiceMybatis;
-import com.yedam.orders.vo.OrdersVO;
+import com.yedam.orders2.service.OrdersService;
+import com.yedam.orders2.serviceImpl.OrdersServiceMybatis;
+import com.yedam.orders2.vo.OrdersVO;
 
 public class AddOrdersControl implements Control {
 

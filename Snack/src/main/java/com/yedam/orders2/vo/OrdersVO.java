@@ -1,4 +1,4 @@
-package com.yedam.orders.vo;
+package com.yedam.orders2.vo;
 
 import lombok.Data;
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.orders.command.AddOrdersControl;
+import com.yedam.orders2.command.AddOrdersControl;
 
 public class FrontController extends HttpServlet {
 

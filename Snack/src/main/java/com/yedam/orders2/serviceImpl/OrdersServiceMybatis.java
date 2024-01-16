@@ -1,14 +1,13 @@
-package com.yedam.orders.serviceImpl;
+package com.yedam.orders2.serviceImpl;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
-import com.yedam.orders.mapper.OrdersMapper;
-
-import com.yedam.orders.service.OrdersService;
-import com.yedam.orders.vo.OrdersVO;
+import com.yedam.orders2.mapper.OrdersMapper;
+import com.yedam.orders2.service.OrdersService;
+import com.yedam.orders2.vo.OrdersVO;
 
 public class OrdersServiceMybatis implements OrdersService {
 
