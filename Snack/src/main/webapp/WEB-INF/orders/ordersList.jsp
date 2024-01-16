@@ -5,17 +5,15 @@
 
 
 <style>
-a {
-  background-color: powderblue;
-  transition: background-color 0.5s;
-}
+
 
 a:hover {
   background-color: gold;
 }
 </style>
+<div class="container">
 <h3>주문조회</h3>
-<table class="table" border="2">
+<table class="table" >
 <thead>
     <tr>
         <th>주문코드</th>
@@ -27,6 +25,7 @@ a:hover {
         <th>배송메모</th>
         <th>배송비</th>
         <th>총주문금액</th>
+        
     </tr>
 </thead>
 <tbody>
@@ -41,7 +40,9 @@ a:hover {
         <td>${vo.memo }</td>
         <td>${vo.deliveryFee }</td>
         <td>${vo.totalPrice }</td>
+        
     </tr>
 </c:forEach>
 </tbody>
 </table>
+</div>

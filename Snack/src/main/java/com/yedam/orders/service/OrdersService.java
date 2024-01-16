@@ -9,9 +9,11 @@ public interface OrdersService {
 
 	public OrdersVO getOrders(String ordersCode);
 
-	public boolean remOrders(String orderCode);
-
-	public boolean remForm(String orderCode);
 	
+
+	public boolean deleteOrders(String orderCode);//삭제
+	//public boolean deleteDetail(String orderCode);
+	
+	public boolean modOrders(OrdersVO vo); //수정
 
 } 

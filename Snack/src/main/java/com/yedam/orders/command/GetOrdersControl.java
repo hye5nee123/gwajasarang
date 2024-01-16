@@ -12,24 +12,21 @@ import com.yedam.orders.service.OrdersService;
 import com.yedam.orders.serviceImpl.OrdersServiceImpl;
 import com.yedam.orders.vo.OrdersVO;
 
-public class RemoveFormControl implements Control {
+public class GetOrdersControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
 		String ordersCode = req.getParameter("orderCode");
-		
 		OrdersService svc = new OrdersServiceImpl();
 		OrdersVO vo = svc.getOrders(ordersCode);
 		
 		req.setAttribute("vo", vo);
-		RequestDispatcher rd = req.getRequestDispatcher("orders/remOrdersForm.jsp");
-		try {
-			rd.forward(req, resp);
-		} catch (ServletException | IOException e) {
-			e.printStackTrace();
-		}
-		
+		RequestDispatcher rd = req.getRequestDispatcher("orders/getOrders.tiles");
+				try {
+					rd.forward(req, resp);
+				} catch (ServletException | IOException e) {
+					e.printStackTrace();
+				}
 	}
 
 }
