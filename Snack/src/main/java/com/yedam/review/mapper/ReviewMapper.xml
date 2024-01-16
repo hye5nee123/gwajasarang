@@ -22,7 +22,7 @@
 		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{title}, #{content}, #{stars}, SYSDATE)
 	</insert>
 	
-	<update id="updateReview" parameterType="review" >
+	<update id="updateReview" parameterType="review">
 		UPDATE review
 		SET title = #{title}, content=#{content}, stars=#{stars}
 		WHERE review_code = #{reviewCode}

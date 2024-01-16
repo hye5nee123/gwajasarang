@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!-- Shoping Cart Section Begin -->
@@ -122,4 +123,5 @@
             </div>
         </div>
     </section>
+
     <!-- Shoping Cart Section End -->

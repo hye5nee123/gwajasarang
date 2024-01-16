@@ -1,10 +1,7 @@
 package com.yedam.review.command;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,23 +10,24 @@ import com.yedam.review.service.ReviewService;
 import com.yedam.review.serviceImpl.ReviewServiceImpl;
 import com.yedam.review.vo.ReviewVO;
 
-public class ReviewListControl implements Control{
+public class RemReviewControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// 상품코드 파라미터 받음
+		
+		String reviewCode = req.getParameter("reviewCode");
 		String goodsCode = req.getParameter("goodsCode");
-
 		ReviewService svc = new ReviewServiceImpl();
-		List<ReviewVO> list = svc.reviewList(goodsCode);
-		
-		req.setAttribute("reviewList", list);
-		req.setAttribute("goodsCode", goodsCode);
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/review/reviewList.tiles");
+
 		try {
-			rd.forward(req,resp);
-		} catch (ServletException | IOException e) {
+			if (svc.remReview(Integer.parseInt(reviewCode))) {
+				System.out.println("삭제 완료!");
+				resp.sendRedirect("reviewList.do?goodsCode=" + goodsCode);
+			} else {
+				System.out.println("삭제 실패!");
+				resp.sendRedirect("modReviewForm.do?reviewCode=" + reviewCode);
+			}
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

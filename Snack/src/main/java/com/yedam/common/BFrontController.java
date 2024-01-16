@@ -11,7 +11,7 @@ import com.yedam.orders.command.RemoveOrdersControl;
 import com.yedam.orders.command.getOrdersControl;
 
 public class BFrontController extends HttpServlet{
-
+	// 도승민
 	Map<String, Control> map = new HashMap<>();
 	
 	Map<String, Control> getMap(){

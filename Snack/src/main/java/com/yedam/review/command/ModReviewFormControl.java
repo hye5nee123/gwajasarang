@@ -1,7 +1,6 @@
 package com.yedam.review.command;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,22 +12,20 @@ import com.yedam.review.service.ReviewService;
 import com.yedam.review.serviceImpl.ReviewServiceImpl;
 import com.yedam.review.vo.ReviewVO;
 
-public class ReviewListControl implements Control{
+public class ModReviewFormControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// 상품코드 파라미터 받음
-		String goodsCode = req.getParameter("goodsCode");
 
+		String reviewCode = req.getParameter("reviewCode");
 		ReviewService svc = new ReviewServiceImpl();
-		List<ReviewVO> list = svc.reviewList(goodsCode);
 		
-		req.setAttribute("reviewList", list);
-		req.setAttribute("goodsCode", goodsCode);
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/review/reviewList.tiles");
+		ReviewVO vo = svc.getReview(Integer.parseInt(reviewCode));
+		req.setAttribute("vo", vo);
+
+		RequestDispatcher rd = req.getRequestDispatcher("review/modReviewForm.tiles");
 		try {
-			rd.forward(req,resp);
+			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
