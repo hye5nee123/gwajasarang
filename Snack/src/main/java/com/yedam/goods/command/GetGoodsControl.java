@@ -23,7 +23,7 @@ public class GetGoodsControl implements Control {
 		
 		req.setAttribute("vo", vo);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/getGoods.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("goods/getGoods.tiles");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException e) {

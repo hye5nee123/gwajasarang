@@ -22,7 +22,7 @@ public class GoodsListControl implements Control {
 		
 		req.setAttribute("goodsList", list);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/goodsList.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("goods/test.tiles");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException e) {
