@@ -2,20 +2,14 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
 <mapper namespace="com.yedam.orders.mapper.OrdersMapper">
   <select id="selectList" resultType="orders">
     SELECT * FROM orders ORDER BY 1
   </select>
-  
   <select id="selectOne" resultType="orders" parameterType="String">
     SELECT * FROM orders WHERE order_code = #{orderCode}
   </select>
-  
 <delete id="remOrdersone" parameterType="String">
 	delete from orders where order_code = #{orderCode}
 	</delete>
-	
- 
   </mapper>

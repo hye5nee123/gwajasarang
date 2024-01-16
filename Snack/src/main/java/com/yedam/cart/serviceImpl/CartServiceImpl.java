@@ -13,24 +13,26 @@ public class CartServiceImpl implements CartService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CartMapper mapper = session.getMapper(CartMapper.class);
 	@Override
-	public List<CartVO> cartList(String memberCode) {
-		
-		return mapper.selectList(memberCode);
+	public List<CartVO> selectCartList(String memberCode) {
+		// TODO Auto-generated method stub
+		return mapper.selectCartList(memberCode);
 	}
 	@Override
 	public boolean addCart(CartVO vo) {
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public boolean remCart(int cartCode) {
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public boolean modCart(CartVO vo) {
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }

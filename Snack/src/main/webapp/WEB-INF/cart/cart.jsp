@@ -19,8 +19,7 @@
                             </thead>
                             <tbody id="cartListTbody">
                                 <tr>
-                                
-                                    <td class="image" data-title="No">
+                                   <td class="image" data-title="No">
                                         <img src="#" alt="">
                                         <h5></h5>
                                     </td>
