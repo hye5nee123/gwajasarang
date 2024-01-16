@@ -9,7 +9,7 @@ import com.yedam.main.command.mainPageControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
 import com.yedam.member.command.MemberAddControl;
-import com.yedam.member.command.MemberListControl;
+import com.yedam.member.command.MemberAddForm;
 
 public class CFrontController extends HttpServlet{
 
@@ -20,6 +20,7 @@ public class CFrontController extends HttpServlet{
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/memberAdd.do", new MemberAddControl());
+		map.put("/memberAddForm.do", new MemberAddForm());
 		return map;
 	}
 }

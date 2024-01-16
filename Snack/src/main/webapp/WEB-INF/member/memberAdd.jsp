@@ -26,7 +26,7 @@
     <div class="container">
         <div class="checkout__form">
             <h4>회원가입</h4>
-            <form name="join">
+            <form name="join" action="memberAdd.do">
 	            <div class="checkout__input">
 	                <p>아이디<span>*</span></p>
 	                <input type="text" id="id" name="id" autofocus="autofocus">
