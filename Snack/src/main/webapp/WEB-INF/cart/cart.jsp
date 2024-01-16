@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!-- Shoping Cart Section Begin -->
+    <script src="cart.js"></script>
     <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
@@ -16,11 +17,11 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cartListTbody">
                                 <tr>
                                 
                                     <td class="image" data-title="No">
-                                        <img src="image/${vo.image}" alt="">
+                                        <img src="#" alt="">
                                         <h5></h5>
                                     </td>
                                     <td class="shoping__cart__price">
