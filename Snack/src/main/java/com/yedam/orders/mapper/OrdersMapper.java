@@ -1,3 +1,4 @@
+
 package com.yedam.orders.mapper;
 
 import java.util.List;
@@ -16,3 +17,4 @@ public interface OrdersMapper {
 	int deleteDetail(String orderCode); //상세삭제
 	int updateOrders(OrdersVO vo); //수정
 }
+

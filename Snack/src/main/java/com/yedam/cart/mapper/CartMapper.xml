@@ -1,0 +1,23 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.yedam.cart.mapper.CartMapper">
+	<select id="selectList" resultType="cart" parameterType="String">
+		SELECT c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
+		FROM cart c JOIN goods g 
+		ON c.goods_code = g.goods_code
+		WHERE c.member_code = #{memberCode}
+  	</select>
+  	<insert id="insertCart" parameterType="cart">
+  		insert into cart values (cart_seq.nextval, #{quantity}, #{memberCode}, #{goodsCode})
+  	</insert>
+  	<delete id="deleteCart" parameterType="int">
+  		delete from cart where cart_code = #{cartCode}
+  	</delete>
+  	<update id="updateCart" parameterType="cart">
+  		update cart set quantity = #{quantity} where cart_code = #{cartCode}
+ 	</update>
+ 	</mapper>
+

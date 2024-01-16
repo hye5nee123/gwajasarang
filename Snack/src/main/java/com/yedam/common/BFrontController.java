@@ -11,8 +11,8 @@ import com.yedam.orders.command.ModifyControl;
 import com.yedam.orders.command.ModifyFormControl;
 import com.yedam.orders.command.GetOrdersControl;
 
-public class BFrontController {
-
+public class BFrontController extends HttpServlet{
+	// 도승민
 	Map<String, Control> map = new HashMap<>();
 	
 	Map<String, Control> getMap(){
