@@ -9,19 +9,21 @@ import com.yedam.common.Control;
 import com.yedam.orders.service.OrdersService;
 import com.yedam.orders.serviceImpl.OrdersServiceImpl;
 
-public class RemoveOrdersControl implements Control {
+public class DeleteControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String orderCode = req.getParameter("orderCode");
+		String ordersCode = req.getParameter("orderCode");
+		
 		OrdersService svc = new OrdersServiceImpl();
-		boolean rem = svc.remOrders(orderCode);
-		System.out.println(rem);
+		boolean rem = svc.deleteOrders(ordersCode);
+		//boolean rem = svc.deleteDetail(ordersCode);
+		
 		try {
 			if (rem) {
 				resp.sendRedirect("ordersList.do");
 			} else {
-				resp.sendRedirect("getOrders.do?orderCode="+orderCode);
+				resp.sendRedirect("getOrders.do");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

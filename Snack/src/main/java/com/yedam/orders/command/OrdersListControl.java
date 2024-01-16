@@ -24,7 +24,7 @@ public class OrdersListControl implements Control {
 		req.setAttribute("ordersList", list);
 		
 		try {
-			req.getRequestDispatcher("/WEB-INF/orders/ordersList.jsp").forward(req, resp);
+			req.getRequestDispatcher("orders/ordersList.tiles").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
