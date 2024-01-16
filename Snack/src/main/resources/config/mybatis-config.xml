@@ -8,8 +8,9 @@
     <setting name="mapUnderscoreToCamelCase" value="true"/>
     <setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
-  <typeAliases>
-  <typeAlias alias="order" type="com.yedam.orders.vo.OrdersVO"/>
+  
+<typeAliases>
+  <typeAlias alias="orders" type="com.yedam.orders.vo.OrdersVO"/>
   <typeAlias alias="review" type="com.yedam.review.vo.ReviewVO"/>
   <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
 </typeAliases>
@@ -27,7 +28,7 @@
   </environments>
 
   <mappers>
-  	<mapper resource="com/yedam/snack/mapper/OrdersMapper.xml"/>
+  	<mapper resource="com/yedam/orders/mapper/OrdersMapper.xml"/>
   	<mapper resource="com/yedam/review/mapper/ReviewMapper.xml"/>
   	<mapper resource="com/yedam/member/mapper/MemberMapper.xml"/>
   </mappers>

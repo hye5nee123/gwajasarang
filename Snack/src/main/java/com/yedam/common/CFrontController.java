@@ -15,7 +15,6 @@ public class CFrontController extends HttpServlet{
 	Map<String, Control> getMap(){
 		map.put("/mainPage.do", new mainPageControl());
 		map.put("/loginForm.do", new LoginFormControl());
-		
 		return map;
 	}
 }
