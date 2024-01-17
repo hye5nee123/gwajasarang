@@ -4,7 +4,7 @@
 $(document).ready(cartList());
 
 function cartList() {
-    fetch("cartListJson.do?memberCode=G-00001", {
+    fetch("cartListJson.do?memberCode=M-00001", {
         method: "get",
         headers: { "Content-Type": "application/json" }
     })
@@ -12,16 +12,16 @@ function cartList() {
         .then(res => {
             console.log(res);
             $(res).each((idx, cart) => {
-				// tr생성-> 첫번째 td밑div2개 td 총5개
+				
 
 				let tr = `<tr>
                 <td>
                   <div class="media">
                     <div class="d-flex">
-                      <img src="img/${cart.thumbImage}" alt="" />
+                      <img src="img/${cart.img}" alt="" />
                     </div>
                     <div class="media-body">
-                      <p>${cart.goodsName}</p>
+                      <p>${cart.name}</p>
                     </div>
                   </div>
                 </td>
