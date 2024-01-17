@@ -17,10 +17,10 @@ public class LoginFormControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		
-		MemberService svc = new MemberServiceImpl();
-		List<MemberVO> list = svc.memberList();
-		
-		req.setAttribute("memberList", list);
+//		MemberService svc = new MemberServiceImpl();
+//		List<MemberVO> list = svc.memberList();
+//		
+//		req.setAttribute("memberList", list);
 		
 		try {
 			req.getRequestDispatcher("member/loginForm.tiles").forward(req, resp);
