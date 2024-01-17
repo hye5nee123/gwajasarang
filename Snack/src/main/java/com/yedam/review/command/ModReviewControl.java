@@ -14,6 +14,8 @@ public class ModReviewControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+
+		ReviewVO vo = new ReviewVO();
 	
 		String reviewCode = req.getParameter("reviewCode");
 		String goodsCode = req.getParameter("goodsCode");
@@ -21,7 +23,6 @@ public class ModReviewControl implements Control {
 		String content = req.getParameter("content");
 		String stars = req.getParameter("stars");
 		
-		ReviewVO vo = new ReviewVO();
 		vo.setReviewCode(Integer.parseInt(reviewCode));
 		vo.setGoodsCode(goodsCode);
 		vo.setTitle(title);
