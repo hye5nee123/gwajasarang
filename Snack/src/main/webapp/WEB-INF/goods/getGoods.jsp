@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -33,12 +43,12 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">과자</a></li>
-                            <li><a href="#">비스킷/크래커</a></li>
-                            <li><a href="#">쿠키/파이</a></li>
-                            <li><a href="#">유기농/전통과자</a></li>
-                            <li><a href="#">초콜릿</a></li>
-                            <li><a href="#">젤리/캐러멀</a></li>
+                            <li><a href="goodsList.do?category=과자">과자</a></li>
+                            <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
+                            <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
+                            <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
+                            <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
+                            <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,8 +60,8 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div> -->
-                                <input type="text" placeholder="검색어를 입력해주세요">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" id="searchBox" placeholder="검색어를 입력해주세요">
+                                <button type="button" class="site-btn" onclick="searchFunc()">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -122,7 +132,7 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">$50.00</div>
+                        <div class="product__details__price">${vo.price }원</div>
                         <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                             vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
                             quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
@@ -159,7 +169,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                    aria-selected="false">Information</a>
+                                    aria-selected="false">영양정보</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
@@ -192,23 +202,14 @@
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                    <p><strong>총 내용량 : </strong>${vo.weight }g / <strong>칼로리 : </strong>${vo.calorie }kcal</p>
+                                    <p><strong>포장단위 : </strong>${vo.unit }</p>
+                                    <p><strong>알레르기 정보 : </strong>${vo.allergy }</p>
+                                    <p><strong>나트륨 : </strong>${vo.na }g</p>
+                                    <p><strong>탄수화물 : </strong>${vo.carbo }g</p>
+                                    <p><strong>당류 : </strong>${vo.sugar }g</p>
+                                    <p><strong>포화지방 : </strong>${vo.sfat }g</p>
+                                    <p><strong>단백질 : </strong>${vo.protein }g</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
@@ -311,16 +312,12 @@
     </section>
     <!-- Related Product Section End -->
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-
+	<script>
+	function searchFunc() {
+		let keyword = document.getElementById('searchBox').value;
+		window.location.href = "searchList.do?keyword=" + keyword;
+	}
+	</script>
 
 </body>
 

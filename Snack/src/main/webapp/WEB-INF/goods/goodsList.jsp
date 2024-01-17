@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -33,12 +43,12 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">과자</a></li>
-                            <li><a href="#">비스킷/크래커</a></li>
-                            <li><a href="#">쿠키/파이</a></li>
-                            <li><a href="#">유기농/전통과자</a></li>
-                            <li><a href="#">초콜릿</a></li>
-                            <li><a href="#">젤리/캐러멀</a></li>
+                            <li><a href="goodsList.do?category=과자">과자</a></li>
+                            <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
+                            <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
+                            <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
+                            <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
+                            <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,8 +60,8 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div> -->
-                                <input type="text" placeholder="검색어를 입력해주세요">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" id="searchBox" placeholder="검색어를 입력해주세요">
+                                <button type="button" class="site-btn" onclick="searchFunc()">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -97,12 +107,12 @@
                         <div class="sidebar__item">
                             <h4>Category</h4>
                             <ul>
-                                <li><a href="#">과자</a></li>
-                                <li><a href="#">비스킷/크래커</a></li>
-                                <li><a href="#">쿠키/파이</a></li>
-                                <li><a href="#">유기농/전통과자</a></li>
-                                <li><a href="#">초콜릿</a></li>
-                                <li><a href="#">젤리/캐러멜</a></li>
+                                <li><a href="goodsList.do?category=과자">과자</a></li>
+                                <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
+                                <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
+                                <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
+                                <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
+                                <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
                             </ul>
                         </div>
                     </div>
@@ -118,7 +128,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="images/${vo.thumbImage }">
+                                            data-setbg="images/${vo.thumbImage }" onclick="location.href='getGoods.do?gcode=${vo.goodsCode }'">
                                             <div class="product__discount__percent">추천</div>
                                             
                                             <ul class="product__item__pic__hover">
@@ -166,7 +176,7 @@
                     <c:forEach var="vo" items="${goodsList }">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="images/${vo.thumbImage }">
+                                <div class="product__item__pic set-bg" data-setbg="images/${vo.thumbImage }" onclick="location.href='getGoods.do?gcode=${vo.goodsCode }'">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -193,17 +203,12 @@
     </section>
     <!-- Product Section End -->
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-
-
+	<script>
+	function searchFunc() {
+		let keyword = document.getElementById('searchBox').value;
+		window.location.href = "searchList.do?keyword=" + keyword;
+	}
+	</script>
 
 </body>
 
