@@ -28,14 +28,13 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <h4>회원가입</h4>
-            <form name="join" action="memberAdd.do">
+            <h4>회원수정</h4>
+            <form name="join" action="memberModify.do">
             	<input type="hidden" name="checked_id" value="" />
 	            <div class="checkout__input">
 	                <p>아이디<span>*</span></p>
 	                <div class="row">
-	                	<input type="text" id="id" name="id" autofocus="autofocus">
-	                	<button type="button" id="id_check">아이디 중복체크</button>
+	                	<input type="text" id="id" name="id" value="${vo.id}" readonly>
 	                </div>
 	                <em></em>
 	                <i></i>
@@ -52,17 +51,17 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>이름<span>*</span></p>
-	                <input type="text" id="name" name="name">
+	                <input type="text" id="name" name="name" value="${vo.memberName}">
 	                <em></em>
 	            </div>
 	            <div class="checkout__input">
 	                <p>연락처<span>*</span></p>
-	                <input type="text" id="phone" name="phone">
+	                <input type="text" id="phone" name="phone" value="${vo.memberPhone}">
 	                <em></em>
 	            </div>
 	            <div class="checkout__input">
 	                <p>주소<span>*</span></p>
-	                <input type="text" id="address" name="address">
+	                <input type="text" id="address" name="address" value="${vo.memberAddress}">
 	                <em></em>
 	            </div>
 	            <div class="checkout__input">
@@ -70,71 +69,9 @@
 	                <input type="text" id="email" name="email">
 	            </div>
 	            <div  class="button_box">            
-		            <button type="submit" id="addBtn" class="site-btn btn-lg">회원가입</button>
+		            <button type="submit" id="addBtn" class="site-btn btn-lg">수정완료</button>
 	            </div>
             </form>
         </div>
     </div>
 </section>
-
-<script>
-$("input").on('blur', emptyCheck)
-
-function emptyCheck(){
-	if(event.target.id == "email"){
-		return;
-	}
-	if(event.target.value == ''){
-		$(this).parents('.checkout__input').find('em').html("필수입력값입니다.").addClass('warning');
-		event.target.focus();
-	} else{
-		$(this).parents('.checkout__input').find('em').html("");
-	}
-}
-
-$('#pwok').on('blur', function(){
-	if($("#pw").val() != $("#pwok").val()){
-		$(this).parents('.checkout__input').find('em').html("비밀번호가 맞지 않습니다").addClass('warning');
-		$(this).val("");
-		$(this).focus();
-	}
-})
-
-$("#id_check").on('click', idCheck);
-function idCheck(){
-	const urlParams = new URL(location.href).searchParams;
-	const id = urlParams.get('id');
-	const id_ok = true;
-	fetch('memberIdJson.do?id=' + id, { 
-		method: 'get',
-		headers: {'Content-Type': "application/json"},
-	}) 
-	.then(result => result.json())
-    .then(result => {
-		// console.log(result);	    	
-	    $(result).each((idx, res) => {
-	    	if($("#id").val() == res.id){
-	    		id_ok = false;
-	    		break;
-	    	}
-	    })
-		   console.log(res);
-	    	if(id_ok == true){
-		    	$("#id").parents('.checkout__input').find('em').html("사용가능한 아이디입니다.").addClass('warning');
-		    	$("input[name='checked_id']").val('y');
-		    } else {
-		    	$("#id").parents('.checkout__input').find('em').html("아이디값 중복입니다.").addClass('warning');	
-		    }
-	   
-    })
-    .catch(err => console.log(err));
-}
-
-$("#addBtn").on('click', function() {
-	if($("input[name='checked_id']").val() == ""){
-		alert("아이디 중복체크를 해주세요.");
-		$('#id').focus();
-		return false;
-    } 
-})
-</script>

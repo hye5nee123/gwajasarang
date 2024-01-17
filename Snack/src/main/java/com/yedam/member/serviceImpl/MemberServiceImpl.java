@@ -24,4 +24,16 @@ public class MemberServiceImpl implements MemberService {
 	public boolean addMember(MemberVO vo) {
 		return mapper.insertMember(vo) == 1;
 	}
+	@Override
+	public boolean checkMember(String id) {
+		return mapper.selectId(id) > 0;
+	}
+	@Override
+	public boolean modMember(MemberVO vo) {
+		return mapper.updateMember(vo) == 1;
+	}
+	@Override
+	public MemberVO showMember(String memberCode) {
+		return mapper.selectOne(memberCode);
+	}
 }

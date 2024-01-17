@@ -10,6 +10,9 @@ import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
 import com.yedam.member.command.MemberAddControl;
 import com.yedam.member.command.MemberAddForm;
+import com.yedam.member.command.MemberIdJson;
+import com.yedam.member.command.MemberModifyControl;
+import com.yedam.member.command.MemberModifyForm;
 
 public class CFrontController extends HttpServlet{
 	// 신수지
@@ -21,6 +24,9 @@ public class CFrontController extends HttpServlet{
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/memberAdd.do", new MemberAddControl());
 		map.put("/memberAddForm.do", new MemberAddForm());
+		map.put("/memberIdJson.do", new MemberIdJson());
+		map.put("/memberModify.do", new MemberModifyControl());
+		map.put("/memberModifyForm.do", new MemberModifyForm());
 		return map;
 	}
 }
