@@ -5,8 +5,28 @@
   
 <mapper namespace="com.yedam.member.mapper.MemberMapper"> 
 
+  <select id="selectMember" resultType="member">
+    select * from member where id=#{id} and pw=#{pw}
+  </select>
+  
+  <select id="selectOne" resultType="member" parameterType="String">
+    select * from member where member_code=#{memberCode}
+  </select>
+
   <select id="selectList" resultType="member">
 	select * from member
   </select>
   
+  <insert id="insertMember" parameterType="member">
+  	insert into member
+  	values(concat('M-', lpad(member_seq.nextval, 5, 0)), #{id}, #{pw}, #{memberName}, #{memberPhone}, #{memberAddress}, #{email})
+  </insert>
+  
+  <select id="selectId" resultType="int" parameterType="String">
+  	select count(*) from member where id = #{id}
+  </select>
+  
+  <update id="updateMember" parameterType="member">
+  	update member set member_phone = #{memberPhone}, member_address = #{memberAddress} where id = #{id}
+  </update>
 </mapper>

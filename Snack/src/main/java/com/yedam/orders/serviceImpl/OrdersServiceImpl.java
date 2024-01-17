@@ -1,3 +1,4 @@
+
 package com.yedam.orders.serviceImpl;
 
 import java.util.List;
@@ -23,18 +24,35 @@ public class OrdersServiceImpl implements OrdersService {
 		return mapper.selectOne(ordersCode);
 	}
 	@Override
-	public boolean remOrders(String orderCode) {
-		// TODO Auto-generated method stub
-		return mapper.remOrdersone(orderCode)==1;
+	public boolean deleteOrders(String orderCode) {
+		//주문상세 삭제
+		mapper.deleteDetail(orderCode);
+		//주문삭제
+		return mapper.deleteOrders(orderCode) ==1;
 	}
+//	@Override
+//	public boolean deleteDetail(String orderCode) {
+//		// TODO Auto-generated method stub
+//		
+//		return  == 1;
+//	}
 	@Override
-	public boolean remForm(String orderCode) {
+	public boolean modOrders(OrdersVO vo) {
 		// TODO Auto-generated method stub
-		//return mapper.deleteOrdersAllCode(orderCode) ==1;
-		return false;
+		return mapper.updateOrders(vo) ==1;
 	}
+
+
+
+
+
+
+
+	
+
 
 
 
 
 }
+

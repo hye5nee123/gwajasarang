@@ -40,7 +40,7 @@ public class AddReviewControl implements Control {
 			} else {
 				// 등록 실패시 등록페이지로 이동
 				System.out.println("등록 실패!");
-				resp.sendRedirect("addReviewForm.do");
+				resp.sendRedirect("/review/addReviewForm.tiles");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

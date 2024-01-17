@@ -13,6 +13,7 @@
   <typeAlias alias="orders" type="com.yedam.orders.vo.OrdersVO"/>
   <typeAlias alias="review" type="com.yedam.review.vo.ReviewVO"/>
   <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
+  <typeAlias alias="cart" type="com.yedam.cart.vo.CartVO"/>
 </typeAliases>
   
   <environments default="development">
@@ -20,7 +21,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/> 
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.29:1521:xe"/> 
         <property name="username" value="snacksarang"/>
         <property name="password" value="0000"/>
       </dataSource>
@@ -32,5 +33,6 @@
   	<mapper resource="com/yedam/orders/mapper/OrdersMapper.xml"/>
   	<mapper resource="com/yedam/review/mapper/ReviewMapper.xml"/>
   	<mapper resource="com/yedam/member/mapper/MemberMapper.xml"/>
+  	<mapper resource="com/yedam/cart/mapper/CartMapper.xml"/>
   </mappers>
 </configuration>
