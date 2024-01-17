@@ -14,23 +14,13 @@ public class CartVO {
 	private int quantity;
 
 	// 테이블에 없음.
-	private String name;
+	private String goodsName;
 	private int price;
-	private String img;
+	private String thumbImage;
 	private int totalPrice;
 	private String putDate;
-
+	
 	
 
-	public CartVO(int cartCode, String goodsCode, String memberCode, int quantity) {
-		LocalDate now = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		String formatedNow = now.format(formatter);
-		this.quantity = quantity;
-		this.price = price;
-		this.totalPrice = this.price * this.quantity;
-		this.putDate = formatedNow;
-	
-	}
 }
 
