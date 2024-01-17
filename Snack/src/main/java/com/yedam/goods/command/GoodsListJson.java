@@ -17,8 +17,10 @@ public class GoodsListJson implements Control {
 	
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		String category = req.getParameter("category");
+		
 		GoodsService svc = new GoodsServiceImpl();
-		List<GoodsVO> list = svc.goodsList();
+		List<GoodsVO> list = svc.goodsList(category);
 		
 		resp.setContentType("text/json;charset=utf-8");
 		Gson gson = new GsonBuilder().create();

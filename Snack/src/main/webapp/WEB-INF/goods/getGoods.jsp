@@ -165,39 +165,54 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                    aria-selected="true">Description</a>
+                                    aria-selected="true"> 상품상세</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                    aria-selected="false">영양정보</a>
+                                    aria-selected="false">배송/교환/반품</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">Reviews <span>(1)</span></a>
+                                    aria-selected="false">상품리뷰<span>(1) </span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
-                                        suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
-                                        vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat,
-                                        accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-                                        pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula
-                                        elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
-                                        et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
-                                        vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
-                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
-                                        porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
-                                        sed sit amet dui. Proin eget tortor risus.</p>
+                                	<p style="text-align: center"><img src="${vo.detailImage }"><p><br><br>
+                                	<table border="1" align="center">
+          								<caption style="caption-side:top"><h4>상품고시정보</h4></caption>
+                                		<thead></thead>
+                                		<tbody>
+                                			<tr>
+                                				<th width="150px">&nbsp&nbsp총 내용량</th><td width="400px">&nbsp&nbsp${vo.weight }g</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp칼로리</th><td width="400px">&nbsp&nbsp${vo.calorie }kcal</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp포장단위</th><td width="400px">&nbsp&nbsp${vo.unit }</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp알레르기 정보</th><td width="400px">&nbsp&nbsp${vo.allergy }</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp나트륨</th><td width="400px">&nbsp&nbsp${vo.na }mg</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp탄수화물</th><td width="400px">&nbsp&nbsp${vo.carbo }g</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp당류</th><td width="400px">&nbsp&nbsp${vo.sugar }g</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp포화지방</th><td width="400px">&nbsp&nbsp${vo.sfat }g</td>
+                                			</tr>
+                                			<tr>
+                                				<th>&nbsp&nbsp단백질</th><td width="400px">&nbsp&nbsp${vo.protein }g</td>
+                                			</tr>
+                                		</tbody>
+                                	</table>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
@@ -205,11 +220,8 @@
                                     <p><strong>총 내용량 : </strong>${vo.weight }g / <strong>칼로리 : </strong>${vo.calorie }kcal</p>
                                     <p><strong>포장단위 : </strong>${vo.unit }</p>
                                     <p><strong>알레르기 정보 : </strong>${vo.allergy }</p>
-                                    <p><strong>나트륨 : </strong>${vo.na }g</p>
-                                    <p><strong>탄수화물 : </strong>${vo.carbo }g</p>
-                                    <p><strong>당류 : </strong>${vo.sugar }g</p>
-                                    <p><strong>포화지방 : </strong>${vo.sfat }g</p>
-                                    <p><strong>단백질 : </strong>${vo.protein }g</p>
+                                    <p><strong>나트륨 : </strong>${vo.na }mg / <strong>탄수화물 : </strong>${vo.carbo }g</p>
+                                    <p><strong>당류 : </strong>${vo.sugar }g / <strong>포화지방 : </strong>${vo.sfat }g / <strong>단백질 : </strong>${vo.protein }g</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
