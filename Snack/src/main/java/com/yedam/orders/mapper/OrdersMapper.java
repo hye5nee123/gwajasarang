@@ -10,7 +10,7 @@ import com.yedam.orders.vo.OrdersVO;
 
 
 public interface OrdersMapper {
-	List<OrdersVO> selectList();
+	List<OrdersVO> selectList(String memberCode);
 	OrdersVO selectOne(@Param("orderCode") String orderCode);
 	
 	int deleteOrders(String orderCode); //삭제

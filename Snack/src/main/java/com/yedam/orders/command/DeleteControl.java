@@ -14,16 +14,17 @@ public class DeleteControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String ordersCode = req.getParameter("orderCode");
-		
+		String memberCode = req.getParameter("memberCode");
 		OrdersService svc = new OrdersServiceImpl();
 		boolean rem = svc.deleteOrders(ordersCode);
 		//boolean rem = svc.deleteDetail(ordersCode);
 		
 		try {
 			if (rem) {
-				resp.sendRedirect("ordersList.do");
+				resp.sendRedirect("ordersList.do?memberCode="+memberCode);
+				
 			} else {
-				resp.sendRedirect("getOrders.do");
+				resp.sendRedirect("getOrders.do?orderCode="+ordersCode);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

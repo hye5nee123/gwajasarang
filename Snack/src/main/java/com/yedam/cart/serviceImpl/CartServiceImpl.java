@@ -1,4 +1,3 @@
-
 package com.yedam.cart.serviceImpl;
 
 import java.util.List;
@@ -13,26 +12,29 @@ import com.yedam.common.DataSource;
 public class CartServiceImpl implements CartService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CartMapper mapper = session.getMapper(CartMapper.class);
+
 	@Override
-	public List<CartVO> cartList(String memberCode) {
-		
+	public List<CartVO> selectCartList(String memberCode) {
+		// TODO Auto-generated method stub
 		return mapper.selectList(memberCode);
 	}
+
 	@Override
 	public boolean addCart(CartVO vo) {
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
+
 	@Override
 	public boolean remCart(int cartCode) {
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
+
 	@Override
 	public boolean modCart(CartVO vo) {
-		
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 }
-

@@ -5,30 +5,32 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 import com.yedam.review.service.ReviewService;
 import com.yedam.review.serviceImpl.ReviewServiceImpl;
+import com.yedam.review.vo.ReviewVO;
 
-public class RemReviewControl implements Control {
+public class GetReviewJson implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
-		String reviewCode = req.getParameter("reviewCode");
-		String goodsCode = req.getParameter("goodsCode");
-		ReviewService svc = new ReviewServiceImpl();
 
+		String reviewCode = req.getParameter("reviewCode");
+
+		ReviewService svc = new ReviewServiceImpl();
+		ReviewVO vo = svc.getReview(Integer.parseInt(reviewCode));
+
+		resp.setContentType("text/json;charset=utf-8");
+		Gson gson = new GsonBuilder().create();
+		
 		try {
-			if (svc.remReview(Integer.parseInt(reviewCode))) {
-				System.out.println("삭제 완료!");
-				resp.sendRedirect("reviewList.do?goodsCode=" + goodsCode);
-			} else {
-				System.out.println("삭제 실패!");
-				resp.sendRedirect("modReviewForm.do?reviewCode=" + reviewCode);
-			}
+			resp.getWriter().print(gson.toJson(vo));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 }
