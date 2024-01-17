@@ -12,7 +12,7 @@ import com.yedam.member.command.MemberAddControl;
 import com.yedam.member.command.MemberAddForm;
 
 public class CFrontController extends HttpServlet{
-
+	// 신수지
 	Map<String, Control> map = new HashMap<>();
 	
 	Map<String, Control> getMap(){

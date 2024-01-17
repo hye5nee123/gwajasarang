@@ -24,8 +24,9 @@ public class ReviewListControl implements Control{
 		List<ReviewVO> list = svc.reviewList(goodsCode);
 		
 		req.setAttribute("reviewList", list);
+		req.setAttribute("goodsCode", goodsCode);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/review/reviewList.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/review/reviewList.tiles");
 		try {
 			rd.forward(req,resp);
 		} catch (ServletException | IOException e) {
