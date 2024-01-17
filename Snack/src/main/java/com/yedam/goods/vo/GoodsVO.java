@@ -11,4 +11,13 @@ public class GoodsVO {
 	private String category;
 	private String thumbImage;
 	private String detailImage;
+	private double weight;
+	private String unit;
+	private String allergy;
+	private double calorie;
+	private double na;
+	private double carbo;
+	private double sugar;
+	private double sfat;
+	private double protein;
 }
