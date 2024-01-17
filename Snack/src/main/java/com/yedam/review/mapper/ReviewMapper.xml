@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
 <mapper namespace="com.yedam.review.mapper.ReviewMapper">
-	<select id="selectList" resultType="review" parameterType="String">
-		SELECT * 
+	<select id="selectList" resultType="review"
+		parameterType="String">
+		SELECT *
 		FROM review
 		WHERE goods_code = #{goodsCode}
-		ORDER BY 1
+		ORDER
+		BY 1
 	</select>
-	
 	<select id="selectOne" resultType="review" parameterType="int">
-		SELECT *
+		SELECT
+		*
 		FROM review
 		WHERE review_code = #{reviewCode}
 	</select>
-	
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO review(review_code, goods_code, title, content, stars, review_date)
 		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{title}, #{content}, #{stars}, SYSDATE)
 	</insert>
-	
 	<update id="updateReview" parameterType="review">
-		UPDATE review
+		>>>>>>> branch
+		'johyewon' of https://github.com/hey5nee123/gwajasarang.git
+		UPDATE
+		review
 		SET title = #{title}, content=#{content}, stars=#{stars}
-		WHERE review_code = #{reviewCode}
+		WHERE
+		review_code = #{reviewCode}
 	</update>
-	
 	<delete id="deleteReview" parameterType="int">
 		DELETE review
-		WHERE review_code = #{reviewCode}
+		WHERE
+		review_code = #{reviewCode}
 	</delete>
 	
 	<select id="selectListPaging" resultType="review">
