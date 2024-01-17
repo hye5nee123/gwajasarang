@@ -31,7 +31,7 @@ public class AddOrdersControl implements Control {
 
 			vo.setOrderAddress(oAddress );
 			vo.setOrderName(oName);
-			vo.setWriter(oPhone);
+			
 
 	
 

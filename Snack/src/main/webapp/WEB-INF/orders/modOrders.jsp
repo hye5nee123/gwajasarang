@@ -5,6 +5,7 @@
 <h3>수정화면</h3>
 <form action="modifyOrders.do">
 <input type="hidden" name="ordersCode" value="${vo.orderCode }">
+<input type="hidden" name="memberCode" value="${vo.memberCode }">
 
         <table class="table">
         <tbody>

@@ -5,6 +5,7 @@
 	<h3>수정화면</h3>
 	<form action="modifyOrders.do">
 		<input type="hidden" name="orderCode" value="${vo.orderCode }">
+		<input type="hidden" name="memberCode" value="${vo.memberCode }">
 		<table class="table">
 			<tbody>
 				<tr>
@@ -17,9 +18,7 @@
 				</tr>
 				<tr>
 					<td>연락처</td>
-
 					<td colspan="3"><input type="text" name="orderPhone" value="${vo.orderPhone }"></td>
-
 				</tr>
 				<tr>
 					<td>메모</td>
@@ -27,15 +26,23 @@
 				</tr>
 				<tr>
 				<td colspan="4" align="center">
-				
-					<input type="submit" value="저장">
-					<input type="reset" value="취소">
+					<input type="submit" onclick="checkfunc('${vo.orderCode}')"value="저장">
+					<input type="button" value="뒤로가기" onclick="history.back();" />
 					</td>
-						
 				</tr>
 			</tbody>
 		</table>
 	</form>
 	</div>
-	
+	<script>
+	function cancelfunc(orderCode){
+		location.href = "ordersList.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
+		alert("처음으로 돌아갑니다.");
+	}
+	function checkfunc(orderCode){
+		alert("변경되었습니다.")
+		
+	}
 
+	}
+</script>
