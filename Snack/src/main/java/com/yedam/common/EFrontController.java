@@ -24,8 +24,6 @@ public class EFrontController extends HttpServlet {
 		map.put("/cartList.do", new CartListControl());
 		// 장바구니 DB에 데이터를 Json 타입으로 데이터변환.
 		map.put("/cartListJson.do", new CartListJson());
-		// 장바구니 삭제.
-
 
 
 		return map;

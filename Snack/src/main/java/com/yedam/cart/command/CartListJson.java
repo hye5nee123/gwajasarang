@@ -19,13 +19,12 @@ public class CartListJson implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		
 		resp.setContentType("text/json;charset=utf-8");
+		
 		String memberCode = req.getParameter("memberCode");
 		
-
 		CartService svc = new CartServiceImpl();
 		List<CartVO> list = svc.selectCartList(memberCode);
 		Gson gson = new GsonBuilder().create();
-		
 		try {
 			resp.getWriter().print(gson.toJson(list));
 		} catch (IOException e) {

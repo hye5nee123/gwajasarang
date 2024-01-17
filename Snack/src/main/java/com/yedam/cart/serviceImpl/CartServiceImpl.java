@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-
-package com.yedam.cart.serviceImpl;
-
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-
-import com.yedam.cart.mapper.CartMapper;
-import com.yedam.cart.service.CartService;
-import com.yedam.cart.vo.CartVO;
-import com.yedam.common.DataSource;
-
-public class CartServiceImpl implements CartService {
-	SqlSession session = DataSource.getInstance().openSession(true);
-	CartMapper mapper = session.getMapper(CartMapper.class);
-	@Override
-	public List<CartVO> cartList(String memberCode) {
-		
-		return mapper.selectList(memberCode);
-	}
-	@Override
-	public boolean addCart(CartVO vo) {
-		
-		return false;
-	}
-	@Override
-	public boolean remCart(int cartCode) {
-		
-		return false;
-	}
-	@Override
-	public boolean modCart(CartVO vo) {
-		
-		return false;
-	}
-
-}
-
-=======
 package com.yedam.cart.serviceImpl;
 
 import java.util.List;
@@ -55,7 +15,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public List<CartVO> selectCartList(String memberCode) {
 		// TODO Auto-generated method stub
-		return mapper.selectCartList(memberCode);
+		return mapper.selectList(memberCode);
 	}
 	@Override
 	public boolean addCart(CartVO vo) {
@@ -76,4 +36,4 @@ public class CartServiceImpl implements CartService {
 
 
 }
->>>>>>> branch 'johyewon' of https://github.com/hey5nee123/gwajasarang.git
+
