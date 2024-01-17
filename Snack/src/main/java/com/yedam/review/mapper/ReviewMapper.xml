@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="insertReview" parameterType="review">
-		INSERT INTO review
+		INSERT INTO review(review_code, goods_code, title, content, stars, review_date)
 		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{title}, #{content}, #{stars}, SYSDATE)
 	</insert>
 	
@@ -30,4 +30,23 @@
 		DELETE review
 		WHERE review_code = #{reviewCode}
 	</delete>
+	
+	<select id="selectListPaging" resultType="review">
+		SELECT b.* FROM
+			(
+			SELECT ROWNUM rn, a.*
+			FROM
+				(
+				SELECT r.*, m.member_name name
+				FROM review r
+				JOIN member m
+				ON r.member_code = m.member_code
+				WHERE board_no = #{boardNo}
+				ORDER BY 1 desc
+				) a 
+			) b
+		<![CDATA[
+		WHERE b.rn > (#{page}-1)*5 AND b.rn <= #{page}*5
+		]]>
+	</select>
 </mapper>

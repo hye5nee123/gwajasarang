@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 
 import com.yedam.review.command.AddReviewControl;
 import com.yedam.review.command.AddReviewFormControl;
+import com.yedam.review.command.GetReviewAjax;
 import com.yedam.review.command.GetReviewControl;
+import com.yedam.review.command.GetReviewJson;
 import com.yedam.review.command.ModReviewControl;
 import com.yedam.review.command.ModReviewFormControl;
 import com.yedam.review.command.RemReviewControl;
@@ -30,9 +32,11 @@ public class AFrontController extends HttpServlet{
 		map.put("/remReview.do", new RemReviewControl());			// 삭제 기능
 		
 		// AJAX
-		map.put("reviewListJson.do", new ReviewListJson());			// JSON 생성
-		map.put("reviewListAjax", new ReviewListAjax());			// AJAX 목록 조회
-			
+		map.put("/reviewListJson.do", new ReviewListJson());			// JSON 생성
+		map.put("/reviewListAjax.do", new ReviewListAjax());			// AJAX 목록 조회
+		map.put("/getReviewJson.do", new GetReviewJson());				// AJAX 목록 조회
+		map.put("/getReviewAjax.do", new GetReviewAjax());				// AJAX 목록 조회
+		
 		return map;
 	}
 }
