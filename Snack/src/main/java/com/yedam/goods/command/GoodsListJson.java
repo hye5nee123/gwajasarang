@@ -20,16 +20,16 @@ public class GoodsListJson implements Control {
 		GoodsService svc = new GoodsServiceImpl();
 		List<GoodsVO> list = svc.goodsList();
 		
-		resp.setContentType("text/json;charset=utf-8");
+	resp.setContentType("text/json;charset=utf-8");
 		Gson gson = new GsonBuilder().create();
-		
+	
 		try {
 			resp.getWriter().print(gson.toJson(list));
-		} catch (IOException e) {
+	} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+	}
+	
 	}
 	
 }
