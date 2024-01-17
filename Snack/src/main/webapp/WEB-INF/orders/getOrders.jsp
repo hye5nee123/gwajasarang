@@ -13,6 +13,8 @@
 		<input id="c" type="hidden" name="orderCode" value="${vo.orderCode }">
 		<table class="table" border="2">
 			<tbody>
+			
+			
 				<tr>
 					<th>주문코드</th>
 					<td colspan='3'>${vo.orderCode}</td>
@@ -55,9 +57,9 @@
 					<td colspan="4" align="center">
 					<input type="button" onclick="modifyfunc('${vo.orderCode}')" value="주문수정">
 						
-				    <input type="button" onclick="deletefunc('${vo.orderCode}')" value="주문삭제">
+				    <input type="button" onclick="deletefunc('${vo.orderCode}', '${vo.memberCode}')" value="주문삭제">
 				    
-				    <input type="button" onclick="backfunc('${vo.orderCode}')" value="뒤로가기">
+				   <input type="button" value="뒤로가기" onclick="history.back();" />
 				    </td>
 						
 				</tr>
@@ -65,18 +67,22 @@
 			</tbody>
 		</table>
 	</form>
+	
 </div>
 <script>
-	function deletefunc(orderCode) {
-		location.href = "deleteOrders.do?orderCode=" + orderCode;
-		
+	function deletefunc(orderCode, memberCode) {
+		location.href = "deleteOrders.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
+		alert("삭제되었습니다.")
 	}
 	
 	function modifyfunc(orderCode) {
 		location.href = "modifyForm.do?orderCode=" + orderCode;
 		
 	}
-	function backfunc(orderCode){
-		location.href = "ordersList.do?orderCode=" + orderCode;
-	}
+	//function backfunc(orderCode, memberCode){
+	//	location.href = "ordersList.do?memberCode=" + orderCode + "&memberCode=" + memberCode;
+	//	alert("목록으로 돌아갑니다.")
+	//}
+	
+
 </script>

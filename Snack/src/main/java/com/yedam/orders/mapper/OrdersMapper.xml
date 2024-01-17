@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -6,9 +5,11 @@
 
 
 <mapper namespace="com.yedam.orders.mapper.OrdersMapper">
-	<select id="selectList" resultType="orders">
-		SELECT * FROM orders ORDER BY
-		1
+	<select id="selectList" resultType="orders" parameterType="String">
+		SELECT * FROM orders 
+		where member_code = #{memberCode}
+		ORDER BY 1
+		
 	</select>
 
 	<select id="selectOne" resultType="orders"

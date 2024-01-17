@@ -19,6 +19,7 @@ public class ModifyControl implements Control {
 		String orderName = req.getParameter("orderName");
 		String orderPhone = req.getParameter("orderPhone");
 		String memo = req.getParameter("memo");
+		String memberCode = req.getParameter("memberCode");
 		
 		OrdersVO order = new OrdersVO();
 		order.setOrderCode(orderCode);
@@ -26,17 +27,17 @@ public class ModifyControl implements Control {
 		order.setOrderName(orderName);
 		order.setOrderPhone(orderPhone);
 		order.setMemo(memo);
-		
+	
 		OrdersService svc = new OrdersServiceImpl();
 		
 		boolean mod = svc.modOrders(order);
 
 		try {
 			if (mod) {
-				resp.sendRedirect("ordersList.do");
+				resp.sendRedirect("ordersList.do?memberCode="+memberCode);
 				
 			} else {
-				resp.sendRedirect("getOrders.do");
+				resp.sendRedirect("getOrders.do?orderCode=" +orderCode);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

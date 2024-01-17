@@ -20,7 +20,9 @@ public class OrdersListControl implements Control {
 		resp.setContentType("text/html;charset=utf-8");
 		OrdersService svc = new OrdersServiceImpl();
 		
-		List<OrdersVO> list = svc.ordersList();
+		String memberCode = req.getParameter("memberCode");
+		
+		List<OrdersVO> list = svc.ordersList(memberCode);
 		
 		req.setAttribute("ordersList", list);
 		
