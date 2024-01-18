@@ -59,7 +59,7 @@
 						
 				    <input type="button" onclick="deletefunc('${vo.orderCode}', '${vo.memberCode}')" value="주문삭제">
 				    
-				   <input type="button" value="뒤로가기" onclick="history.back();" />
+				   <input type="button" value="뒤로가기" onclick="history.back();"/>
 				    </td>
 						
 				</tr>
@@ -79,10 +79,13 @@
 		location.href = "modifyForm.do?orderCode=" + orderCode;
 		
 	}
-	//function backfunc(orderCode, memberCode){
-	//	location.href = "ordersList.do?memberCode=" + orderCode + "&memberCode=" + memberCode;
-	//	alert("목록으로 돌아갑니다.")
-	//}
+<<<<<<< HEAD
+=======
+	function backfunc(orderCode, memberCode){
+		location.href = "ordersList.do?memberCode=" + orderCode + "&memberCode=" + memberCode;
+		alert("목록으로 돌아갑니다.")
+	}
+>>>>>>> branch 'doseungmin' of https://github.com/hey5nee123/gwajasarang.git
 	
 
 </script>

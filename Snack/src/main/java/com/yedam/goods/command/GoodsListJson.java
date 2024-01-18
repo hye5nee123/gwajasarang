@@ -29,10 +29,12 @@ public class GoodsListJson implements Control {
 
 		try {
 			resp.getWriter().print(gson.toJson(list));
-		} catch (IOException e) {
+	} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+
 		}
+
 
 	}
 

@@ -10,4 +10,5 @@ public interface ReviewService {
 	public boolean addReview(ReviewVO vo);
 	public boolean modReview(ReviewVO vo);
 	public boolean remReview(int reviewCode);
+	public List<ReviewVO> reviewListPaging(String goodsCode, int page);
 }

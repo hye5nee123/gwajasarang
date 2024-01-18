@@ -19,12 +19,12 @@ public class ReviewListControl implements Control{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// 상품코드 파라미터 받음
 		String goodsCode = req.getParameter("goodsCode");
+		String page = req.getParameter("page");
 
 		ReviewService svc = new ReviewServiceImpl();
-		List<ReviewVO> list = svc.reviewList(goodsCode);
+		List<ReviewVO> list = svc.reviewListPaging(goodsCode, Integer.parseInt(page));
 		
 		req.setAttribute("reviewList", list);
-		req.setAttribute("goodsCode", goodsCode);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/review/reviewList.tiles");
 		try {

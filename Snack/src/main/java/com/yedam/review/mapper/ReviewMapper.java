@@ -12,4 +12,5 @@ public interface ReviewMapper {
 	int insertReview(ReviewVO vo);
 	int updateReview(ReviewVO vo);
 	int deleteReview(int reviewCode);
+	List<ReviewVO> selectListPaging(@Param("goodsCode") String goodsCode, @Param("page") int page);
 }
