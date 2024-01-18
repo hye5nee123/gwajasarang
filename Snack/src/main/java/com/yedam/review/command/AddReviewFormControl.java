@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
-import com.yedam.review.service.ReviewService;
-import com.yedam.review.serviceImpl.ReviewServiceImpl;
-import com.yedam.review.vo.ReviewVO;
 
 public class AddReviewFormControl implements Control {
 
