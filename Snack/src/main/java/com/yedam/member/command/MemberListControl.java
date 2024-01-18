@@ -12,25 +12,24 @@ import com.yedam.member.service.MemberService;
 import com.yedam.member.serviceImpl.MemberServiceImpl;
 import com.yedam.member.vo.MemberVO;
 
-public class CheckControl implements Control{
+public class MemberListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
-		String id = req.getParameter("id");
-		
-		MemberService svc = new MemberServiceImpl();
-		// MemberVO vo = svc.checkMember(id);
+		String memberCode = req.getParameter("memberCode");
 
-		
-		// 페이지 이동(forward) 
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/board/getBoard.jsp");
+		MemberService svc = new MemberServiceImpl();
+		MemberVO vo = new MemberVO();
+		vo.setMemberCode(memberCode);
+
+		req.setAttribute("memberCode", memberCode);
+		 
+		RequestDispatcher rd = req.getRequestDispatcher("memberListForm.tiles");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 }
