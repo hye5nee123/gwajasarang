@@ -161,7 +161,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span>${total }</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -192,9 +192,9 @@
                     </c:forEach>
                     </div>
                     <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
+                    <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
+                        <div class="pageInfo" display="inline"><a href="goodsList.do?page=${i }">${i }</a></div>
+                    </c:forEach>
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
 	<script>
 	let input = document.getElementById('searchBox');
 	
-	input.addEventListener("keyup", function(e) {
+	input.addEventListener("keydown", function(e) {
 		if(e.keyCode === 13) {
 			e.preventDefault();
 			document.querySelector(".site-btn").click();
@@ -217,6 +217,94 @@
 		let keyword = document.getElementById('searchBox').value;
 		window.location.href = "searchList.do?keyword=" + keyword;
 	}
+	
+/* 	let pageInfo = document.querySelector(".pageInfo");
+	
+	pageInfo.addEventListenver("click", function(e) {
+		e.preventDefault();
+		moveForm.find("input[name=]")
+	}) */
+	
+	
+	
+	let pageInfo = 1;
+	function pageList(e) {
+		e.preventDefault(); 
+   		pageInfo = this.getAttribute("href");
+   		showList(pageInfo);
+		pagingList(pageInfo);
+   	}
+	
+    function showList_backup(page) {
+    	ul.innerHTML = '';
+	    const xhtp = new XMLHttpRequest();
+	    xhtp.open('get', 'replyListJson.do?bno=' + bno + '&page=' + page)
+	    xhtp.send()
+	    xhtp.onload = function() {
+	    	let data = JSON.parse(xhtp.responseText);	// json문자열 -> 객체
+	    	data.forEach(reply => {
+	    		let li = makeLi(reply);
+	    		ul.appendChild(li);
+	    	})
+	    }
+    }
+	
+    function showList(page) {
+    	ul.innerHTML = '';
+    	fetch('replyListJson.do?bno=' + bno + '&page=' + page)
+    	.then(str => str.json())
+    	.then(result => {
+    		result.forEach(reply => {
+    			let li = makeLi(reply);
+    			ul.appendChild(li);
+    		})
+    	})
+    	.catch(reject => console.log(reject));
+    }
+    
+    showList(pageInfo);
+	
+	let paging = document.querySelector('.product__pagination')
+	pagingList();
+	function pagingList(page = 1) {
+		paging.innerHTML = '';
+		
+		let pagingAjax = new XMLHttpRequest();
+		pagingAjax.open('get', 'pagingListJson.do?page=' + page));
+		pagingAjax.send()
+		pagingAjax.onload = function() {
+			let result = JSON.parse(pagingAjax.responseText);
+			if(result.prev) {
+				let aTag = document.createElement('a');
+				aTag.href = result.startPage - 1;
+				aTag.addEventListener('click', pageList);
+	    		paging.appendChild(aTag);
+			}
+	    	for(let p = result.startPage; p <= result.lastPage; p++) {
+	    		let aTag = document.createElement('a');
+	    		if(p == page) {
+	    			aTag.setAttribute('class', 'active');
+	    		}
+	    		aTag.href = p;
+	    		aTag.innerText = p;
+	    		aTag.addEventListener('click', pageList);
+	    		paging.appendChild(aTag);
+	    	}
+	    	if(result.next) {
+	    		let aTag = document.createElement('a');
+	    		aTag.href = result.lastPage + 1;
+	    		aTag.innerText = '다음';
+	    		aTag.addEventListener('click', pageList);
+	    		paging.appendChild(aTag);
+	    	}
+		}
+	}
+	
+	
+	
+	
+	
+	
 	</script>
 
 </body>
