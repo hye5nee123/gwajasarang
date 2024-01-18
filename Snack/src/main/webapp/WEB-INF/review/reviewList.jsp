@@ -37,6 +37,6 @@
 </div>
 <script>
 	function addFunc(goodsCode) {
-		window.location.href = "addReviewForm.do?goodsCode=" + goodsCode
+		window.location.href = "addReviewForm.do?goodsCode=" + goodsCode 
 	}
 </script>
