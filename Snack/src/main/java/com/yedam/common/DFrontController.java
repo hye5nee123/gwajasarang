@@ -15,7 +15,7 @@ public class DFrontController extends HttpServlet{
 	Map<String, Control> map = new HashMap<>();
 	
 	Map<String, Control> getMap() {
-		map.put("/ ", new GoodsListControl());
+		map.put("/goodsList.do", new GoodsListControl());
 //		map.put("/goodsListJson.do", new GoodsListJson());
 		map.put("/getGoods.do", new GetGoodsControl());
 		map.put("/searchList.do", new SearchListControl());
