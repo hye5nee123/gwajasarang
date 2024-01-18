@@ -17,7 +17,7 @@ public class EFrontController extends HttpServlet {
 	Map<String, Control> map = new HashMap<>();
 
 	Map<String, Control> getMap() {
-		map.put("/addOrders.do", new AddOrdersControl());
+		
 
 		// 장바구니 이동.
 		map.put("/cartList.do", new CartListControl());

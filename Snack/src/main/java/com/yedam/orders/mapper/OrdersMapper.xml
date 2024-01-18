@@ -8,13 +8,14 @@
 		where member_code = #{memberCode}
 		ORDER BY 1
 	</select>
-	<select id="selectOne" resultType="orders"
-		parameterType="String">
+	<select id="selectOne" resultType="orders" parameterType="String">
 		SELECT * FROM orders WHERE order_code = #{orderCode}
 	</select>
-	<delete id="remOrdersone" parameterType="String">
+	<delete id="deleteOrders" parameterType="String">
 		delete from orders where order_code = #{orderCode}
-		>>>>>>> branch 'johyewon' of https://github.com/hey5nee123/gwajasarang.git
+	</delete>
+	<delete id="deleteDetail" parameterType="String">
+	delete from detail where order_code = #{orderCode}
 	</delete>
 	<update id="updateOrders" parameterType="String">
 		update orders
@@ -22,5 +23,9 @@
 		order_phone=#{orderPhone}, memo=#{memo}
 		where order_code=#{orderCode}
 	</update>
+	<insert id="insertOrders" parameterType="orders">
+    INSERT INTO orders 
+    VALUES(#{order_code}, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
+  </insert>
 </mapper>
 
