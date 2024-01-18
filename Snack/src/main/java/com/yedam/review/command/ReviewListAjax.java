@@ -21,7 +21,7 @@ public class ReviewListAjax implements Control {
 		req.setAttribute("goodsCode", goodsCode);
 		
 		try {
-			req.getRequestDispatcher("review/reviewListAjax.tiles").forward(req,resp);
+			req.getRequestDispatcher("/WEB-INF/review/reviewListAjax.jsp").forward(req,resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
