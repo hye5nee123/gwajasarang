@@ -10,9 +10,9 @@ function showReviewList(goodsCode) {
 			result.forEach(item => {
 				console.log(item);
 				let tr = $('<tr />').append($('<td  class="title"/>').text(item.title),
-					$('<td  class="stars"/>').text(item.stars),
 					$('<td  class="memberCode"/>').text(item.memberCode),
-					$('<td  class="reviewCode"/>').text(item.reviewCode)
+					$('<td  class="stars"/>').text(item.stars),
+					$('<td  class="reviewDate"/>').text(item.reviewDate)
 				);
 				$('#list').append(tr);
 				$('.title').bind('click', function() {
