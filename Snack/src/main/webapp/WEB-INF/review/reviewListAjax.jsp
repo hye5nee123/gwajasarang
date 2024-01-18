@@ -8,9 +8,8 @@
 <title>reviewListAjax.jsp</title>
 </head>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+<script src="js/reviewListAjax.js"></script>
 <script>
-	console.log('${goodsCode}');
 	showReviewList('${goodsCode}');
 </script>
 <body>
@@ -22,8 +21,8 @@
 				<thead>
 					<tr>
 						<th>제목</th>
-						<th>별점</th>
 						<th>작성자</th>
+						<th>별점</th>
 						<th>등록일자</th>
 					</tr>
 				</thead>
