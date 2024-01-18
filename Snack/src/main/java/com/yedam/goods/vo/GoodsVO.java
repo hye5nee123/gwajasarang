@@ -20,4 +20,5 @@ public class GoodsVO {
 	private double sugar;
 	private double sfat;
 	private double protein;
+	private int viewPage = 1;
 }

@@ -15,8 +15,8 @@ public class GoodsServiceImpl implements GoodsService{
 	GoodsMapper mapper = session.getMapper(GoodsMapper.class);
 
 	@Override
-	public List<GoodsVO> goodsList(String category) {
-		return mapper.selectList(category);
+	public List<GoodsVO> goodsList(String category, int page) {
+		return mapper.selectList(category, page);
 	}
 	
 	@Override
@@ -26,7 +26,12 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Override
 	public List<GoodsVO> searchList(String keyword) {
-		return mapper.search(keyword);
+		return mapper.selectSearch(keyword);
+	}
+
+	@Override
+	public int totalCnt() {
+		return mapper.selectCount();
 	}
 
 }
