@@ -79,10 +79,6 @@
 		location.href = "modifyForm.do?orderCode=" + orderCode;
 		
 	}
-	//function backfunc(orderCode, memberCode){
-	//	location.href = "ordersList.do?memberCode=" + orderCode + "&memberCode=" + memberCode;
-	//	alert("목록으로 돌아갑니다.")
-	//}
 	
 
 </script>
