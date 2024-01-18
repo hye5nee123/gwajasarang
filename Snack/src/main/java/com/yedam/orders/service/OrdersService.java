@@ -15,5 +15,6 @@ public interface OrdersService {
 	//public boolean deleteDetail(String orderCode);
 	
 	public boolean modOrders(OrdersVO vo); //수정
-
+	
+	 public boolean addOrders(OrdersVO vo);//추가
 } 

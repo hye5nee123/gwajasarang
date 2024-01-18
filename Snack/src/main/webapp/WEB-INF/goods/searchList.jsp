@@ -179,6 +179,15 @@
     <!-- Product Section End -->
 
 	<script>
+	let input = document.getElementById('searchBox');
+	
+	input.addEventListener("keydown", function(e) {
+		if(e.keyCode === 13) {
+			e.preventDefault();
+			document.querySelector(".site-btn").click();
+		}
+	});
+	
 	function searchFunc() {
 		let keyword = document.getElementById('searchBox').value;
 		window.location.href = "searchList.do?keyword=" + keyword;

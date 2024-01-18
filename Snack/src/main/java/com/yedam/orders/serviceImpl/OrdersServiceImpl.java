@@ -45,6 +45,11 @@ public class OrdersServiceImpl implements OrdersService {
 	public List<OrdersVO> ordersList(String memberCode) {
 		return mapper.selectList(memberCode);
 	}
+	@Override
+	public boolean addOrders(OrdersVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.insertOrders(vo)== 1;
+	}
 
 
 
