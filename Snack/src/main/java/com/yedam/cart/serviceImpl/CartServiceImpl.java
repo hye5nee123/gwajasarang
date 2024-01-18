@@ -28,7 +28,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public boolean remCart(int cartCode) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.deleteCart(cartCode) == 1;
 	}
 
 	@Override

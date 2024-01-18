@@ -69,14 +69,39 @@ function cartList() {
 
             //아이템 삭제.
             $(".icon_close").on('click',function(){
-                console.log($(".icon_close"));
+                console.log(event.target);
+                fetch("removeCart.do?cartCode=1")
+                //응답 결과 받는 구문(controller)
+                .then(result=> result.json())
+                .then(result =>{
+                    if(result.retCode == "OK"){
+                        alert('삭제됨');
                 event.target.closest("tr").remove();
+//                        location.reload();
+                    }else(
+                        alert('삭제 중 오류 발생')
+                    )
+                })
             })//end of 아이템 삭제.
-
+            //아이템 추가.
+            $(".inc").on("click",function(){
+                console.log(event.target);
+                fetch("addCart.do?cartCode=1")
+                .then(result=> result.json())
+                    .then(result =>{
+                    if(result.retCode == "OK"){
+                        alert('삭제됨');
+                event.target.closest("tr").remove();
+//                        location.reload();
+                    }else(
+                        alert('삭제 중 오류 발생')
+                    )
+                })
+            })
 
             
 
         }) //end of click().
         .catch(console.error);
 };
-cartList();
+
