@@ -9,7 +9,7 @@ public interface CartService {
 	public List<CartVO> selectCartList(String memberCode);
 
 	// 카트 등록.
-	public boolean addCart(CartVO vo);
+	public boolean addCart(int cartCode);
 
 	// 카트 삭제
 	public boolean remCart(int cartCode);
