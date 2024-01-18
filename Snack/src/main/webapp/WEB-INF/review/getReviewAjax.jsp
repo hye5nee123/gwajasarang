@@ -6,19 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>reviewListAjax.jsp</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/getReviewAjax.js"></script>
 <script>
-	ShowDetailReview('${reviewCode}')
+	showDetailReview('${reviewCode}')
 </script>
 </head>
 <body>
+
 	<div class="product__details__tab__desc">
 		<div class="reviewList">
 			<h3>상품평 상세</h3>
 			<br>
 			<table class="reviewDetail">
+					<tr>
+						<th>상품코드</th>
+						<td class="goodsCode"></td>
+					</tr>
+					<tr>
+						<th>리뷰코드</th>
+						<td class="reviewCode"></td>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td class="memberCode"></td>
+					</tr>
 					<tr>
 						<th>제목</th>
 						<td class="title"></td>
@@ -28,12 +40,12 @@
 						<td class="content"></td>
 					</tr>
 					<tr>
-						<th>리뷰코드</th>
-						<td class="reviewCode"></td>
+						<th>별점</th>
+						<td class="stars"></td>
 					</tr>
 					<tr>
-						<th>작성자</th>
-						<td class="memberCode"></td>
+						<th>작성일자</th>
+						<td class="reviewDate"></td>
 					</tr>
 			</table>
 		</div>
