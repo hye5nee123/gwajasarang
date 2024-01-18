@@ -5,7 +5,7 @@
 <mapper namespace="com.yedam.cart.mapper.CartMapper">
 	<select id="selectList" resultType="cart" parameterType="String">
 		SELECT
-		c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
+		c.cart_code, c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
 		FROM cart c JOIN goods g
 		ON c.goods_code = g.goods_code
 		WHERE c.member_code = #{memberCode}
