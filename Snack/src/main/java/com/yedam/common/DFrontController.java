@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 
 import com.yedam.goods.command.GetGoodsControl;
 import com.yedam.goods.command.GoodsListControl;
-//import com.yedam.goods.command.GoodsListJson;
+import com.yedam.goods.command.GoodsListJson;
 import com.yedam.goods.command.SearchListControl;
 
 public class DFrontController extends HttpServlet{

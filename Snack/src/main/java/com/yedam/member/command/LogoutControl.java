@@ -2,22 +2,24 @@ package com.yedam.member.command;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.common.Control;
 
-public class MemberAddForm implements Control {
+public class LogoutControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		session.invalidate();
 		
 		try {
-			req.getRequestDispatcher("member/memberAdd.tiles").forward(req, resp);
-		} catch (ServletException | IOException e) {
+			resp.sendRedirect("loginForm.do");
+		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		}		
 	}
 
 }

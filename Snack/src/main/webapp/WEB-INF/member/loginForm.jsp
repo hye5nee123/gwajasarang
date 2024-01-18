@@ -10,6 +10,9 @@
 	table a{display:block; position:relative; color:#6f6f6f; font-size:16px;}
 	table td:first-child a:before{content:''; display:block; position:absolute; right:0; top:50%; width:1px; height:30px; background:#ccc; margin-top:-15px;}
 	table a:hover{color:#1c1c1c;}
+	.noti{margin-bottom:-40px; text-align:center;}
+	.noti p{display:inline-block; padding-left:20px; position:relative; margin-bottom:0; color:red; line-height:10px;}
+	.noti p:before{content:'!'; display:block; position:absolute; left:0; top:50%; width:15px; height:15px; margin-top:-7.5px; font-size:11px; font-weight:700; text-align:center; border:1px solid red; border-radius:50%;}
 </style>
 
 <!-- Hero Section Begin -->
@@ -88,16 +91,25 @@
 			<div class="product__details__text mt-5">
 				<p>가입하신 아이디와 비밀번호를 입력해주세요.</p>
 			</div>
+			<div class="noti col-lg-6 mx-auto">
+				<%
+						String msg = (String) request.getAttribute("message");
+					%>
+					
+					<% if(msg != null){	%>
+					<p><%=msg %></p>
+					<% } %>
+			</div>
 		</div>
-		<form action="mainPage.do" method="post">
+		<form action="login.do" method="post">
 			<div class="checkout__order col-lg-6 mx-auto">	
 				<div class="checkout__input">
 					<p class="checkout__order__products">아이디</p>
-					<input type="text" name="m_id" placeholder="아이디">
+					<input type="text" name="id" placeholder="아이디">
 				</div>
 				<div class="checkout__input">
 					<p class="checkout__order__products">비밀번호</p>
-					<input type="password" name="m_pw" placeholder="비밀번호">
+					<input type="password" name="pw" placeholder="비밀번호">
 				</div>
 				<button class="site-btn">로그인</button>
 			</div>

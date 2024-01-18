@@ -20,15 +20,15 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public boolean addCart(CartVO vo) {
+	public boolean addCart(int cartCode) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.addCart(cartCode) == 1;
 	}
 
 	@Override
 	public boolean remCart(int cartCode) {
 		// TODO Auto-generated method stub
-		return false;
+		return mapper.deleteCart(cartCode) == 1;
 	}
 
 	@Override

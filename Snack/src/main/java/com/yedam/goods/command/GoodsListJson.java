@@ -14,22 +14,24 @@ import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
 
 public class GoodsListJson implements Control {
-	
+
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		GoodsService svc = new GoodsServiceImpl();
 		List<GoodsVO> list = svc.goodsList();
-		
-	resp.setContentType("text/json;charset=utf-8");
+
+		resp.setContentType("text/json;charset=utf-8");
 		Gson gson = new GsonBuilder().create();
-	
+
 		try {
 			resp.getWriter().print(gson.toJson(list));
 	} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+
+		}
+
+
 	}
-	
-	}
-	
+
 }
