@@ -99,7 +99,9 @@ function cartList() {
             //end of 아이템 삭제.
             
             //수량 수정.
-            $(".")
+            $(".updateBtn").on("click",function(){
+                
+            })
 
             //마이너스 버튼 작동 fun().
             $(".dec").on('click', function () {
