@@ -5,7 +5,7 @@ import java.util.List;
 import com.yedam.orders.vo.OrdersVO;
 
 public interface OrdersService {
-	public List<OrdersVO> ordersList(); //목록
+	public List<OrdersVO> ordersList(String memberCode); //목록
 
 	public OrdersVO getOrders(String ordersCode);
 

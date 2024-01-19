@@ -17,12 +17,15 @@ public class GoodsListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		GoodsService svc = new GoodsServiceImpl();
-		List<GoodsVO> list = svc.goodsList();
+		String category = req.getParameter("category");
 		
-		req.setAttribute("goodsList", list);
+		GoodsService svc = new GoodsServiceImpl();
+		List<GoodsVO> goodsList = svc.goodsList(category);
+		
+		req.setAttribute("goodsList", goodsList);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("goods/goodsList.tiles");
+		
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException e) {
@@ -32,6 +35,7 @@ public class GoodsListControl implements Control {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 	}
 

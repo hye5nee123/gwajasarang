@@ -3,14 +3,16 @@
 <%@page import="com.yedam.orders.vo.OrdersVO"%>
 <div class="container">
 	<h3>삭제화면</h3>
-	<form name="myForm" action="remOrders.do">
-		<input type="hidden" name="deleteOrders" value="${vo.orderCode }">
+	<form name="myForm" action="deleteOrders.do">
+		<input type="hidden" name="orderCode" value="${vo.orderCode }">
+		<input type="hidden" name="memberCode" value="${vo.memberCode }">
 		<table class="table">
 			<tbody>
 				<tr>
 					<th>주문코드</th>
 					<td colspan="3">${vo.orderCode }</td>
 				</tr>
+				<tr>
 				<th>회원코드</th>
 				<td colspan='3'>${vo.memberCode}</td>
 				</tr>

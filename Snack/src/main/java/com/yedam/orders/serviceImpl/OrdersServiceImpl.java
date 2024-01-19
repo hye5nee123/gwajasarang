@@ -13,11 +13,11 @@ import com.yedam.orders.vo.OrdersVO;
 public class OrdersServiceImpl implements OrdersService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	OrdersMapper mapper = session.getMapper(OrdersMapper.class);
-	@Override
-	public List<OrdersVO> ordersList() {
-		// TODO Auto-generated method stub
-		return mapper.selectList();
-	}
+//	@Override
+//	public List<OrdersVO> ordersList() {
+//		// TODO Auto-generated method stub
+//		return mapper.selectList();
+//	}
 	@Override
 	public OrdersVO getOrders(String ordersCode) {
 		// TODO Auto-generated method stub
@@ -40,6 +40,10 @@ public class OrdersServiceImpl implements OrdersService {
 	public boolean modOrders(OrdersVO vo) {
 		// TODO Auto-generated method stub
 		return mapper.updateOrders(vo) ==1;
+	}
+	@Override
+	public List<OrdersVO> ordersList(String memberCode) {
+		return mapper.selectList(memberCode);
 	}
 
 

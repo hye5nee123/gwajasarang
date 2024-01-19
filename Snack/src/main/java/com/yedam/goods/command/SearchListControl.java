@@ -13,18 +13,19 @@ import com.yedam.goods.service.GoodsService;
 import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
 
-public class SearchGoodsControl implements Control {
-	
+public class SearchListControl implements Control {
+
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String gname = req.getParameter("gname");
+		String keyword = req.getParameter("keyword");
 		
 		GoodsService svc = new GoodsServiceImpl();
-		List<GoodsVO> list = svc.searchList(gname);
+		List<GoodsVO> searchList = svc.searchList(keyword);
 		
-		req.setAttribute("searchList", list);
+		req.setAttribute("searchList", searchList);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/goods/searchList.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("goods/searchList.tiles");
+		
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException e) {
@@ -34,5 +35,7 @@ public class SearchGoodsControl implements Control {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
+
 }
