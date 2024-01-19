@@ -6,7 +6,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="../Snack/"><img src="bootstrap/img/logo-removebg-preview.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 대구광역시 중구 중앙대로 403 (남일동 135-1, 5층)</li>
