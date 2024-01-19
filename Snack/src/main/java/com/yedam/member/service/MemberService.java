@@ -11,4 +11,5 @@ public interface MemberService {
 	public boolean addMember(MemberVO vo);
 	public boolean checkMember(String id);
 	public boolean modMember(MemberVO vo);
+	public String findId(String memberName, String memberPhone);
 }

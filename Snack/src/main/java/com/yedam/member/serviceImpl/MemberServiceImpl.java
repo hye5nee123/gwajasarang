@@ -36,4 +36,8 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO showMember(String memberCode) {
 		return mapper.selectOne(memberCode);
 	}
+	@Override
+	public String findId(String memberName, String memberPhone) {
+		return mapper.findId(memberName, memberPhone);
+	}
 }
