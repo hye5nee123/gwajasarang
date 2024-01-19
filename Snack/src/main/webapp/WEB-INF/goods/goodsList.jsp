@@ -192,10 +192,16 @@
                     </c:forEach>
                     </div>
                     <div class="product__pagination">
+                    <input type="hidden" name="pageNum" value="${dto.currPage }">
+                    <c:if test="${dto.prev }">
+                        <a href="goodsList.do?page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
+                    </c:if>
                     <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
-                        <div class="pageInfo" display="inline"><a href="goodsList.do?page=${i }">${i }</a></div>
+                        <a href="goodsList.do?page=${i }">${i }</a>
                     </c:forEach>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    <c:if test="${dto.next }">
+                        <a href="goodsList.do?page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
+                    </c:if>
                     </div>
                 </div>
             </div>
@@ -218,11 +224,12 @@
 		window.location.href = "searchList.do?keyword=" + keyword;
 	}
 	
-/* 	let pageInfo = document.querySelector(".pageInfo");
+/*  	let pageInfo = document.querySelector(".product__pagination a");
 	
 	pageInfo.addEventListenver("click", function(e) {
 		e.preventDefault();
-		moveForm.find("input[name=]")
+		pageInfo = this.getAttribute("href").value;
+		window.location.href = "searchList.do?page=" + pageInfo;
 	}) */
 	
 	

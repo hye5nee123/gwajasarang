@@ -24,7 +24,7 @@
 				category = #{category}
 				</if>
 				</where> order by 1
-		        ) a 
+		        ) a
 		    ) b
 			<![CDATA[
 			WHERE b.rn > (#{page}-1)*12 AND b.rn <= #{page}*12
