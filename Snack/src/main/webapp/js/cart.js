@@ -3,13 +3,6 @@
  */
 $(document).ready(cartList());
 
-//플러스,마이너스 버튼 이벤트 등록.
-// btnEvent(){
-//     $(".inc.qtybtn").on("click",function () { 
-
-//      })
-// };
-
 //카트 전체 목록 보기
 function cartList() {
     fetch("cartListJson.do?memberCode=M-00001", {
