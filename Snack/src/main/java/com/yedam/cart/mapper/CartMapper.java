@@ -13,4 +13,7 @@ public interface CartMapper {
 	
 	//카트 수량 추가.
 	int addCart(int cartCode);
+	
+	//카트 수량 수정.
+	int updateCart(CartVO vo);
 }

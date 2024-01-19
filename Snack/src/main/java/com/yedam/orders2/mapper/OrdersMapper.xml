@@ -11,4 +11,4 @@
     INSERT INTO orders 
     VALUES(#{order_code}, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
   </insert>
-     </mapper>
+     </mapper>-->
