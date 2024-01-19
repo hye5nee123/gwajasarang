@@ -135,10 +135,12 @@ ol {
 }
 
 .set-bg {
+	position:relative;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top center;
 }
+.hero__text{position:relative; z-index:10;}
 
 .spad {
 	padding-top: 100px;
@@ -416,13 +418,13 @@ ol {
 }
 
 .header__menu {
-	padding: 24px 0;
+	padding: 40px 0;
 }
 
 .header__menu ul li {
 	list-style: none;
 	display: inline-block;
-	margin-right: 50px;
+	margin-right: 43px;
 	position: relative;
 }
 
@@ -478,7 +480,7 @@ ol {
 }
 
 .header__menu ul li a {
-	font-size: 14px;
+	font-size: 16px;
 	color: #252525;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -494,7 +496,7 @@ ol {
 
 .header__cart {
 	text-align: right;
-	padding: 24px 0;
+	padding: 40px 0;
 }
 
 .header__cart ul {
@@ -738,18 +740,19 @@ ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 4px;
-	color: #7fad39;
+	color: #fff;
 }
 
 .hero__text h2 {
 	font-size: 46px;
-	color: #252525;
+	color: #fff;
 	line-height: 52px;
 	font-weight: 700;
 	margin: 10px 0;
 }
 
 .hero__text p {
+	color:#fff;
 	margin-bottom: 35px;
 }
 
@@ -2615,12 +2618,12 @@ ol {
 
 .footer {
 	background: #F3F6FA;
-	padding-top: 70px;
+	padding-top: 30px;
 	padding-bottom: 0;
 }
 
 .footer__about {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .footer__about ul li {

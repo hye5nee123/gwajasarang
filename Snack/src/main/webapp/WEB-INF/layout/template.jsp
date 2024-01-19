@@ -114,9 +114,12 @@
     <script src="bootstrap/js/mixitup.min.js"></script>
     <script src="bootstrap/js/owl.carousel.min.js"></script>
     <script src="bootstrap/js/main.js"></script>
-
-
-
+    
+    <script>
+	    $('.header__menu ul li').on('click', function() {
+			$(this).children('a').addClass('active');
+		});
+    </script>
 </body>
 
 </html>

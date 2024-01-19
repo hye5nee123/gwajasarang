@@ -14,13 +14,13 @@
                         <ul>
                             <li>
                             	<c:choose>
-           						<c:when test="${empty logId}">
-                            		로그인을 해주세요.
-                            	</c:when>
-                            	<c:otherwise>
-                            		<i class="log_name">${logName}</i>님 환영합니다.
-                            	</c:otherwise>
-				        	</c:choose> 
+	           						<c:when test="${empty logId}">
+	                            		로그인을 해주세요.
+	                            	</c:when>
+	                            	<c:otherwise>
+	                            		<i class="log_name">${logName}</i>님 환영합니다.
+	                            	</c:otherwise>
+					        	</c:choose> 
                             </li>
                         </ul>
                     </div>
@@ -52,28 +52,27 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop-grid.html">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="../Snack/">메인페이지</a></li>
+                        <li><a href="../Snack/goodsList.do">전체상품</a></li>
+                        <c:choose>
+          					<c:when test="${empty logId}">
+          						<li><a href="#">회원정보</a></li>
+                           		<li><a href="#">주문정보</a></li>
+                           	</c:when>
+                           	<c:otherwise>
+                           		<li><a href="../Snack/memberListForm.do?memberCode=${logCode}">회원정보</a></li>
+                           		<li><a href="#">주문정보</a></li>
+                           	</c:otherwise>
+			        	</c:choose> 
+                        <li><a href="#">회사소개</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="../Snack/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
                 </div>
             </div>
         </div>
