@@ -167,10 +167,30 @@
                     </c:forEach>
                     </div>
                     <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        <c:choose>
+	                    <c:when test="${empty keyword }">
+		                    <c:if test="${dto.prev }">
+		                        <a href="searchList.do?page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
+		                    </c:if>
+		                     <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
+		                        <a href="searchList.do?page=${i }">${i }</a>
+		                    </c:forEach>
+		                     <c:if test="${dto.next }">
+		                        <a href="searchList.do?page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
+		                    </c:if>
+		                </c:when>
+		                <c:otherwise>
+		                  	<c:if test="${dto.prev }">
+		                        <a href="searchList.do?keyword=${keyword }&page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
+		                    </c:if>
+		                     <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
+		                        <a href="searchList.do?keyword=${keyword }&page=${i }">${i }</a>
+		                    </c:forEach>
+		                     <c:if test="${dto.next }">
+		                        <a href="searchList.do?keyword=${keyword }&page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
+		                    </c:if>
+		                </c:otherwise>
+		                </c:choose>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ import com.yedam.common.Control;
 import com.yedam.goods.service.GoodsService;
 import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
+import com.yedam.goods.vo.PageDTO;
 
 public class GoodsListJson implements Control {
 
@@ -21,20 +22,17 @@ public class GoodsListJson implements Control {
 		String page = req.getParameter("page");
 		
 		GoodsService svc = new GoodsServiceImpl();
-
-		List<GoodsVO> list = svc.goodsList(category, Integer.parseInt(page));
+		int total = svc.totalCnt(category);
 		
-		resp.setContentType("text/json;charset=utf-8");
+		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
 		Gson gson = new GsonBuilder().create();
-
+		
 		try {
-			resp.getWriter().print(gson.toJson(list));
-	} catch (IOException e) {
+			resp.getWriter().print(gson.toJson(dto));
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-
 		}
-
 
 	}
 

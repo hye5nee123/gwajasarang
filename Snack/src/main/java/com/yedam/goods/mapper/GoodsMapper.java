@@ -9,6 +9,6 @@ import com.yedam.goods.vo.GoodsVO;
 public interface GoodsMapper {
 	public List<GoodsVO> selectList(@Param("category") String category, @Param("page") int page);
 	public GoodsVO selectOne(String gcode);
-	public List<GoodsVO> selectSearch(String keyword);
-	public int selectCount();
+	public List<GoodsVO> selectSearch(@Param("keyword") String keyword, @Param("page") int page);
+	public int selectCount(@Param("category") String category, @Param("keyword") String keyword);
 }
