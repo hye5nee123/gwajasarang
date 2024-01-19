@@ -1,6 +1,7 @@
 
 package com.yedam.orders.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -49,6 +50,19 @@ public class OrdersServiceImpl implements OrdersService {
 	public boolean addOrders(OrdersVO vo) {
 		// TODO Auto-generated method stub
 		return mapper.insertOrders(vo)== 1;
+	}
+	@Override
+	public List<OrdersVO> OrdersListPaging(String memberCode, int page) {
+		return mapper.OrdersListPaging(memberCode, page);
+	}
+	@Override
+	public int getTotalCnt(String memberCode) {
+		// TODO Auto-generated method stub
+		return mapper.selectCount(memberCode);
+	}
+	@Override
+	public List<HashMap<String, Object>> chartDate() {
+		return mapper.selectOrderCnt();
 	}
 
 

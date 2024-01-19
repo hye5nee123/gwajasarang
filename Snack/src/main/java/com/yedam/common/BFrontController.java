@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServlet;
 
 import com.yedam.orders.command.OrdersListControl;
+import com.yedam.orders.command.PagingListJson;
 import com.yedam.orders.command.AddOrdersControl;
 import com.yedam.orders.command.DeleteControl;
 import com.yedam.orders.command.ModifyControl;
@@ -23,7 +24,7 @@ public class BFrontController extends HttpServlet{
 		map.put("/modifyOrders.do", new ModifyControl()); //수정
 		map.put("/modifyForm.do", new ModifyFormControl());
 		map.put("/addorders.do", new AddOrdersControl()); //추가
-		
+		map.put("/pagingListJson.do", new PagingListJson()); //페이징
 		
 		
 		return map;
