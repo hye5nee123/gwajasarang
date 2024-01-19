@@ -30,7 +30,7 @@ public class AddCartControl implements Control {
 
 		Gson gson = new GsonBuilder().create();
 		try {
-			//json형식으로 보내겠다.
+//			json형식으로 보내겠다.
 			resp.getWriter().print(gson.toJson(map));
 		} catch (IOException e) {
 			e.printStackTrace();
