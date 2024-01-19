@@ -107,7 +107,8 @@ function makeReviewTable(goodsCode, logId) {
 	$('#detailReview th').css({
 		background: '#7FAD39',
 		color: 'white',
-		'text-align': 'center'
+		'text-align': 'center',
+		width: '200px'
 	})
 	
 	// 목록으로 버튼
@@ -134,6 +135,7 @@ function makeReviewTable(goodsCode, logId) {
 	addBtn.css({
 		'backgroundColor': '#f5f5f5',
 		'color': '#6f6f6f',
+		'marginRight': '5px'
 		});
 	addBtn.hover(function () {
 		$(this).css('backgroundColor','#7FAD39').css('color', 'white');
@@ -144,6 +146,22 @@ function makeReviewTable(goodsCode, logId) {
 		
 	});
 	$('#reviewList').append(addBtn);
+	
+	// 리뷰 삭제 버튼
+	let delBtn = $('<input type ="button" class="site-btn" id="delBtn" value="리뷰삭제"/>');
+	delBtn.css({
+		'backgroundColor': '#f5f5f5',
+		'color': '#6f6f6f',
+		});
+	delBtn.hover(function () {
+		$(this).css('backgroundColor','#7FAD39').css('color', 'white');
+	}, function() {
+		$(this).css('background','#f5f5f5').css('color', '#6f6f6f');
+	});
+	delBtn.on('click', function(){
+		
+	});
+	$('#reviewList').append(delBtn);
 }
 
 // 상세정보 출력 함수
