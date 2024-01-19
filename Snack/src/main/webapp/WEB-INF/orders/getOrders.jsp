@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="container">
-	<h3>상세 화면</h3>
+	<h3>주문 상세</h3>
 
 	<form name="myForm">
 
@@ -30,6 +30,7 @@
 				<tr>
 					<th>배송주소</th>
 					<td colspan='3'>${vo.orderAddress}</td>
+					
 				</tr>
 				<tr>
 					<th>수령인</th>
@@ -75,6 +76,7 @@
 
 <script>
 	function deletefunc(orderCode, memberCode) {
+		console.log(orderCode, memberCode)
 		location.href = "deleteOrders.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
 		alert("삭제되었습니다.")
 	}
@@ -87,7 +89,6 @@
 		location.href = "ordersList.do?memberCode=" + orderCode + "&memberCode=" + memberCode;
 		alert("목록으로 돌아갑니다.")
 	}
-	
 	//페이지 클릭하면 페이지의 데이터 보여주도록하기.
 	let pageInfo = 1;
 	function pageList(e){
@@ -96,8 +97,8 @@
 		showList(pageInfo);
 
 			
-	//페이지를 생성하는 함수를 호출.
-	pagingList(pageInfo);
+		//페이지를 생성하는 함수를 호출.
+		pagingList(pageInfo);
 	}
 
 	//Ajax 호출
@@ -115,7 +116,7 @@
 				ul.appendChild(li);
 			})
 		}
-	}//
+	}
 	function showList(page){
 		ul.innerHTML = '';
 		fetch("OrdersListJson.do?memberCode=" + memberCode+ "&page=" + page)
@@ -173,8 +174,8 @@
 
 		
 		}
-		
+	}
 	
-	
+	}
 
 </script>

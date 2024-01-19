@@ -9,6 +9,7 @@ import com.yedam.cart.command.AddCartControl;
 import com.yedam.cart.command.CartListControl;
 //import com.yedam.cart.command.CartListControl;
 import com.yedam.cart.command.CartListJson;
+import com.yedam.cart.command.CheckoutFormControl;
 import com.yedam.cart.command.ModCartControl;
 import com.yedam.cart.command.RemoveCartControl;
 
@@ -30,6 +31,9 @@ public class EFrontController extends HttpServlet {
 		map.put("/addCart.do", new AddCartControl());
 		//장바구니 수정.
 		map.put("/modCart.do", new ModCartControl());
+		
+		//
+		map.put("/checkout.do", new CheckoutFormControl());
 		return map;
 	}
 
