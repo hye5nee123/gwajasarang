@@ -56,12 +56,12 @@
                         <li><a href="../Snack/goodsList.do">전체상품</a></li>
                         <c:choose>
           					<c:when test="${empty logId}">
-          						<li><a href="#">회원정보</a></li>
-                           		<li><a href="#">주문정보</a></li>
+          						<li class="notice"><a href="#">회원정보</a></li>
+                           		<li class="notice"><a href="#">주문정보</a></li>
                            	</c:when>
                            	<c:otherwise>
                            		<li><a href="../Snack/memberListForm.do?memberCode=${logCode}">회원정보</a></li>
-                           		<li><a href="#">주문정보</a></li>
+                           		<li><a href="../Snack/ordersList.do?memberCode=${logCode}">주문정보</a></li>
                            	</c:otherwise>
 			        	</c:choose> 
                         <li><a href="#">회사소개</a></li>
@@ -71,7 +71,7 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="../Snack/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="../Snack/cartList.do?memberCode=${logCode}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -81,3 +81,9 @@
         </div>
     </div>
 </header>
+
+<script>
+	$('.notice').on('click', function() {
+		alert("로그인을 해주세요.");
+	})
+</script>

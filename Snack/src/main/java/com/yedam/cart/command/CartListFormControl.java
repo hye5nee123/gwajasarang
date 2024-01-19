@@ -13,6 +13,8 @@ public class CartListFormControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		String memberCode = req.getParameter("memberCode");
+		req.setAttribute("memberCode", memberCode);
 		// 페이지 이동(forward)
 		RequestDispatcher rd = req.getRequestDispatcher("cart/cartList.tiles");
 		try {

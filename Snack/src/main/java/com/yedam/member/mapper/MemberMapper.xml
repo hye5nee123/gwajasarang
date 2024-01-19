@@ -29,4 +29,8 @@
   <update id="updateMember" parameterType="member">
   	update member set member_phone = #{memberPhone}, member_address = #{memberAddress} where id = #{id}
   </update>
+  
+  <select id="findId" resultType="String">
+  	select id from member where member_name=#{memberName} and member_phone=#{memberPhone}
+  </select>
 </mapper>

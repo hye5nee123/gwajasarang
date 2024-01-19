@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0" encoding="UTF-8" ?>
+<!--  <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -11,4 +11,4 @@
     INSERT INTO orders 
     VALUES(#{order_code}, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
   </insert>
-     </mapper> -->
+     </mapper>-->

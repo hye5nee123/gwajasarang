@@ -18,16 +18,16 @@ public class ModCartControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String cartNo = req.getParameter("cartCode");
+		String cartCode = req.getParameter("cartCode");
 		String quantity = req.getParameter("quantity");
 
 		CartVO vo = new CartVO();
-		vo.setCartCode(Integer.parseInt(cartNo));
+		vo.setCartCode(Integer.parseInt(cartCode));
 		vo.setQuantity(Integer.parseInt(quantity));
 
 		CartService svc = new CartServiceImpl();
 		Map<String, Object> map = new HashMap<>();
-
+		
 		if (svc.modCart(vo)) {
 			map.put("retCode", "OK");
 		} else {

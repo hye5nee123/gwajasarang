@@ -8,6 +8,7 @@
 	#id{flex:0 0 83%;}
 	#id_check{flex:0 0 15%; padding:0 15px; font-size:14px; color:#fff; background:#6f6f6f; border:0;}
 	.button_box #listBtn{margin-left:5px; color:#fff; background:#6f6f6f;}
+	.w100{flex:0 0 100% !important; width:100% !important;}
 </style>
 
 <section class="breadcrumb-section set-bg" data-setbg="bootstrap/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
@@ -35,7 +36,7 @@
 	            <div class="checkout__input">
 	                <p>아이디<span>*</span></p>
 	                <div class="row">
-	                	<input type="text" id="id" name="id" value="${vo.id}" readonly>
+	                	<input type="text" id="id" name="id" class="w100" value="${vo.id}" readonly>
 	                </div>
 	                <em></em>
 	                <i></i>
@@ -43,11 +44,6 @@
 	            <div class="checkout__input">
 	                <p>비밀번호<span>*</span></p>
 	                <input type="password" id="pw" name="pw">
-	                <em></em>
-	            </div>
-	            <div class="checkout__input">
-	                <p>비밀번호 확인<span>*</span></p>
-	                <input type="password" id="pwok" name="pwok">
 	                <em></em>
 	            </div>
 	            <div class="checkout__input">
@@ -71,16 +67,9 @@
 	            </div>
 	            <div  class="button_box">            
 		            <button type="submit" id="addBtn" class="site-btn btn-lg">수정완료</button>
-		            <button type="button" id="listBtn" onclick="listFun()" class="site-btn btn-lg">목록으로</button>
+		            <button type="button" id="listBtn" onclick="history.back()" class="site-btn btn-lg">목록으로</button>
 	            </div>
             </form>
         </div>
     </div>
 </section>
-
-<script>
-	function listFun(){
-		document.forms.myForm.action = "memberList.do";
-		document.forms.myForm.submit();
-	}
-</script>

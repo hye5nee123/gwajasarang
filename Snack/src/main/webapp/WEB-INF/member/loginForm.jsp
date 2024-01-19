@@ -118,7 +118,7 @@
 							<a href="memberAddForm.do">회원가입</a>
 						</td>
 						<td>
-							<a href="#">아이디/비밀번호 찾기</a>
+							<a href="memberFindForm.do">아이디/비밀번호 찾기</a>
 						</td>
 					</tr>
 				</table>

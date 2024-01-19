@@ -12,4 +12,5 @@ public interface MemberMapper {
 	public int selectId(String id);
 	public int updateMember(MemberVO vo);
 	public MemberVO selectOne(@Param("memberCode") String memberCode);
+	public String findId(@Param("memberName") String memberName, @Param("memberPhone") String memberPhone);
 }

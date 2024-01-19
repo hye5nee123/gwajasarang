@@ -13,6 +13,7 @@ import com.yedam.review.command.GetReviewJson;
 import com.yedam.review.command.ModReviewControl;
 import com.yedam.review.command.ModReviewFormControl;
 import com.yedam.review.command.RemReviewControl;
+import com.yedam.review.command.ReviewCountJson;
 import com.yedam.review.command.ReviewListAjax;
 import com.yedam.review.command.ReviewListControl;
 import com.yedam.review.command.ReviewListJson;
@@ -36,6 +37,7 @@ public class AFrontController extends HttpServlet{
 		map.put("/reviewListAjax.do", new ReviewListAjax());			// AJAX 목록 조회
 		map.put("/getReviewJson.do", new GetReviewJson());				// AJAX 목록 조회
 		map.put("/getReviewAjax.do", new GetReviewAjax());				// AJAX 목록 조회
+		map.put("/reviewCountJson.do", new ReviewCountJson());
 		
 		return map;
 	}
