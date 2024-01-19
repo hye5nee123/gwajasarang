@@ -26,7 +26,8 @@
 				</tr>
 				<tr>
 				<td colspan="4" align="center">
-					<input type="submit" onclick="checkfunc('${vo.orderCode}')"value="저장">
+					<input type="submit" value="저장" onclick="alert('수정되었습니다.')" >
+					</form>
 					<input type="button" value="뒤로가기" onclick="history.back();" />
 					</td>
 				</tr>
@@ -39,10 +40,8 @@
 		location.href = "ordersList.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
 		alert("처음으로 돌아갑니다.");
 	}
-	function checkfunc(orderCode){
-		alert("변경되었습니다.")
-		
-	}
+
+
 
 	}
 </script>

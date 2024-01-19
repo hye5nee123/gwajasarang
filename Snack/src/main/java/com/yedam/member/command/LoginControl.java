@@ -25,6 +25,7 @@ public class LoginControl implements Control {
 		
 		if(vo != null) {
 			HttpSession session = req.getSession();
+			session.setAttribute("logCode", vo.getMemberCode());
 			session.setAttribute("logId", vo.getId());
 			session.setAttribute("logPw", vo.getPw());
 			session.setAttribute("logName", vo.getMemberName());
@@ -38,7 +39,7 @@ public class LoginControl implements Control {
 		} else {
 			req.setAttribute("message", "아이디와 비밀번호를 확인하세요");
 			try {
-				req.getRequestDispatcher("WEB-INF/member/loginForm.jsp").forward(req, resp);
+				req.getRequestDispatcher("loginForm.do").forward(req, resp);
 			} catch (ServletException | IOException e) {
 				e.printStackTrace();
 			}

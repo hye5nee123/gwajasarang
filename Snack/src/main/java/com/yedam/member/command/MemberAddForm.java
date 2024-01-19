@@ -12,6 +12,7 @@ public class MemberAddForm implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		
 		try {
 			req.getRequestDispatcher("member/memberAdd.tiles").forward(req, resp);
 		} catch (ServletException | IOException e) {

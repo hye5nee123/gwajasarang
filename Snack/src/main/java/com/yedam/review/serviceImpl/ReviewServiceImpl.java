@@ -39,4 +39,9 @@ public class ReviewServiceImpl implements ReviewService{
 		return mapper.deleteReview(reviewCode) == 1;
 	}
 
+	@Override
+	public List<ReviewVO> reviewListPaging(String goodsCode, int page) {
+		return mapper.selectListPaging(goodsCode, page);
+	}
+
 }

@@ -102,29 +102,28 @@ $('#pwok').on('blur', function(){
 
 $("#id_check").on('click', idCheck);
 function idCheck(){
-	const urlParams = new URL(location.href).searchParams;
-	const id = urlParams.get('id');
-	const id_ok = true;
-	fetch('memberIdJson.do?id=' + id, { 
+	const input = $('#id').val()
+	console.log(input)
+	// const id_ok = true;
+	fetch('memberAddJson.do?id=' + input, { 
 		method: 'get',
 		headers: {'Content-Type': "application/json"},
 	}) 
 	.then(result => result.json())
     .then(result => {
-		// console.log(result);	    	
-	    $(result).each((idx, res) => {
+		console.log(result);	    	
+	 /*    $(result).each((idx, res) => {
 	    	if($("#id").val() == res.id){
 	    		id_ok = false;
-	    		break;
 	    	}
-	    })
-		   console.log(res);
-	    	if(id_ok == true){
-		    	$("#id").parents('.checkout__input').find('em').html("사용가능한 아이디입니다.").addClass('warning');
-		    	$("input[name='checked_id']").val('y');
-		    } else {
-		    	$("#id").parents('.checkout__input').find('em').html("아이디값 중복입니다.").addClass('warning');	
-		    }
+			console.log(res);
+	    }) */
+    	if(result == false){
+	    	$("#id").parents('.checkout__input').find('em').html("사용가능한 아이디입니다.").addClass('warning');
+	    	$("input[name='checked_id']").val('y');
+	    } else {
+	    	$("#id").parents('.checkout__input').find('em').html("아이디값 중복입니다.").addClass('warning');	
+	    }
 	   
     })
     .catch(err => console.log(err));
