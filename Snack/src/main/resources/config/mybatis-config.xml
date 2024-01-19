@@ -21,7 +21,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.OracleDriver"/>
-      <!--  <property name="url" value="jdbc:oracle:thin:@192.168.0.29:1521:xe"/> --> 
+      	<property name="url" value="jdbc:oracle:thin:@192.168.0.29:1521:xe"/>
         <property name="username" value="snacksarang"/>
         <property name="password" value="0000"/>
       </dataSource>
