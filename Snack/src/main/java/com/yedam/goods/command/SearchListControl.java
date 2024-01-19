@@ -12,17 +12,27 @@ import com.yedam.common.Control;
 import com.yedam.goods.service.GoodsService;
 import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
+import com.yedam.goods.vo.PageDTO;
 
 public class SearchListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		String category = req.getParameter("category");
 		String keyword = req.getParameter("keyword");
+		String page = req.getParameter("page");
+		page = (page == null)? "1" : page;
 		
 		GoodsService svc = new GoodsServiceImpl();
-		List<GoodsVO> searchList = svc.searchList(keyword);
+		List<GoodsVO> searchList = svc.searchList(keyword, Integer.parseInt(page));
+		int total = svc.totalCnt(category, keyword);
 		
+		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
+		
+		req.setAttribute("keyword", keyword);
 		req.setAttribute("searchList", searchList);
+		req.setAttribute("total", total);
+		req.setAttribute("dto", dto);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("goods/searchList.tiles");
 		
