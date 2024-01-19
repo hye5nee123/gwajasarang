@@ -80,7 +80,7 @@
 
 <script>
 	function listFun(){
-		document.forms.myForm.action = "memberList.do";
-		document.forms.myForm.submit();
+		document.forms.join.action = "memberListForm.do";
+		document.forms.join.submit();
 	}
 </script>
