@@ -14,6 +14,7 @@ import com.yedam.goods.serviceimpl.GoodsServiceImpl;
 import com.yedam.goods.vo.GoodsVO;
 import com.yedam.goods.vo.PageDTO;
 
+
 public class GoodsListControl implements Control {
 
 	@Override

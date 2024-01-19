@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class PageDTO {
-	private int currPage;
+	private int currPage;	// 현재 페이지
 	private int totalCnt;
 	private boolean prev, next;
-	private int startPage, lastPage;
+	private int startPage, lastPage;	
 	
 	public PageDTO(int page, int totalCnt) {
 		this.currPage = page;

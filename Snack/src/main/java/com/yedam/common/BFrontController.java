@@ -5,12 +5,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
 
-import com.yedam.orders.command.OrdersListControl;
-import com.yedam.orders.command.AddOrdersControl;
 import com.yedam.orders.command.DeleteControl;
+import com.yedam.orders.command.GetOrdersControl;
 import com.yedam.orders.command.ModifyControl;
 import com.yedam.orders.command.ModifyFormControl;
-import com.yedam.orders.command.GetOrdersControl;
+import com.yedam.orders.command.OrdersListControl;
+//import com.yedam.orders2.command.AddOrdersControl;
 
 public class BFrontController extends HttpServlet{
 	// 도승민
@@ -22,7 +22,7 @@ public class BFrontController extends HttpServlet{
 		map.put("/deleteOrders.do", new DeleteControl()); //삭제
 		map.put("/modifyOrders.do", new ModifyControl()); //수정
 		map.put("/modifyForm.do", new ModifyFormControl());
-		map.put("/addorders.do", new AddOrdersControl()); //추가
+//		map.put("/addorders.do", new AddOrdersControl()); //추가
 		
 		
 		
