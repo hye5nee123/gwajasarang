@@ -20,21 +20,19 @@ public class GoodsListControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String category = req.getParameter("category");
+		String keyword = req.getParameter("keyword");
 		String page = req.getParameter("page");
 		page = (page == null)? "1" : page;
 		
 		GoodsService svc = new GoodsServiceImpl();
 		List<GoodsVO> goodsList = svc.goodsList(category, Integer.parseInt(page));
-		int total = svc.totalCnt();
-		int totalPage = (int) Math.ceil(total/12.0);
+		int total = svc.totalCnt(category, keyword);
 		
 		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
 		
-		//int viewPage = getViewPage();
-		
+		req.setAttribute("category", category);
 		req.setAttribute("goodsList", goodsList);
 		req.setAttribute("total", total);
-		req.setAttribute("totalPage", totalPage);
 		req.setAttribute("dto", dto);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("goods/goodsList.tiles");
