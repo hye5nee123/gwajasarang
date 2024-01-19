@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import com.yedam.cart.command.CartListControl;
 //import com.yedam.cart.command.CartListControl;
 import com.yedam.cart.command.CartListJson;
-//import com.yedam.cart.command.RemoveCartControl;
+import com.yedam.cart.command.RemoveCartControl;
 
 public class EFrontController extends HttpServlet {
 
