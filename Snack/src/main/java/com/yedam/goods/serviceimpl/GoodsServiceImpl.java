@@ -25,13 +25,13 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public List<GoodsVO> searchList(String keyword) {
-		return mapper.selectSearch(keyword);
+	public List<GoodsVO> searchList(String keyword, int page) {
+		return mapper.selectSearch(keyword, page);
 	}
 
 	@Override
-	public int totalCnt() {
-		return mapper.selectCount();
+	public int totalCnt(String category, String keyword) {
+		return mapper.selectCount(category, keyword);
 	}
 
 }
