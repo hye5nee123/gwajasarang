@@ -17,7 +17,7 @@
     $(window).on('load', function () {
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
-
+		
         /*------------------
             Gallery filter
         --------------------*/
@@ -29,6 +29,7 @@
             var containerEl = document.querySelector('.featured__filter');
             var mixer = mixitup(containerEl);
         }
+        
     });
 
     /*------------------

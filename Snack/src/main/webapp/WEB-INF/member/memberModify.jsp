@@ -7,6 +7,7 @@
 	div.row{justify-content:space-between; margin:0;}
 	#id{flex:0 0 83%;}
 	#id_check{flex:0 0 15%; padding:0 15px; font-size:14px; color:#fff; background:#6f6f6f; border:0;}
+	.button_box #listBtn{margin-left:5px; color:#fff; background:#6f6f6f;}
 </style>
 
 <section class="breadcrumb-section set-bg" data-setbg="bootstrap/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
@@ -51,7 +52,7 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>이름<span>*</span></p>
-	                <input type="text" id="name" name="name" value="${vo.memberName}">
+	                <input type="text" id="name" name="name" value="${vo.memberName}" readonly>
 	                <em></em>
 	            </div>
 	            <div class="checkout__input">
@@ -66,12 +67,20 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>이메일</p>
-	                <input type="text" id="email" name="email">
+	                <input type="text" id="email" name="email" value="${vo.email}" readonly>
 	            </div>
 	            <div  class="button_box">            
 		            <button type="submit" id="addBtn" class="site-btn btn-lg">수정완료</button>
+		            <button type="button" id="listBtn" onclick="listFun()" class="site-btn btn-lg">목록으로</button>
 	            </div>
             </form>
         </div>
     </div>
 </section>
+
+<script>
+	function listFun(){
+		document.forms.myForm.action = "memberList.do";
+		document.forms.myForm.submit();
+	}
+</script>
