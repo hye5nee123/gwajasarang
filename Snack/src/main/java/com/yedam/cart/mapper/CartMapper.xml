@@ -20,5 +20,5 @@
 	<update id="updateCart" parameterType="cart">
 		update cart set quantity = #{quantity} where cart_code = #{cartCode}
 	</update>
-</mapper>
+	</mapper>
 
