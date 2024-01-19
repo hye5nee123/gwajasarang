@@ -4,17 +4,18 @@
 	
 	<select id="selectList" resultType="review"
 		parameterType="String">
-		SELECT *
-		FROM review
-		WHERE goods_code = #{goodsCode}
+		SELECT r.*, m.member_name
+		FROM review r , member m
+		WHERE r.goods_code = #{goodsCode}
+		AND   r.member_code = m.member_code
 		ORDER BY 1
 	</select>
 
 	<select id="selectOne" resultType="review" parameterType="int">
-		SELECT
-		*
-		FROM review
-		WHERE review_code = #{reviewCode}
+		SELECT r.*, m.member_name
+		FROM  review r , member m
+		WHERE r.member_code = m.member_code
+		AND r.review_code =  #{reviewCode}
 	</select>
 	
 	<insert id="insertReview" parameterType="review">
