@@ -30,6 +30,7 @@
 		SET title = #{title}, content=#{content}, stars=#{stars}
 		WHERE review_code = #{reviewCode}
 	</update>
+	
 	<delete id="deleteReview" parameterType="int">
 		DELETE review
 		WHERE review_code = #{reviewCode}
@@ -41,14 +42,22 @@
 		    SELECT ROWNUM rn, a.*
 		    FROM
 		        (
-		        SELECT *
-		        FROM review
-		        WHERE goods_code = #{goodsCode}
-		        ORDER BY 1
+		        SELECT r.*, m.member_name
+				FROM review r , member m
+				WHERE r.goods_code = #{goodsCode}
+				AND   r.member_code = m.member_code
+		        ORDER BY 1 DESC
 		        ) a 
 		    ) b
 		<![CDATA[
-			WHERE b.rn > (#{page}-1)*3 AND b.rn <= #{page}*3
+			WHERE b.rn > (#{page}-1)*5 AND b.rn <= #{page}*5
 		]]>
 	</select>
+	
+	<select id="selectCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) 
+		FROM review 
+		WHERE goods_code=#{goodsCode}
+	</select>
+
 </mapper>
