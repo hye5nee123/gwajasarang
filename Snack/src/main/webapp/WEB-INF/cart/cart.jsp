@@ -44,20 +44,18 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="shoping__cart__btns">
-					<a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a> <a
-						href="#" class="primary-btn cart-btn cart-btn-right"><span
-						class="icon_loading"></span> Upadate Cart</a>
+			<div class="col-lg-6">
+				<div class="shoping__cart__btns" >
+					<a href="goodsList.do" class="primary-btn cart-btn">계속 쇼핑하기</a> 
 				</div>
 			</div>
-			<div class="col-lg-6">
-				<div class="shoping__checkout">
-					<h5>Cart Total</h5>
+			<div class="col-lg-12">
+				<div class="shoping__checkout" >
+					<h5>장바구니</h5>
 					<ul>
-						<li>Total <span id="total">0</span></li>
+						<li>총합계 <span id="total">0</span></li>
 					</ul>
-					<a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+					<a href="checkout.do?memberCode=${logCode }" class="primary-btn">주문하기</a>
 				</div>
 			</div>
 		</div>
