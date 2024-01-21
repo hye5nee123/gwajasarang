@@ -28,7 +28,7 @@
       </dataSource>
     </environment>
   </environments>
-
+  
   <mappers>
   	<mapper resource="com/yedam/goods/mapper/GoodsMapper.xml"/>
   	<mapper resource="com/yedam/orders/mapper/OrdersMapper.xml"/>
