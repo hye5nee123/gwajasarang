@@ -14,7 +14,7 @@
   <typeAlias alias="review" type="com.yedam.review.vo.ReviewVO"/>
   <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
   <typeAlias alias="cart" type="com.yedam.cart.vo.CartVO"/>
-  <typeAlias alias="detail" type="com.yedam.cart.vo.DetailVO"/>
+  <typeAlias alias="detail" type="com.yedam.detail.vo.DetailVO"/>
 </typeAliases>
   
   <environments default="development">
