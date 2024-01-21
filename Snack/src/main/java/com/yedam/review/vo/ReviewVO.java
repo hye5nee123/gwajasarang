@@ -12,4 +12,5 @@ public class ReviewVO {
 	private String content;
 	private int stars;
 	private String reviewDate;
+	private int rn;
 }

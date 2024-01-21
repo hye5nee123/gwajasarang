@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div class="container">
-<form action="modReview.do">
+<form action="modReview.do" method="post">
 <h3>리뷰 수정</h3>
 	<table class="table">
 		<tbody>

@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
 
+import com.yedam.detail.command.AddDetailJson;
+import com.yedam.detail.command.DetailListJson;
 import com.yedam.review.command.AddReviewControl;
 import com.yedam.review.command.AddReviewFormControl;
 import com.yedam.review.command.GetReviewAjax;
@@ -12,10 +14,13 @@ import com.yedam.review.command.GetReviewControl;
 import com.yedam.review.command.GetReviewJson;
 import com.yedam.review.command.ModReviewControl;
 import com.yedam.review.command.ModReviewFormControl;
+import com.yedam.review.command.ModReviewJson;
 import com.yedam.review.command.RemReviewControl;
+import com.yedam.review.command.RemReviewJson;
 import com.yedam.review.command.ReviewListAjax;
 import com.yedam.review.command.ReviewListControl;
 import com.yedam.review.command.ReviewListJson;
+import com.yedam.review.command.ReviewPagingJson;
 
 public class AFrontController extends HttpServlet{
 	// 김현준
@@ -32,10 +37,17 @@ public class AFrontController extends HttpServlet{
 		map.put("/remReview.do", new RemReviewControl());			// 삭제 기능
 		
 		// AJAX
-		map.put("/reviewListJson.do", new ReviewListJson());			// JSON 생성
-		map.put("/reviewListAjax.do", new ReviewListAjax());			// AJAX 목록 조회
-		map.put("/getReviewJson.do", new GetReviewJson());				// AJAX 목록 조회
-		map.put("/getReviewAjax.do", new GetReviewAjax());				// AJAX 목록 조회
+		map.put("/reviewListJson.do", new ReviewListJson());		// 목록 JSON 생성
+		map.put("/reviewListAjax.do", new ReviewListAjax());		// 목록 조회
+		map.put("/getReviewJson.do", new GetReviewJson());			// 단건 JSON 생성
+		map.put("/getReviewAjax.do", new GetReviewAjax());			// 단건 조회
+		map.put("/modReviewJson.do", new ModReviewJson());			// 수정 JSON 생성
+		map.put("/remReviewJson.do", new RemReviewJson());			// 삭제 JSON 생성
+		map.put("/ReviewPagingJson.do", new ReviewPagingJson());	// 페이징 JSON 생성
+		
+		// Detail
+		map.put("/detailListJson.do", new DetailListJson());
+		map.put("/addDetailJson.do", new AddDetailJson());
 		
 		return map;
 	}

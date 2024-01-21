@@ -2,38 +2,40 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="container">
-	<h3>리뷰 등록</h3><br>
+	<h3>리뷰 등록</h3>
+	<br>
 	<form name="addReviewForm" action="addReview.do" method="post">
-		<input type="hidden" name="goodsCode" value="${goodsCode }">
-		<table class="table">
-			<tr>
-				<th>상품코드</th>
-				<td>${goodsCode}</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td><input type="text" name="title"></td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td><textarea name="content" cols="30" rows="10"></textarea></td>
-			</tr>
-			<tr>
-				<th>별점</th>
-				<td><input type="number" max="5" min="0" step="1" value="5" name="stars"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="저장">
-					<input type="button" value="취소" onclick="showReviewList(`${goodsCode}`)">
-				</td>
-			</tr>
-		</table>
+		<div class="col-lg-12">
+			<div class="section-title related-blog-title">
+				<h2>상품평 등록</h2>
+			</div>
+			<input type="hidden" name="goodsCode" value="">
+			<div class="checkout__input">
+				<p>제목</p>
+				<input type="text" name="title" value="${result.title}">
+			</div>
+			<div class="checkout__input">
+				<p>내용</p>
+				<textarea style="width: 100%" rows="4" name="content">${result.content}</textarea>
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="checkout__input">
+				<p>별점</p>
+				<input type="number" name="stars" value="${result.stars}" min="1"
+					max="5" step="1">
+			</div>
+		</div>
+		<div class="checkout__input">
+			<input type="submit" class="site-btn modbutton" id="modCheck"
+				value="저장"> <input type="button" class="site-btn modbutton"
+				id="modCancel" value="취소">
+		</div>
 	</form>
 </div>
 <script>
-function showReviewList(goodsCode){
-	window.location.href = "reviewList.do?goodsCode=" + goodsCode;
-	console.log(reviewCode);
-}	
+	function showReviewList(goodsCode) {
+		window.location.href = "reviewList.do?goodsCode=" + goodsCode;
+		console.log(reviewCode);
+	}
 </script>

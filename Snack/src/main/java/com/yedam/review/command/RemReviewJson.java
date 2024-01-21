@@ -1,7 +1,9 @@
 package com.yedam.review.command;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,30 +13,37 @@ import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 import com.yedam.review.service.ReviewService;
 import com.yedam.review.serviceImpl.ReviewServiceImpl;
-import com.yedam.review.vo.ReviewVO;
 
-import io.basc.framework.util.page.Page;
-
-public class ReviewListJson implements Control {
+public class RemReviewJson implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		
-		String goodsCode = req.getParameter("goodsCode");
-		String page = req.getParameter("page");
-		page = page == null ? "1" : page;
+		try {
+			req.setCharacterEncoding("utf-8");
+			resp.setContentType("text/json;charset=utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
+		String reviewCode = req.getParameter("reviewCode");
 		ReviewService svc = new ReviewServiceImpl();
-		List<ReviewVO> list = svc.reviewListPaging(goodsCode, Integer.parseInt(page));
+		Map<String, Object> map = new HashMap<>();
 		
-		resp.setContentType("text/json;charset=utf-8");
+		if(svc.remReview(Integer.parseInt(reviewCode))) {
+			map.put("retCode", "OK");
+		} else {
+			map.put("retCode", "NG");
+		}
+		
 		Gson gson = new GsonBuilder().create();
 		
 		try {
-			resp.getWriter().print(gson.toJson(list));
+			resp.getWriter().print(gson.toJson(map));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 }
