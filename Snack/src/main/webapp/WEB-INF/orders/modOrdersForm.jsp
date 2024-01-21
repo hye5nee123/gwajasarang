@@ -8,17 +8,18 @@
 	<form action="modifyOrders.do">
 		<input type="hidden" name="orderCode" value="${vo.orderCode }">
 		<input type="hidden" name="memberCode" value="${vo.memberCode }">
-		<input type="hidden" name="orderAddress" value="getAddress()">
+		<!--  <input type="hidden" name="orderAddress" value="totalAddress">-->
+		
 		<table class="table">
 			<tbody>
 				<tr>
 					<td>배송주소</td>
 					<td colspan="3">
-                    <input type="text" id="sample4_postcode" placeholder="우편번호">
+                    <input type="text" id="sample4_postcode" placeholder="우편번호" readonly>
 					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
                     <!--  <input type="hidden" name="orderAddress" value="${vo.orderAddress }">-->
-					<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+					<input type="text" id="sample4_roadAddress" name="orderAddress" placeholder="도로명주소" readonly>
 					<span id="guide" style="color:#999;display:none"></span>
 					<input type="text" id="sample4_detailAddress" placeholder="상세주소">
 					<input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
@@ -38,25 +39,22 @@
 				</tr>
 				<tr>
 				<td colspan="4" align="center">
-					<input type="submit" value="저장" onclick="alert('수정되었습니다.')" >
+					<input type="submit" value="저장" onclick="getAddress()" >
 					
 					<input type="button" value="뒤로가기" onclick="history.back();" />
 					</td>
 				</tr>
 			</tbody>
-		
-			
-			
 		</table>
-		
 		<script>
 		function getAddress(){
+			alert('수정되었습니다.')
 			let address1 = document.querySelector("#sample4_jibunAddress").value;
 			let address2 = document.querySelector("#sample4_roadAddress").value;
 			let address3 = document.querySelector("#sample4_detailAddress").value;
 			let address4 = document.querySelector("#sample4_postcode").value;
-			console.log(address1, address2, address3, address4)
-			
+			let totalAddress = address2.concat(' '+ address3);
+			console.log(totalAddress)	
 		}
 		 function sample4_execDaumPostcode() {
 		        new daum.Postcode({
@@ -116,12 +114,9 @@
 			</script>
 	</form>
 	</div>
-	
 	<script>
 	function cancelfunc(orderCode){
 		location.href = "ordersList.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
 		alert("처음으로 돌아갑니다.");
 	}
-	
-	
 </script>
