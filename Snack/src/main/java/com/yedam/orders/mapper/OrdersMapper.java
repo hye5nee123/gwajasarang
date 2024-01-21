@@ -16,5 +16,6 @@ public interface OrdersMapper {
 	int deleteOrders(String orderCode); //삭제
 	int deleteDetail(String orderCode); //상세삭제
 	int updateOrders(OrdersVO vo); //수정
+	int insertOrders(OrdersVO vo); //추가
 }
 
