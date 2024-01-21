@@ -32,7 +32,7 @@ public class EFrontController extends HttpServlet {
 		//장바구니 수정.
 		map.put("/modCart.do", new ModCartControl());
 		
-		//
+		//결제 페이지 이동.
 		map.put("/checkout.do", new CheckoutFormControl());
 		return map;
 	}
