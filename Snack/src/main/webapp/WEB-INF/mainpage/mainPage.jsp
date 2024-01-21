@@ -22,6 +22,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+                            <li><a href="#">사탕/껌</a></li>
+                            <li><a href="#">시리얼</a></li>
+                            <li><a href="#">베이커리/잼</a></li>
+                            <li><a href="#">과자/간식세트</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,7 +39,7 @@
                                 <span class="arrow_carrot-down"></span>
                             </div> -->
                             <input type="text" id="searchBox" placeholder="검색어를 입력해주세요">
-                            <button type="submit" class="site-btn">SEARCH</button>
+                            <button type="button" class="site-btn" onclick="searchFunc()">SEARCH</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">
@@ -48,13 +52,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero__item set-bg" data-setbg="bootstrap/img/hero/banner.jpg" style="background-image: url(&quot;bootstrap/img/hero/banner.jpg&quot;);">
-                    <!-- <div class="hero__text">
+                <div class="hero__item set-bg" data-setbg="bootstrap/img/hero/banner02.jpg" style="background-image: url(&quot;bootstrap/img/hero/banner.jpg&quot;);">
+                    <div class="hero__text">
                         <span>SNACK LOVE</span>
                         <h2>맛있는건 다 있는 <br>과자사랑</h2>
                         <p>다양한 종류의 과자들을 만나보세요</p>
-                        <a href="#" class="primary-btn">둘러보기</a>
-                    </div> -->
+                        <a href="../Snack/goodsList.do" class="primary-btn">둘러보기</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,27 +73,27 @@
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-1.jpg">
-                        <h5><a href="#">Fresh Fruit</a></h5>
+                        <h5><a href="goodsList.do?category=과자">과자</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-2.jpg">
-                        <h5><a href="#">Dried Fruit</a></h5>
+                        <h5><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-3.jpg">
-                        <h5><a href="#">Vegetables</a></h5>
+                        <h5><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-4.jpg">
-                        <h5><a href="#">drink fruits</a></h5>
+                        <h5><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-5.jpg">
-                        <h5><a href="#">drink fruits</a></h5>
+                        <h5><a href="goodsList.do?category=초콜릿">초콜릿</a></h5>
                     </div>
                 </div>
             </div>
@@ -104,11 +108,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Featured Product</h2>
+                    <h2>Category</h2>
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        <li class="active" data-filter="*">All</li>
+                        <li class="active" data-filter="*">전체</li>
                         <li data-filter=".oranges">Oranges</li>
                         <li data-filter=".fresh-meat">Fresh Meat</li>
                         <li data-filter=".vegetables">Vegetables</li>
@@ -261,3 +265,19 @@
     </div>
 </div>
 <!-- Banner End -->
+
+<script>
+	let input = document.getElementById('searchBox');
+	
+	input.addEventListener("keydown", function(e) {
+		if(e.keyCode === 13) {
+			e.preventDefault();
+			document.querySelector(".site-btn").click();
+		}
+	});
+	
+	function searchFunc() {
+		let keyword = document.getElementById('searchBox').value;
+		window.location.href = "searchList.do?keyword=" + keyword;
+	}
+</script>

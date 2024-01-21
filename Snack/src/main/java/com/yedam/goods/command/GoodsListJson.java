@@ -56,10 +56,11 @@ public class GoodsListJson implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String category = req.getParameter("category");
+		String keyword = req.getParameter("keyword");
 		String page = req.getParameter("page");
 		
 		GoodsService svc = new GoodsServiceImpl();
-		int total = svc.totalCnt(category);
+		int total = svc.totalCnt(category, keyword);
 		
 		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
 		Gson gson = new GsonBuilder().create();

@@ -49,6 +49,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+                            <li><a href="#">사탕/껌</a></li>
+                            <li><a href="#">시리얼</a></li>
+                            <li><a href="#">베이커리/잼</a></li>
+                            <li><a href="#">과자/간식세트</a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,12 +111,16 @@
                         <div class="sidebar__item">
                             <h4>Category</h4>
                             <ul>
-                                <li><a href="goodsList.do?category=과자">과자</a></li>
-                                <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
-                                <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
-                                <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
-                                <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
-                                <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+                            <li><a href="goodsList.do?category=과자">과자</a></li>
+                            <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
+                            <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
+                            <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
+                            <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
+                            <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+                            <li><a href="#">사탕/껌</a></li>
+                            <li><a href="#">시리얼</a></li>
+                            <li><a href="#">베이커리/잼</a></li>
+                            <li><a href="#">과자/간식세트</a></li>
                             </ul>
                         </div>
                     </div>
@@ -191,8 +199,6 @@
                         </div>
                     </c:forEach>
                     </div>
-                    <h1>카테고리: ${category }</h1>
-                    ${dto }
                     <div class="product__pagination">
 	                    <c:choose>
 	                    <c:when test="${empty category }">

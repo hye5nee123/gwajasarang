@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.detail.mapper.DetailMapper">
+	<select id="selectDetail" parameterType="String" resultType="detail">
+		SELECT *
+		FROM   detail
+		WHERE  order_code = #{ordersCode}
+	</select>
+	<insert id="insertDetail" parameterType="detail">
+		INSERT INTO detail(detail_code, order_code, goods_code, quantity, detail_price)
+		VALUES(detail_seq.nextval, #{ordersCode}, #{goodsCode}, #{quantity}, #{detailPrice})
+	</insert>
+
+</mapper>
