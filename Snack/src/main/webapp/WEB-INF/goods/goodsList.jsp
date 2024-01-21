@@ -102,10 +102,10 @@
                         <div class="section-title product__discount__title">
                             <h2>추천상품</h2>
                         </div>
-                        <div class="row" id="list">
-                            <div class="product__discount__slider owl-carousel">
-                            	<c:forEach var="vo" items="${goodsList }">
-                                <div class="col-lg-4">
+                        <div class="row" >
+                             <div class="product__discount__slider owl-carousel" id="list" >
+<%--                              	<c:forEach var="vo" items="${goodsList }"> --%>
+<%--                                <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="images/${vo.thumbImage }" onclick="location.href='getGoods.do?gcode=${vo.goodsCode }'">
@@ -124,7 +124,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </c:forEach>
+                                </c:forEach> --%>
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,6 @@
 	
 	function makeList(item) {
 		console.log(item)
-		console.log(category)
 
             let list = `
             	<div class="col-lg-4">
@@ -251,11 +250,12 @@
                 </div>
                 <div class="product__discount__item__text">
                     <span>Dried Fruit</span>
-                    <h5><a href="getGoods.do?gcode=\${item.goodsCode }">${item.goodsName }</a></h5>
+                    <h5><a href="getGoods.do?gcode=\${item.goodsCode }">\${item.goodsName }</a></h5>
                     <div class="product__item__price">\${item.price }원 <!-- <span>$36.00</span> --></div>
                 </div>
             </div>
-            </div>`
+            </div>
+            `
     
     document.querySelector('#list').insertAdjacentHTML("beforeend", list);
 	}
