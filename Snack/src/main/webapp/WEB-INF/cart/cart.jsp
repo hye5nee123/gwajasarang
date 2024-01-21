@@ -28,10 +28,12 @@
                         <table>
                             <thead>
                                 <tr>
+                                	<input type="checkbox" name="selectAll" style="padding:100px">
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th>Total</th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -72,3 +74,6 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 	<script src="js/cart.js"></script>
+	<script>
+	$(document).ready(cartList(`${memberCode}`));
+	</script>

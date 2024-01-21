@@ -1,18 +1,9 @@
 /**
  * cart.js
  */
-$(document).ready(cartList());
-
-//플러스,마이너스 버튼 이벤트 등록.
-// btnEvent(){
-//     $(".inc.qtybtn").on("click",function () { 
-
-//      })
-// };
-
 //카트 전체 목록 보기
-function cartList() {
-    fetch("cartListJson.do?memberCode=M-00001", {
+function cartList(logCode) {
+    fetch("cartListJson.do?memberCode=" + logCode, {
         method: "post",
         headers: { "Content-Type": "application/json" }
     })
@@ -21,8 +12,10 @@ function cartList() {
             console.log(res);
             $(res).each((idx, cart) => {
                 let tr = `      <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
+                
+                <td class="shoping__cart__item">
+                <div><input type="checkbox" name="select" style="size=100px" data-></div>
+                                        <img src="images/${cart.thumbImage}" alt="인디언" style="width : 80px">
                                         <h5>${cart.goodsName}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
@@ -32,15 +25,17 @@ function cartList() {
                                         <div class="quantity">
                                         <div class="pro-qty">
                                                 <span class="dec qtybtn">-</span>
-                                                <input type="text" value=1 class="que">
+                                                <input type="text" value="${cart.quantity}" class="que">
                                                 <span class="inc qtybtn" >+</span>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td class="shoping__cart__total " >
-                                    ${cart.price * cart.quantity}
-                                    <td><button id="updateBtn">수정</td>
-                                    </td>
+                                        </td>
+                                        <td class="shoping__cart__total " >
+                                        ${cart.price * cart.quantity}
+                                        </td>
+                                        <td>
+                                        <button class="updateBtn" data-cartCode1="${cart.cartCode}">수정
+                                        </td>
                                     <td class="shoping__cart__item__close" id="delCart"">
                                         <span class="icon_close" data-cartCode="${cart.cartCode}"></span>
                                         </td>
@@ -49,7 +44,7 @@ function cartList() {
                 cartListTbody.insertAdjacentHTML('afterend', tr);
                 console.log('카트번호 : ' + `${cart.cartCode}`);
                 console.log('수량 : ' + $('.que').val());
-                
+
             })//end of foreach
             const totalList = document.querySelectorAll(".shoping__cart__total");
             let cartPrice = 0;
@@ -68,7 +63,7 @@ function cartList() {
                 let onePrice = $(this).closest("td").prev().text();
                 $(this).closest("td").next().text(pbtnresult * onePrice);
                 console.log(pbtnresult * onePrice);
-                
+
                 const totalList = document.querySelectorAll(".shoping__cart__total");
                 console.log(totalList[0].innerHTML);
                 let cartPrice = 0;
@@ -76,7 +71,7 @@ function cartList() {
                     cartPrice = cartPrice + parseInt(ele.innerHTML);
                 })
                 document.querySelector('#total').innerHTML = cartPrice;
-                                //sevent.target.previousElementSibling.value(++$(cart.quantity));
+                //sevent.target.previousElementSibling.value(++$(cart.quantity));
             }) //end of plusBtn
 
             //아이템 삭제.
@@ -97,9 +92,33 @@ function cartList() {
                     })
             })
             //end of 아이템 삭제.
-            
+
             //수량 수정.
-            $(".")
+            $(".updateBtn").on("click", function () {
+
+                //cartCode가져오기
+                //console.log ($(this).data("cartcode1"));
+
+                //quantity 가져오기.
+                //console.log($(this).closest("tr").find(".que").val());
+
+                let cartCode = $(this).data("cartcode1");
+                let cartQuantity = $(this).closest("tr").find(".que").val()
+
+                fetch("modCart.do?cartCode=" + cartCode + "&quantity=" + cartQuantity, {
+
+                    method: "post"
+                })
+                    .then(result => result.json())
+                    .then(result => {
+                        if (result.retCode == "OK") {
+                            alert('수정됨');
+                        } else {
+                            alert('수정 중 오류 발생')
+                        }
+                    })
+            })
+
 
             //마이너스 버튼 작동 fun().
             $(".dec").on('click', function () {
@@ -129,7 +148,7 @@ function cartList() {
             }) //end of minusBtn
 
             //total 가격 출력.
-            $('.total').on('click',function(){
+            $('.total').on('click', function () {
 
             })
 

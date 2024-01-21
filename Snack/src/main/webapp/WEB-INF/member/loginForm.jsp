@@ -23,20 +23,15 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>전체 카테고리</span>
                     </div>
                     <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit &amp; Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter &amp; Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya &amp; Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
+                        <li><a href="goodsList.do?category=과자">과자</a></li>
+                        <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
+                        <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
+                        <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
+                        <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
+                        <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,12 +39,12 @@
                 <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
+<!--                                 <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div> -->
+                            <input type="text" id="searchBox" placeholder="검색어를 입력해주세요">
+                            <button type="button" class="site-btn" onclick="searchFunc()">SEARCH</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">
@@ -57,8 +52,8 @@
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
+                            <h5>053-777-7777</h5>
+                            <span>평일 9:00 ~ 18:00</span>
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ import com.yedam.common.Control;
 import com.yedam.orders.service.OrdersService;
 import com.yedam.orders.serviceImpl.OrdersServiceImpl;
 import com.yedam.orders.vo.OrdersVO;
+import com.yedam.orders.vo.PageDTO;
 
 public class OrdersListControl implements Control {
 
@@ -21,9 +22,18 @@ public class OrdersListControl implements Control {
 		OrdersService svc = new OrdersServiceImpl();
 		
 		String memberCode = req.getParameter("memberCode");
+		String page = req.getParameter("page");
 		
-		List<OrdersVO> list = svc.ordersList(memberCode);
+		page = ( page == null ? "1" : page);
 		
+		List<OrdersVO> list = svc.OrdersListPaging(memberCode, Integer.parseInt(page));
+		
+		int total = svc.getTotalCnt(memberCode);
+		
+		PageDTO dto = new PageDTO(Integer.parseInt(page),total);
+		
+		req.setAttribute("dto", dto);
+		req.setAttribute("memberCode", memberCode);
 		req.setAttribute("ordersList", list);
 		
 		try {

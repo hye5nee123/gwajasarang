@@ -24,7 +24,7 @@
 				category = #{category}
 				</if>
 				</where> order by 1
-		        ) a 
+		        ) a
 		    ) b
 			<![CDATA[
 			WHERE b.rn > (#{page}-1)*12 AND b.rn <= #{page}*12
@@ -35,11 +35,36 @@
 		select * from goods where goods_code = #{gcode}
 	</select>
 	
- 	<select id="selectSearch" resultType="goods" parameterType="string">
-		select * from goods where goods_name like '%'||#{keyword}||'%' order by 1
+ 	<select id="selectSearch" resultType="goods">
+ 		SELECT b.* FROM
+		    (
+		    SELECT ROWNUM rn, a.*
+		    FROM
+		        (
+		        select * from goods
+				<where>
+				<if test = 'keyword != null'>
+				goods_name like '%'||#{keyword}||'%'
+				</if>
+				</where> order by 1
+		        ) a
+		    ) b
+			<![CDATA[
+			WHERE b.rn > (#{page}-1)*12 AND b.rn <= #{page}*12
+			]]>
+ 	
+<!--  		select * from goods where goods_name like '%'||#{keyword}||'%' order by 1 -->
 	</select>
 	
 	<select id="selectCount" resultType="int">
 		select count(*) from goods
+		<where>
+		<if test = 'category != null'>
+		category = #{category}
+		</if>
+		<if test = 'keyword != null'>
+		goods_name like '%'||#{keyword}||'%'
+		</if>
+		</where>
 	</select>
 </mapper>
