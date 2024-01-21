@@ -21,4 +21,5 @@ public class GoodsVO {
 	private double sfat;
 	private double protein;
 	private int viewPage = 1;
+	private int count;
 }

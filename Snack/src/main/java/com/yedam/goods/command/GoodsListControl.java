@@ -26,12 +26,14 @@ public class GoodsListControl implements Control {
 		
 		GoodsService svc = new GoodsServiceImpl();
 		List<GoodsVO> goodsList = svc.goodsList(category, Integer.parseInt(page));
+//		List<GoodsVO> recommendList = svc.recommendList(category);
 		int total = svc.totalCnt(category, keyword);
 		
 		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
 		
 		req.setAttribute("category", category);
 		req.setAttribute("goodsList", goodsList);
+//		req.setAttribute("recommendList", recommendList);
 		req.setAttribute("total", total);
 		req.setAttribute("dto", dto);
 		
@@ -46,6 +48,8 @@ public class GoodsListControl implements Control {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
+		
 		
 		
 	}

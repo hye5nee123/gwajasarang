@@ -11,4 +11,5 @@ public interface GoodsMapper {
 	public GoodsVO selectOne(String gcode);
 	public List<GoodsVO> selectSearch(@Param("keyword") String keyword, @Param("page") int page);
 	public int selectCount(@Param("category") String category, @Param("keyword") String keyword);
+	public List<GoodsVO> selectRecommend(@Param("category") String category);
 }
