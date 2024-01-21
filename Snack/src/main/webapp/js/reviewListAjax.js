@@ -123,7 +123,6 @@ function makeTr(item) {
 	}, function() {
 		$(this).css('background', 'none');
 	});
-
 }
 
 // 페이징 링크 생성
@@ -164,12 +163,10 @@ function pagingList(page) {
 				aTag.addEventListener('click', pageList);
 				paging.appendChild(aTag);
 			}
-
 		})
 		.catch(err => {
 			console.error(err)
 		})
-	
 }
 
 // 상품평 상세 테이블 생성 함수
@@ -313,13 +310,10 @@ function showDetail(reviewCode) {
 						setTimeout(function() {
 							
 							showList();
-						}, 1000);
-				
-						
+						}, 1000);					
 					}
 				}
 			});
-
 		})
 		.catch(err => {
 			console.error(err)
@@ -346,7 +340,7 @@ function modReviewForm(result) {
 	                    <textarea style="width:100%" rows="4" name="content">${result.content}</textarea>
 	                </div>
                 </div>
-                <div class="col-lg-1">
+                <div class="col-lg-2">
 	                <div class="checkout__input">
 	                    <p>별점</p>
 	                    <input type="number" name="stars" value="${result.stars}" min="1" max="5" step="1">
