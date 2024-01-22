@@ -51,12 +51,14 @@
 
 						<tr>
 
-							<td colspan="4" align="center"><input type="button"
-								onclick="modifyfunc('${vo.orderCode}')" value="주문수정"> <input
-								type="button"
+							<td colspan="4" align="center">
+							  <input type="button"
+								onclick="modifyfunc('${vo.orderCode}')" value="수정"> 
+							  <input type="button"
 								onclick="deletefunc('${vo.orderCode}', '${vo.memberCode}')"
-								value="주문삭제"> <input type="button" value="뒤로가기"
-								onclick="history.back();" /></td>
+								value="삭제"> 
+							  <input type="button" value="뒤로"
+								onclick="history.back();"/></td>
 						</tr>
 
 					</tbody>
@@ -70,7 +72,7 @@
 				<ul id="detailList">
 				</ul>
 				<div class="checkout__order__subtotal">
-					Subtotal <span>$750.99</span>
+					
 				</div>
 				
 			</div>
@@ -81,24 +83,29 @@
 <div id="paging" class="col-lg-12 product__pagination"></div>
 
 <script>
+	showDetailList(`${vo.orderCode}`)
 
 
-
+	// 삭제
 	function deletefunc(orderCode, memberCode) {
 		console.log(orderCode, memberCode)
-		location.href = "deleteOrders.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
+		//  if넣어서 상태체크 맞으면 보내고 안맞으면 뒤로
+		
+			location.href = "deleteOrders.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
 		alert("삭제되었습니다.")
 	}
 	
+	//수정
 	function modifyfunc(orderCode) {
 		location.href = "modifyForm.do?orderCode=" + orderCode;
-		
 	}
+	
+	//돌아가기
 	function backfunc(orderCode, memberCode){
 		location.href = "ordersList.do?memberCode=" + orderCode + "&memberCode=" + memberCode;
 		alert("목록으로 돌아갑니다.")
 	}
-	//페이지 클릭하면 페이지의 데이터 보여주도록하기.
+	//주문상세내역
 	function showDetailList(orderCode){
 		fetch("detailListJson.do?orderCode="+orderCode,{
 			method:'post',
@@ -109,12 +116,16 @@
 			console.log(res);			
 			$(res).each((idx, item)=>{
 				console.log(item.goodsName)
-				let li= $('<li />').text(item.goodsName)
-				let span = $('<span />').text(item.quantity)
-				let button = $('<span />').append($('<input type="button" />').val('리뷰작성'))
+				let li= $('<li />').text(item.goodsName);
+				let span = $('<span />').text(item.quantity);
+				let button = $('<span />').append($(`<input type="button" onclick="addReviewFunc('\${item.goodsCode}')" />`).val('리뷰작성'));
 				$('#detailList').append(li.append(span)).append(button);
+				
 			})
-	})
+		})
 	}
-	showDetailList(`${vo.orderCode}`)
+
+	function addReviewFunc(goodsCode){
+		location.href ='addReviewForm.do?goodsCode=' + goodsCode;
+	}
 </script>

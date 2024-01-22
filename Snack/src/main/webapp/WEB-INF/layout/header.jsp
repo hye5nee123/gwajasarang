@@ -61,7 +61,7 @@
                            	</c:when>
                            	<c:otherwise>
                            		<li><a href="../Snack/memberListForm.do?memberCode=${logCode}">회원정보</a></li>
-                           		<li><a href="#">주문정보</a></li>
+                           		<li><a href="../Snack/ordersList.do">주문정보</a></li>
                            	</c:otherwise>
 			        	</c:choose> 
                         <li><a href="#">회사소개</a></li>
