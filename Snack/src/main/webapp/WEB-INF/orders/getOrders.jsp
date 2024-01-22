@@ -25,7 +25,7 @@
 						</tr>
 						<tr>
 							<th>배송주소</th>
-							<td colspan='3'>${vo.orderAddress}</td>
+							<td colspan='3'>${vo.orderAddress} ${vo.orderAddressDetail}</td>
 							
 						</tr>
 						<tr>
@@ -81,6 +81,9 @@
 <div id="paging" class="col-lg-12 product__pagination"></div>
 
 <script>
+
+
+
 	function deletefunc(orderCode, memberCode) {
 		console.log(orderCode, memberCode)
 		location.href = "deleteOrders.do?orderCode=" + orderCode + "&memberCode=" + memberCode;
