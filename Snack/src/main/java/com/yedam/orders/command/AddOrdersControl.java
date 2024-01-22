@@ -17,21 +17,25 @@ public class AddOrdersControl implements Control {
 		OrdersVO vo = new OrdersVO();
 		
 		req.getMethod().equals("GET");
-		String odrerAddress = req.getParameter("orderAddress");
+		String orderAddress = req.getParameter("orderAddress");
 		String orderName = req.getParameter("orderName");
 		String orderPhone = req.getParameter("orderPhone");
 		String memo = req.getParameter("memo");
 		String deliveryFee = req.getParameter("deliveryFee");
 		String totalPrice = req.getParameter("total_price");
 		String orderDate = req.getParameter("orderDate");
+		String orderAddressDetail = req.getParameter("orderAddressDetail");
+		String orderPostcode = req.getParameter("orderPostcode");
 		
-		vo.setOrderAddress(odrerAddress);
+		vo.setOrderAddress(orderAddress);
 		vo.setOrderName(orderName);
 		vo.setOrderPhone(orderPhone);
 		vo.setMemo(memo);
-		vo.setDeliveryFee(0);
-		vo.setTotalPrice(0);
+		vo.setDeliveryFee(Integer.parseInt(deliveryFee));
+		vo.setTotalPrice(Integer.parseInt(totalPrice));
 		vo.setOrderDate(orderDate);
+		vo.setOrderAddressDetail(orderAddressDetail);
+		vo.setOrderPostcode(orderPostcode);
 		
 		OrdersService svc = new OrdersServiceImpl();
 		try {

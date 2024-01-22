@@ -8,20 +8,20 @@
 	<form action="modifyOrders.do">
 		<input type="hidden" name="orderCode" value="${vo.orderCode }">
 		<input type="hidden" name="memberCode" value="${vo.memberCode }">
-		<!--  <input type="hidden" name="orderAddress" value="totalAddress">-->
+		
 		
 		<table class="table">
 			<tbody>
 				<tr>
 					<td>배송주소</td>
 					<td colspan="3">
-                    <input type="text" id="sample4_postcode" placeholder="우편번호" readonly>
+                    <input type="text" id="sample4_postcode" name="orderPostcode" value="${vo.orderPostcode }">
 					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+					<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
                     <!--  <input type="hidden" name="orderAddress" value="${vo.orderAddress }">-->
-					<input type="text" id="sample4_roadAddress" name="orderAddress" placeholder="도로명주소" readonly>
+					<input type="text" id="sample4_roadAddress" name="orderAddress" value="${vo.orderAddress }">
 					<span id="guide" style="color:#999;display:none"></span>
-					<input type="text" id="sample4_detailAddress" placeholder="상세주소">
+					<input type="text" id="sample4_detailAddress" name="orderAddressDetail" value="${vo.orderAddressDetail }">
 					<input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
                     </td>
 				</tr>
