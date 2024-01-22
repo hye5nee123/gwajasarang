@@ -48,8 +48,5 @@
   <select id="selectCount" resultType="int" parameterType="String">
 	select count(*) from orders where member_code = #{memberCode}
   </select>
-  
-  
-  
 </mapper>
 

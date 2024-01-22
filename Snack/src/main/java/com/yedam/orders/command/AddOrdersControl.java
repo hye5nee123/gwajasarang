@@ -44,8 +44,8 @@ public class AddOrdersControl implements Control {
 		String orderCode = vo.getOrderCode();
 		//String orderCodeStr = "O-" + String.format("%05d", orderCode);
 		req.setAttribute("orderCode", orderCode);
-
-		RequestDispatcher rd = req.getRequestDispatcher("orders/getOrders.tiles");
+		req.setAttribute("vo", vo);
+		RequestDispatcher rd = req.getRequestDispatcher("getOrders.do?orderCode=" + orderCode);
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {

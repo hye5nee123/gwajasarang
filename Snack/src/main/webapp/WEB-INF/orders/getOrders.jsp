@@ -69,10 +69,6 @@
 				
 				<ul id="detailList">
 				</ul>
-				<div class="checkout__order__subtotal">
-					Subtotal <span>$750.99</span>
-				</div>
-				
 			</div>
 		</div>
 	</div>
