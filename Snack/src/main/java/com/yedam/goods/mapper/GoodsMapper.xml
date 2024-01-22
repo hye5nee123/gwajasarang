@@ -26,7 +26,7 @@
 				</where> 
 				
 				<if test = 'sort != null and sort != ""'>
-				order by ${sort}
+				order by ${sort} desc
 				</if>
 				<if test = 'sort == null'>
 				order by goods_name
