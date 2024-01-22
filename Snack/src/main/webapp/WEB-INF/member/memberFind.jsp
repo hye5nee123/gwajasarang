@@ -8,13 +8,14 @@
 	div.row{justify-content:space-between; margin:0;}
 	#id{flex:0 0 83%;}
 	#id_check{flex:0 0 15%; padding:0 15px; font-size:14px; color:#fff; background:#6f6f6f; border:0;}
-	#find_popup{position:fixed; top:0; left:0; width:100%; height:100%;}
+	#find_popup{position:fixed; top:0; left:0; width:100%; height:100%; z-index:100;}
 	#find_popup:before{content:''; display:block; position:fixed; width:100%; height:100%; background:rgba(0, 0, 0, 0.5);}
 	#find_popup p{text-align:center;}
 	#find_popup p em{font-style:normal; color:#7fad39; font-weight:700;}
 	#find_popup.show{display:block !important;}
 	#find_popup .find_box{position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); width:600px; height:300px; padding:30px; background:#fff; border-radius:20px; box-sizing:border-box;}
 	#find_popup .close{position:absolute; right:50px; top:28px;}
+	#find_popup #result_btn{display:block; margin:50px auto 0; padding:13px 30px 12px; border-radius:.3rem; color:#fff; border:0; background:#6f6f6f;}
 	
 </style>
 
@@ -115,13 +116,23 @@ function findId(){
 	    }) */
     	if(result == null){
 	    	$("#find_popup").find('p').html("찾는 아이디가 없습니다.").addClass('warning');
-	    	$("#result_btn").text("다시검색");
+	    	$("#result_btn").text("다시검색").addClass("close_popup");
+	    	$(".close_popup").on('click', function() {
+	    		$("#find_popup").removeClass();
+	    		$(".checkout__input input").val(""); 
+	    		$(".checkout__input #name").focus(); 
+	    	})
 	    } else {
 	    	$("#find_popup").find('p').html("찾으시는 아이디는 " + "<em>" + result + "</em>" + " 입니다.").addClass('warning');	
-	    	$("#result_btn").text("로그인하러가기");
+	    	$("#result_btn").text("로그인하러가기").attr("onclick", "loginGoFun()");
 	    }
 	   
     })
     .catch(err => console.log(err));
+}
+
+function loginGoFun(){
+	document.forms.findId.action = "loginForm.do";
+	document.forms.findId.submit();
 }
 </script>

@@ -21,17 +21,17 @@ public class GoodsListJson implements Control {
 		String category = req.getParameter("category");
 		
 		GoodsService svc = new GoodsServiceImpl();
-		List<GoodsVO> list = svc.recommendList(category);
+//		List<GoodsVO> list = svc.recommendList(category);
 		
 		resp.setContentType("text/json;charset=utf-8");
 		Gson gson = new GsonBuilder().create();
 		
-		try {
-			resp.getWriter().print(gson.toJson(list));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			resp.getWriter().print(gson.toJson(list));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 }

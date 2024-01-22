@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import com.yedam.like.command.LikeAddControl;
 import com.yedam.like.command.LikeDelControl;
 import com.yedam.like.command.LikeListControl;
-import com.yedam.like.command.LikeListForm;
 import com.yedam.main.command.mainPageControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
@@ -16,9 +15,11 @@ import com.yedam.member.command.LogoutControl;
 import com.yedam.member.command.MemberAddControl;
 import com.yedam.member.command.MemberAddForm;
 import com.yedam.member.command.MemberAddJson;
-import com.yedam.member.command.MemberSelect;
+import com.yedam.member.command.MemberFindForm;
+import com.yedam.member.command.MemberFindJson;
 import com.yedam.member.command.MemberModifyControl;
 import com.yedam.member.command.MemberModifyForm;
+import com.yedam.member.command.MemberSelect;
 
 public class CFrontController extends HttpServlet{
 	// 신수지
@@ -37,6 +38,10 @@ public class CFrontController extends HttpServlet{
 		map.put("/memberAdd.do", new MemberAddControl());
 		map.put("/memberAddForm.do", new MemberAddForm());
 		map.put("/memberAddJson.do", new MemberAddJson());
+		
+		// 아이디찾기
+		map.put("/memberFindJson.do", new MemberFindJson());
+		map.put("/memberFindForm.do", new MemberFindForm());
 		
 		// 회원정보조회
 		map.put("/memberSelect.do", new MemberSelect());

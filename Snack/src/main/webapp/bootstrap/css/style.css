@@ -2620,6 +2620,8 @@ ol {
 	background: #F3F6FA;
 	padding-top: 30px;
 	padding-bottom: 0;
+	position:relative;
+	z-index:0;
 }
 
 .footer__about {
