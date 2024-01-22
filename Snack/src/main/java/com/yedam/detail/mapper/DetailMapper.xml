@@ -17,7 +17,7 @@
 		ON c.goods_code = g.goods_code
 		WHERE c.member_code = (SELECT member_code
         		                FROM orders
-            		            WHERE order_code = #{orderCode});
+            		            WHERE order_code = #{orderCode})
 	</insert>
 
 </mapper>
