@@ -5,20 +5,32 @@
 <mapper namespace="com.yedam.cart.mapper.CartMapper">
 	<select id="selectList" resultType="cart" parameterType="String">
 		SELECT
-		c.cart_code, c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
+		c.cart_code, c.member_code, c.quantity, g.goods_name, g.price,
+		g.thumb_image
 		FROM cart c JOIN goods g
 		ON c.goods_code = g.goods_code
 		WHERE c.member_code = #{memberCode}
 	</select>
 	<insert id="insertCart" parameterType="cart">
-		insert into cart values (cart_seq.nextval, #{quantity}, #{memberCode},
+		insert into cart values
+		(cart_seq.nextval, #{quantity}, #{memberCode},
 		#{goodsCode})
 	</insert>
 	<delete id="deleteCart" parameterType="int">
-		delete from cart where cart_code = #{cartCode}
+		delete from cart where
+		cart_code = #{cartCode}
 	</delete>
 	<update id="updateCart" parameterType="cart">
-		update cart set quantity = #{quantity} where cart_code = #{cartCode}
+		update cart set quantity =
+		#{quantity} where cart_code = #{cartCode}
 	</update>
-	</mapper>
+	<insert id="addOrder" parameterType="string">
+		INSERT INTO detail (detail_code, order_code, goods_code, quantity,
+		detail_price)
+		SELECT detail_seq.NEXTVAL, #{orderCode}, c.goods_code, c.quantity, g.price
+		FROM cart c
+		LEFT JOIN goods g
+		ON c.goods_code = g.goods_code;
+	</insert>
+</mapper>
 
