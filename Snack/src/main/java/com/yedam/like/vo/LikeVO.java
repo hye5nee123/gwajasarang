@@ -1,5 +1,8 @@
 package com.yedam.like.vo;
 
+import lombok.Data;
+
+@Data
 public class LikeVO {
 	private int likesCode; 
 	private String goodsCode;

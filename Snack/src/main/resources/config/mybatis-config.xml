@@ -15,6 +15,7 @@
   <typeAlias alias="member" type="com.yedam.member.vo.MemberVO"/>
   <typeAlias alias="cart" type="com.yedam.cart.vo.CartVO"/>
   <typeAlias alias="detail" type="com.yedam.detail.vo.DetailVO"/>
+  <typeAlias alias="like" type="com.yedam.like.vo.LikeVO"/>
 </typeAliases>
   
   <environments default="development">
@@ -36,5 +37,6 @@
   	<mapper resource="com/yedam/member/mapper/MemberMapper.xml"/>
   	<mapper resource="com/yedam/cart/mapper/CartMapper.xml"/>
   	<mapper resource="com/yedam/detail/mapper/DetailMapper.xml"/>
+  	<mapper resource="com/yedam/like/mapper/LikeMapper.xml"/>
   </mappers>
 </configuration>

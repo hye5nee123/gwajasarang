@@ -61,14 +61,14 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>주소<span>*</span></p>
-	                <input type="text" id="sample4_postcode" name="postcode" placeholder="우편번호">
+	                <input type="text" id="sample4_postcode" name="postcode" value="${vo.memberPostcode}">
 	                <em></em>
 					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
-					<input type="text" id="sample4_roadAddress" name="address" placeholder="도로명주소">
+					<input type="text" id="sample4_roadAddress" name="address" value="${vo.memberAddress}">
 					<em></em>
 					<span id="guide" style="color:#999;display:none"></span>
-					<input type="text" id="sample4_detailAddress" name="addressDetail" placeholder="상세주소">
+					<input type="text" id="sample4_detailAddress" name="addressDetail" value="${vo.memberAddressDetail}">
 					<em></em>
 					<input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
 	            </div>

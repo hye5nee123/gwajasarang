@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yedam.likeIt.mapper.LikeItMapper">
-	<select id="selectList" parameterType="int" resultType="like">
+<mapper namespace="com.yedam.like.mapper.LikeMapper">
+	<select id="selectList" parameterType="String" resultType="like">
 		SELECT
 		c.cart_code, c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
 		FROM cart c JOIN goods g
@@ -12,7 +12,7 @@
 		WHERE c.member_code = #{memberCode}
 	</select>
 	
-	<insert id="insertLike" parameterType="int">
+	<insert id="insertLike" parameterType="String">
   		insert into likes values (#{memberCode}, #{goodsCode})
   	</insert>
   	
