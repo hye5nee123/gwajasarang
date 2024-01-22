@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.like.mapper.LikeMapper">
+	<select id="selectList" parameterType="String" resultType="like">
+		select g.goods_code, 
+		       g.goods_name, 
+		       g.price, 
+		       g.thumb_image
+		       
+		  from likes l, goods g
+		  
+		 where l.goods_code = g.goods_code
+		   and l.member_code = #{memberCode}
+	</select>
+	
+	<insert id="insertLike">
+  		insert into likes(likes_code, goods_code, member_code) values (likes_seq.nextval, #{goodsCode}, #{memberCode})
+  	</insert>
+  	
+  	<select id="checkLike" resultType="like" parameterType="String">
+    	select * from likes 
+    	where member_code = #{memberCode} and goods_code = #{goodsCode}
+	</select>
+		
+	<delete id="deleteLike">
+  		delete from likes where goods_code = #{goodsCode} and member_code = #{memberCode}
+  	</delete>
+</mapper>  

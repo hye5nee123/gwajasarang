@@ -29,7 +29,7 @@
     <div class="container">
         <div class="checkout__form">
             <h4>회원가입</h4>
-            <form name="join" action="memberAdd.do">
+            <form name="join" action="memberAdd.do" method="post">
             	<input type="hidden" name="checked_id" value="" />
 	            <div class="checkout__input">
 	                <p>아이디<span>*</span></p>

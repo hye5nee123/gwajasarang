@@ -28,6 +28,10 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <style>
+    	.heart-icon{border:0;}
+    </style>
 </head>
 
 <body>
@@ -144,7 +148,9 @@
                             </div>
                         </div>
                         <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <button type="button" class="heart-icon btn_like" data-membercode="${sessionScope.logCode}" data-goodscode="${vo.goodsCode}">
+							<span class="icon_heart_alt"></span>
+						</button>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
@@ -313,6 +319,7 @@
     </section>
     <!-- Related Product Section End -->
 
+	<script src="js/like.js"></script>
 	<script>
 	let input = document.getElementById('searchBox');
 	
