@@ -19,17 +19,15 @@ public class GoodsListJson implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String category = req.getParameter("category");
-		String keyword = req.getParameter("keyword");
-		String page = req.getParameter("page");
 		
 		GoodsService svc = new GoodsServiceImpl();
-		int total = svc.totalCnt(category, keyword);
+		List<GoodsVO> list = svc.recommendList(category);
 		
-		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
+		resp.setContentType("text/json;charset=utf-8");
 		Gson gson = new GsonBuilder().create();
 		
 		try {
-			resp.getWriter().print(gson.toJson(dto));
+			resp.getWriter().print(gson.toJson(list));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,4 +35,6 @@ public class GoodsListJson implements Control {
 
 	}
 
+
 }
+

@@ -4,29 +4,24 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yedam.likeIt.mapper.LikeItMapper">
-	<select id="selectList" parameterType="int" resultType="likeIt">
-		select member_no,			   
-	           l.book_no,	    
-	           b.img,
-	           b.name,
-	           b.author,
-	           b.comp,
-	           b.price
-		from book b, like_it l
-		where member_no=${memberNo}
-		and b.book_no=l.book_no
+	<select id="selectList" parameterType="int" resultType="like">
+		SELECT
+		c.cart_code, c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
+		FROM cart c JOIN goods g
+		ON c.goods_code = g.goods_code
+		WHERE c.member_code = #{memberCode}
 	</select>
 	
 	<insert id="insertLike" parameterType="int">
   		insert into likes values (#{memberCode}, #{goodsCode})
   	</insert>
   	
-  	<select id="checkLike" resultType="likeIt" parameterType="int">
-    	select * from like_it 
-    	where member_no = #{memberNo} and book_no = #{bookNo}
+  	<select id="checkLike" resultType="like" parameterType="String">
+    	select * from likes 
+    	where member_code = #{memberCode} and goods_code = #{goodsCode}
 	</select>
 		
-	<delete id="deleteLike" parameterType="int">
-  		delete from like_it where book_no = #{bookNo} and member_no = #{memberNo}
+	<delete id="deleteLike" parameterType="String">
+  		delete from likes where goods_code = #{goodsCode} and member_code = #{memberCode}
   	</delete>
 </mapper>  

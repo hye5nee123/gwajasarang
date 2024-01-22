@@ -107,7 +107,7 @@
 							</tr>
 							<tr>	
 								<th><p>주소</p></th>
-								<td>${vo.memberAddress}</td>
+								<td>${vo.memberAddress} ${vo.memberAddressDetail}</td>
 							</tr>
 							<tr>	
 								<th><p>이메일</p></th>
