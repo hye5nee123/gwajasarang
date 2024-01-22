@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="row featured__filter">
-        	<c:forEach var="vo" items="${goodsList }" begin="1" end="8">
+        	<c:forEach var="vo" items="${recommendList }">
             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="bootstrap/img/featured/feature-1.jpg">
