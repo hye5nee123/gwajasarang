@@ -10,4 +10,5 @@ public class DetailVO {
 	private int quantity;
 	private int detailPrice;
 	private String goodsName;
+	private int reviewCode;
 }

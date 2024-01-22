@@ -32,5 +32,8 @@
 		LEFT JOIN goods g
 		ON c.goods_code = g.goods_code;
 	</insert>
+	<delete id="deleteCartAll">
+		delete from cart where member_code = #{memberCode}
+	</delete>
 </mapper>
 

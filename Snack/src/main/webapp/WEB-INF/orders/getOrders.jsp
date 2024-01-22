@@ -103,25 +103,40 @@
 	}
 	//주문상세내역
 	function showDetailList(orderCode){
-		fetch("detailListJson.do?orderCode="+orderCode,{
+		fetch("detailListJson.do" ,{
 			method:'post',
-			headers:{"Content-Type":"application/json"}
+			headers: {
+	            'Content-Type': 'application/x-www-form-urlencoded'
+	        },
+			body: 'orderCode=' + orderCode
 		})
 		.then(res => res.json())
 		.then(res=>{
 			console.log(res);			
 			$(res).each((idx, item)=>{
-				console.log(item.goodsName)
 				let li= $('<li />').text(item.goodsName);
 				let span = $('<span />').text(item.quantity);
-				let button = $('<span />').append($(`<input type="button" onclick="addReviewFunc('\${item.goodsCode}')" />`).val('리뷰작성'));
+				console.log(item)
+				let button;
+				if(item.reviewCode == 0){
+					button = $('<span />').append($(`<input type="button" onclick="addReviewFunc('\${item.detailCode}')" />`).val('리뷰작성'));
+				}
+				else {
+					button = $('<span />').append($(`<input type="button" onclick="getReviewFunc('\${item.reviewCode}')" />`).val('리뷰보기'));
+				}
+				
+				
 				$('#detailList').append(li.append(span)).append(button);
 				
 			})
 		})
 	}
 
-	function addReviewFunc(goodsCode){
-		location.href ='addReviewForm.do?goodsCode=' + goodsCode;
+	function addReviewFunc(detailCode){
+		location.href ='addReviewForm.do?detailCode=' + detailCode;
+	}
+	
+	function getReviewFunc(reviewCode){
+		location.href ='getReview.do?reviewCode=' + reviewCode;
 	}
 </script>

@@ -11,16 +11,17 @@
 	</select>
 
 	<select id="selectOne" resultType="review" parameterType="int">
-		SELECT r.*, m.member_name
-		FROM  review r , member m
+		SELECT r.*, m.member_name, g.goods_name
+		FROM  review r , member m, goods g
 		WHERE r.member_code = m.member_code
+		AND r.goods_code = g.goods_code
 		AND r.review_code =  #{reviewCode}
 	</select>
 	
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO
-		review(review_code, goods_code, member_code, title, content, stars, review_date)
-		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{memberCode}, #{title}, #{content}, #{stars}, SYSDATE)
+		review(review_code, goods_code, member_code, title, content, stars, review_date, detail_code)
+		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{memberCode}, #{title}, #{content}, #{stars}, SYSDATE, ${detailCode})
 	</insert>
 	
 	<update id="updateReview" parameterType="review">

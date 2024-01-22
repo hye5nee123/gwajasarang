@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.yedam.cart.mapper.CartMapper;
 import com.yedam.common.DataSource;
 import com.yedam.detail.mapper.DetailMapper;
 import com.yedam.orders.mapper.OrdersMapper;
@@ -16,6 +17,7 @@ public class OrdersServiceImpl implements OrdersService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	OrdersMapper mapper = session.getMapper(OrdersMapper.class);
 	DetailMapper detailMapper = session.getMapper(DetailMapper.class);
+	CartMapper cartMapper = session.getMapper(CartMapper.class);
 //	@Override
 //	public List<OrdersVO> ordersList() {
 //		// TODO Auto-generated method stub
@@ -52,6 +54,7 @@ public class OrdersServiceImpl implements OrdersService {
 	public boolean addOrders(OrdersVO vo) {
 		// TODO Auto-generated method stub
 		mapper.insertOrders(vo);
+		cartMapper.deleteCartAll(vo.getMemberCode());
 		return detailMapper.insertDetail(vo.getOrderCode()) == 1;	
 		
 		
