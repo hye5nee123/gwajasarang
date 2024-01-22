@@ -15,10 +15,10 @@ public class DFrontController extends HttpServlet{
 	Map<String, Control> map = new HashMap<>();
 	
 	Map<String, Control> getMap() {
-		map.put("/goodsList.do", new GoodsListControl());
+		map.put("/goodsList.do", new GoodsListControl());	// 상품목록
 //		map.put("/goodsListJson.do", new GoodsListJson());
-		map.put("/getGoods.do", new GetGoodsControl());
-		map.put("/searchList.do", new SearchListControl());
+		map.put("/getGoods.do", new GetGoodsControl());	// 상품 상세페이지
+		map.put("/searchList.do", new SearchListControl());	// 상품검색
 		return map;
 	}
 }

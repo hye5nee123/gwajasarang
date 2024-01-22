@@ -20,10 +20,17 @@
 		        (
 		        select * from goods
 				<where>
-				<if test = 'category != null'>
+				<if test = 'category != null and category != ""'>
 				category = #{category}
 				</if>
-				</where> order by 1
+				</where> 
+				
+				<if test = 'sort != null and sort != ""'>
+				order by ${sort}
+				</if>
+				<if test = 'sort == null'>
+				order by goods_name
+				</if>
 		        ) a
 		    ) b
 			<![CDATA[
@@ -32,7 +39,24 @@
 	</select>
 	
  	<select id="selectOne" resultType="goods" parameterType="string">
-		select * from goods where goods_code = #{gcode}
+		select  GOODS_CODE,
+				GOODS_NAME,
+				COMPANY,
+				PRICE,
+				CATEGORY,
+				THUMB_IMAGE,
+				DETAIL_IMAGE,
+				WEIGHT,
+				UNIT,
+				ALLERGY,
+				CALORIE,
+				NA,
+				CARBO,
+				SUGAR,
+				SFAT,
+				PROTEIN 
+		  from  goods 
+		 where goods_code = #{gcode}
 	</select>
 	
  	<select id="selectSearch" resultType="goods">
@@ -57,24 +81,40 @@
 	</select>
 	
 	<select id="selectCount" resultType="int">
-		select count(*) from goods
+		select count(*) 
+		  from goods
 		<where>
 		<if test = 'category != null'>
 		category = #{category}
 		</if>
 		<if test = 'keyword != null'>
-		goods_name like '%'||#{keyword}||'%'
+		and goods_name like '%'||#{keyword}||'%'
 		</if>
 		</where>
 	</select>
 	
  	<select id="selectRecommend" resultType="goods">
-		select d.goods_code, count(d.goods_code) count, g.goods_name, g.price, g.thumb_image
+ 		SELECT goods_code, count, goods_name, price, thumb_image,
+ 		CASE category when '비스킷/크래커' then '비스킷'
+ 		when '쿠키/파이' then '쿠키'
+ 		when '유기농/전통과자' then '유기농'
+ 		when '젤리/캐러멜' then '젤리'
+ 		when '사탕/껌' then '사탕'
+ 		when '베이커리/잼' then '베이커리'
+ 		when '과자/간식세트' then '과자'
+ 		else category end as category
+ 		
+ 		FROM    (   SELECT ROWNUM rn, a.*	    FROM       (
+ 		 	
+		select d.goods_code, count(d.goods_code) count, g.goods_name, g.price, g.thumb_image, g.category
 		from detail d, goods g
 		where d.goods_code = g.goods_code
 		<if test = 'category != null and category != ""'>
 		and category = #{category}
 		</if>
-		group by d.goods_code, g.goods_name, g.price, g.thumb_image order by 2 desc
+		group by d.goods_code, g.goods_name, g.price, g.thumb_image, g.category 
+		order by 2 desc
+		
+		 ) a		    ) b				WHERE  b.rn <![CDATA[ <= ]]>  #{num}
 	</select>
 </mapper>
