@@ -19,13 +19,13 @@
 	</delete>
 	<update id="updateOrders" parameterType="String">
 		update orders
-		set order_address=#{orderAddress}, order_name=#{orderName},
+		set order_address=#{orderAddress}, order_address_detail=#{orderAddressDetail}, order_postcode=#{orderPostcode}, order_name=#{orderName},
 		order_phone=#{orderPhone}, memo=#{memo}
 		where order_code=#{orderCode}
 	</update>
 	<insert id="insertOrders" parameterType="orders">
     INSERT INTO orders 
-    VALUES(concat('O-', lpad(orders_seq.nextval, 5, 0)), #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
+    VALUES(concat('O-', lpad(orders_seq.nextval, 5, 0)), #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price}, #{order_address_detail}, #{order_postcode})
   </insert>
   
   <select id="OrdersListPaging" resultType="orders">

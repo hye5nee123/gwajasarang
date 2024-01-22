@@ -102,10 +102,10 @@
                         <div class="section-title product__discount__title">
                             <h2>추천상품</h2>
                         </div>
-                        <div class="row" >
-                             <div class="product__discount__slider owl-carousel" id="list" >
-<%--                              	<c:forEach var="vo" items="${goodsList }"> --%>
-<%--                                <div class="col-lg-4">
+                        <div class="row">
+                             <div class="product__discount__slider owl-carousel" id="list">
+                             	<c:forEach var="vo" items="${recommendList }" begin="0" end="5">
+                                <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="images/${vo.thumbImage }" onclick="location.href='getGoods.do?gcode=${vo.goodsCode }'">
@@ -124,7 +124,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </c:forEach> --%>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
@@ -218,15 +218,17 @@
 		window.location.href = "searchList.do?keyword=" + keyword;
 	}
 	
-	recommendList(`${category }`)
+	//recommendList(`${category }`)
 	function recommendList(category) {
-		fetch('goodsListJson.do?')
+		fetch('goodsListJson.do?category='+category)
 			.then(result => result.json())
 			.then(result => {
 				console.log(result)
 				result.forEach(item => {
 					makeList(item);
 					//console.log(item);
+					
+					
 				})
 			})
 		
