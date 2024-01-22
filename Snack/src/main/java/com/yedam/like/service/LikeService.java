@@ -9,7 +9,7 @@ public interface LikeService {
 	public List<LikeVO> selectList(String memberCode);
 	
 	//찜 추가
-	public String addLike(LikeVO vo);
+	public boolean addLike(LikeVO vo);
 	
 	//찜 삭제
 	public boolean remLike(String goodsCode, String memberCode);

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.common.Control;
 import com.yedam.orders.service.OrdersService;
@@ -13,16 +14,18 @@ public class DeleteControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String ordersCode = req.getParameter("orderCode");
-		String memberCode = req.getParameter("memberCode");
+		//선언
+		HttpSession session = req.getSession();
 		OrdersService svc = new OrdersServiceImpl();
+		
+		String ordersCode = req.getParameter("orderCode");
+		//String memberCode =(String) session.getAttribute("logCode");//req.getParameter("memberCode");
+		
 		boolean rem = svc.deleteOrders(ordersCode);
-		//boolean rem = svc.deleteDetail(ordersCode);
 		
 		try {
 			if (rem) {
-				resp.sendRedirect("ordersList.do?memberCode="+memberCode);
-				
+				resp.sendRedirect("ordersList.do");				
 			} else {
 				resp.sendRedirect("getOrders.do?orderCode="+ordersCode);
 			}

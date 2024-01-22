@@ -4,18 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <style>
-	.button_box{margin:0 auto !important; text-align:center;}
-	em.warning{font-style:normal; margin-top:15px; color:red; font-size:14px;}
-	div.row{justify-content:space-between; margin:0;}
-	#id{flex:0 0 83%;}
-	#id_check{flex:0 0 15%; padding:0 15px; font-size:14px; color:#fff; background:#6f6f6f; border:0;}
-	.member_table{margin-top:50px !important;}
-	.member_table table{border-top:2px solid #7fad39;}
-	.member_table table tr:last-child{border-bottom:1px solid #dee2e6;}	
-	.member_table table th p{position:relative; margin-bottom:0; color:#1c1c1c; font-size:17px; font-weight:700;}
-	.member_table table th p:after{content:''; display:block; position:absolute; right:0; top:50%; width:1px; height:20px; margin-top:-10px; background:#dee2e6;}
-	.member_table + .button_box{margin-top:30px !important;}
-	.member_table + .button_box button:last-child{margin-left:5px; color:#fff; background:#6f6f6f;}
+	.like_table{margin-top:50px; text-align:center; border-top:2px solid #7fad39;}
+	.like_table td{vertical-align:middle;}
+	.like_table td a{color:#1c1c1c;}
+	.btn_close{position:relative; border:0; backround:0;}
+	.btn_close span{display:block; text-indenxt:100%;}
+	.btn_close span:before{content:''; display:block; position:aboslute; left:0; top:0; width:; height:; background:ulr();}
 </style>
 
 <!-- Hero Section Begin -->
@@ -84,49 +78,35 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <h4>회원정보</h4>
-            <form name="myForm" method="post" action="memberModifyForm.do?memberCode=${logCode}">
-	            <div class="member_table">
-		            <table class="table">
-		            	<colgroup>
-		            		<col span="1" width="15%";>
-		            	</colgroup>
-						<tbody>	
+            <h4>좋아요</h4>
+            <div class="like_table">
+	            <table class="table">
+	            	<colgroup>
+	            		<col span="1" width=5%;>
+	            		<col span="1" width=20%;>
+	            	</colgroup>
+	            	<thead>
+	            		<tr>
+	            			<th><input type="checkbox" checked></th>
+	            			<th>이미지</th>
+	            			<th>제품명</th>
+	            			<th>금액</th>
+	            			<th>삭제</th>
+	            		</tr>
+	            	</thead>
+					<tbody>	
+						<c:forEach var="vo" items="${list}">
 							<tr>
-								<th><p>아이디</p></th>	
-								<td>${vo.id}</td>
+								<td><input type="checkbox" class="selCheck"></td>
+								<td><a href="../Snack/getGoods.do?gcode=${vo.goodsCode}"><img src="images/${vo.thumbImage}" alt="${vo.goodsName}" style="width:150px;"></a></td>
+								<td><a href="../Snack/getGoods.do?gcode=${vo.goodsCode}">${vo.goodsName}</a></td>
+								<td>${vo.price}</td>
+								<td><button type="button" class="btn_close"><span>삭제</span></button></td>
 							</tr>
-							<tr>
-								<th><p>이름</p></th>
-								<td>${vo.memberName}</td>
-							</tr>
-							<tr>	
-								<th><p>연락처</p></th>
-								<td>${vo.memberPhone}</td>
-							</tr>
-							<tr>	
-								<th><p>주소</p></th>
-								<td>${vo.memberAddress} ${vo.memberAddressDetail}</td>
-							</tr>
-							<tr>	
-								<th><p>이메일</p></th>
-								<td>${vo.email}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-				<div class="button_box">            
-		            <button type="submit" id="modBtn" class="site-btn btn-lg">정보수정</button>
-		            <button type="button" id="mainBtn" onclick="mainFun()" class="site-btn btn-lg">메인으로</button>
-	            </div>
-			</form>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
         </div>
     </div>
 </section>
-
-<script>
-	function mainFun(){
-		document.forms.myForm.action = "mainPage.do";
-		document.forms.myForm.submit();
-	}
-</script>

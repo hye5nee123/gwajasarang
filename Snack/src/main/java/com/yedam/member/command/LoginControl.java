@@ -27,7 +27,7 @@ public class LoginControl implements Control {
 			HttpSession session = req.getSession();
 			session.setAttribute("logCode", vo.getMemberCode());
 			session.setAttribute("logId", vo.getId());
-			session.setAttribute("logPw", vo.getPw());
+//			session.setAttribute("logPw", vo.getPw());
 			session.setAttribute("logName", vo.getMemberName());
 			
 			try {

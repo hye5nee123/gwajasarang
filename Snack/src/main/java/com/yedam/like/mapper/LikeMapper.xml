@@ -5,15 +5,19 @@
 
 <mapper namespace="com.yedam.like.mapper.LikeMapper">
 	<select id="selectList" parameterType="String" resultType="like">
-		SELECT
-		c.cart_code, c.member_code, c.quantity, g.goods_name, g.price, g.thumb_image
-		FROM cart c JOIN goods g
-		ON c.goods_code = g.goods_code
-		WHERE c.member_code = #{memberCode}
+		select g.goods_code, 
+		       g.goods_name, 
+		       g.price, 
+		       g.thumb_image
+		       
+		  from likes l, goods g
+		  
+		 where l.goods_code = g.goods_code
+		   and l.member_code = #{memberCode}
 	</select>
 	
-	<insert id="insertLike" parameterType="String">
-  		insert into likes values (#{memberCode}, #{goodsCode})
+	<insert id="insertLike">
+  		insert into likes(likes_code, goods_code, member_code) values (likes_seq.nextval, #{goodsCode}, #{memberCode})
   	</insert>
   	
   	<select id="checkLike" resultType="like" parameterType="String">
@@ -21,7 +25,7 @@
     	where member_code = #{memberCode} and goods_code = #{goodsCode}
 	</select>
 		
-	<delete id="deleteLike" parameterType="String">
+	<delete id="deleteLike">
   		delete from likes where goods_code = #{goodsCode} and member_code = #{memberCode}
   	</delete>
 </mapper>  

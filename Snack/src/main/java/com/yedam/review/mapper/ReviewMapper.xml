@@ -19,9 +19,8 @@
 	
 	<insert id="insertReview" parameterType="review">
 		INSERT INTO
-		review(review_code, goods_code, title, content, stars, review_date)
-		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{title}, #{content},
-		#{stars}, SYSDATE)
+		review(review_code, goods_code, member_code, title, content, stars, review_date)
+		VALUES (review_seq.NEXTVAL, #{goodsCode}, #{memberCode}, #{title}, #{content}, #{stars}, SYSDATE)
 	</insert>
 	
 	<update id="updateReview" parameterType="review">

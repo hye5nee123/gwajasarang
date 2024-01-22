@@ -37,4 +37,8 @@ public class CartServiceImpl implements CartService {
 		return mapper.updateCart(vo) == 1;
 	}
 
+	public boolean addOrder(int orderCode) {
+		return mapper.addCart(orderCode) >= 1;
+	}
+
 }

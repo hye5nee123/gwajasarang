@@ -13,5 +13,8 @@ public class OrdersVO {
     private String memo;
     private int deliveryFee;
     private int totalPrice;
+    private String orderAddressDetail;
+    private String orderPostcode;
+    
   
 }

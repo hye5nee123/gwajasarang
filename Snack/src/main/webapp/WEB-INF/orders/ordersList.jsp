@@ -33,7 +33,7 @@ a:hover {
 					<td><a href="getOrders.do?orderCode=${vo.orderCode}">${vo.orderCode }</a></td>
 					<td>${vo.memberCode }</td>
 					<td>${vo.orderDate }</td>
-					<td>${vo.orderAddress }</td>
+					<td>${vo.orderAddress } ${vo.orderAddressDetail }</td>
 					<td>${vo.orderName }</td>
 					<td>${vo.orderPhone }</td>
 					<td>${vo.memo }</td>
@@ -47,7 +47,7 @@ a:hover {
 	<div class="product__pagination">
 		<c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
 			<div class="pageInfo" display="inline-block">
-				<a href="ordersList.do?memberCode=${memberCode }&page=${i }">${i }</a>
+				<a href="ordersList.do?page=${i }">${i }</a>
 			</div>
 		</c:forEach>
 		<a href="#"><i class="fa fa-long-arrow-right"></i></a>

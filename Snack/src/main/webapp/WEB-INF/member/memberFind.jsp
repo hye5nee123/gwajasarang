@@ -89,13 +89,13 @@ function emptyCheck(){
 
 $("#findBtn").on('click', function() {
 	$('#find_popup').addClass('show');
+	findId();
 })
 
 $('.close').on('click', function() {
 	$('#find_popup').removeClass('show');
 })
 
-$("#findBtn").on('click', findId);
 function findId(){
 	const name = $('#name').val()
 	const phone = $('#phone').val()
