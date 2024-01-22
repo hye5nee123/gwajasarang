@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServlet;
 
 import com.yedam.cart.command.AddCartControl;
+import com.yedam.cart.command.AddOrdersControl;
 import com.yedam.cart.command.CartListControl;
 //import com.yedam.cart.command.CartListControl;
 import com.yedam.cart.command.CartListJson;
@@ -19,7 +20,6 @@ public class EFrontController extends HttpServlet {
 	Map<String, Control> map = new HashMap<>();
 
 	Map<String, Control> getMap() {
-		
 
 		// 장바구니 이동.
 		map.put("/cartList.do", new CartListControl());
@@ -27,13 +27,16 @@ public class EFrontController extends HttpServlet {
 		map.put("/cartListJson.do", new CartListJson());
 		// 장바구니 삭제.
 		map.put("/removeCart.do", new RemoveCartControl());
-		//장바구니 수량 추가.
+		// 장바구니 수량 추가.
 		map.put("/addCart.do", new AddCartControl());
-		//장바구니 수정.
+		// 장바구니 수정.
 		map.put("/modCart.do", new ModCartControl());
-		
-		//결제 페이지 이동.
+
+		// 결제 페이지 이동.
 		map.put("/checkout.do", new CheckoutFormControl());
+
+		// 주문 디테일로 이동.
+		map.put("/addOrder.do", new AddOrdersControl());
 		return map;
 	}
 

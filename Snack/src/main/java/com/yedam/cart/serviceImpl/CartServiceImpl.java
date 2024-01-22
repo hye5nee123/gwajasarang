@@ -36,5 +36,9 @@ public class CartServiceImpl implements CartService {
 		// TODO Auto-generated method stub
 		return mapper.updateCart(vo) == 1;
 	}
+	
+	public boolean addOrder(int orderCode) {
+		return mapper.addOrder(orderCode) >= 1;
+	}
 
 }

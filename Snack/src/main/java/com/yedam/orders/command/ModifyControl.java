@@ -20,6 +20,8 @@ public class ModifyControl implements Control {
 		String orderPhone = req.getParameter("orderPhone");
 		String memo = req.getParameter("memo");
 		String memberCode = req.getParameter("memberCode");
+		String orderAddressDetail = req.getParameter("orderAddressDetail");
+		String orderPostcode = req.getParameter("orderPostcode");
 		
 		OrdersVO order = new OrdersVO();
 		order.setOrderCode(orderCode);
@@ -27,6 +29,8 @@ public class ModifyControl implements Control {
 		order.setOrderName(orderName);
 		order.setOrderPhone(orderPhone);
 		order.setMemo(memo);
+		order.setOrderAddressDetail(orderAddressDetail);
+		order.setOrderPostcode(orderPostcode);
 	
 		OrdersService svc = new OrdersServiceImpl();
 		

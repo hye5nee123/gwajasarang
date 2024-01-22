@@ -33,7 +33,7 @@ a:hover {
 					<td><a href="getOrders.do?orderCode=${vo.orderCode}">${vo.orderCode }</a></td>
 					<td>${vo.memberCode }</td>
 					<td>${vo.orderDate }</td>
-					<td>${vo.orderAddress }</td>
+					<td>${vo.orderAddress } ${vo.orderAddressDetail }</td>
 					<td>${vo.orderName }</td>
 					<td>${vo.orderPhone }</td>
 					<td>${vo.memo }</td>
