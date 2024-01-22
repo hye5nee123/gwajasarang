@@ -67,4 +67,14 @@
 		</if>
 		</where>
 	</select>
+	
+ 	<select id="selectRecommend" resultType="goods">
+		select d.goods_code, count(d.goods_code) count, g.goods_name, g.price, g.thumb_image from detail d, goods g
+		<where>
+		d.goods_code = g.goods_code
+		<if test = 'category != null'>
+		and category = #{category}
+		</if>
+		</where> group by d.goods_code, g.goods_name, g.price, g.thumb_image order by 2 desc
+	</select>
 </mapper>

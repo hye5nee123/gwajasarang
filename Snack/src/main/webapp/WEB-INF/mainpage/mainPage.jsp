@@ -122,6 +122,7 @@
             </div>
         </div>
         <div class="row featured__filter">
+        	<c:forEach var="vo" items="${goodsList }" begin="1" end="8">
             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="bootstrap/img/featured/feature-1.jpg">
@@ -132,12 +133,13 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
+                        <h6><a href="#">${vo.goodsCode }</a></h6>
                         <h5>$30.00</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+            </c:forEach>
+            <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="bootstrap/img/featured/feature-2.jpg">
                         <ul class="featured__item__pic__hover">
@@ -241,7 +243,7 @@
                         <h5>$30.00</h5>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
