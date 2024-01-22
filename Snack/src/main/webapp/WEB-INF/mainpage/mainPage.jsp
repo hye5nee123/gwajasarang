@@ -108,24 +108,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Category</h2>
+                    <h2>추천상품</h2>
                 </div>
                 <div class="featured__controls">
                     <ul>
                         <li class="active" data-filter="*">전체</li>
-                        <li data-filter=".oranges">Oranges</li>
-                        <li data-filter=".fresh-meat">Fresh Meat</li>
-                        <li data-filter=".vegetables">Vegetables</li>
-                        <li data-filter=".fastfood">Fastfood</li>
+                        <li data-filter=".과자">과자</li>
+                        <li data-filter=".비스킷">비스킷/크래커</li>
+                        <li data-filter=".쿠키">쿠키/파이</li>
+                        <li data-filter=".유기농">유기농/전통과자</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
         	<c:forEach var="vo" items="${recommendList }">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            <div class="col-lg-3 col-md-4 col-sm-6 mix ${vo.category } fresh-meat">
                 <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="bootstrap/img/featured/feature-1.jpg">
+                    <div class="featured__item__pic set-bg" data-setbg="images/${vo.thumbImage }">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -133,8 +133,8 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="#">${vo.goodsCode }</a></h6>
-                        <h5>$30.00</h5>
+                        <h6><a href="#">${vo.goodsName }</a></h6>
+                        <h5>${vo.price }원</h5>
                     </div>
                 </div>
             </div>

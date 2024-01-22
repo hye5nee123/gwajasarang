@@ -4,7 +4,7 @@
 
 
 <body>
-    <!-- Hero Section Begin -->
+    <!-- 카테고리 Section Begin -->
     <section class="hero hero-normal">
         <div class="container">
             <div class="row">
@@ -54,9 +54,9 @@
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
+    <!-- 카테고리 Section End -->
 
-    <!-- Breadcrumb Section Begin -->
+    <!-- 배너 Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="bootstrap/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -64,7 +64,7 @@
                     <div class="breadcrumb__text">
                         <h2>Snack Shop</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="../Snack/">Home</a>
                             <span>Shop</span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
+    <!-- 배너 Section End -->
 
     <!-- Product Section Begin -->
     <section class="product spad">
@@ -97,14 +97,16 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-9 col-md-7">
+	                <!-- 추천상품 시작 -->
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
                             <h2>추천상품</h2>
                         </div>
                         <div class="row">
                              <div class="product__discount__slider owl-carousel" id="list">
-                             	<c:forEach var="vo" items="${recommendList }" begin="0" end="5">
+                             	<c:forEach var="vo" items="${recommendList }">
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
@@ -128,14 +130,17 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 추천상품 끝 -->
+                    
+                    
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Sort By</span>
-                                    <select>
+                                    <select id="sort" onchange="sorting()">
                                         <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                        <option value="price">Price</option>
                                     </select>
                                 </div>
                             </div>
@@ -147,11 +152,13 @@
                             <div class="col-lg-4 col-md-3">
                                 <div class="filter__option">
                                     <span class="icon_grid-2x2"></span>
-                                    <span class="icon_ul"></span>
+<!--                                     <span class="icon_ul"></span> -->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- 상품목록 시작 -->
                     <div class="row">
                     <c:forEach var="vo" items="${goodsList }">
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -171,6 +178,9 @@
                         </div>
                     </c:forEach>
                     </div>
+                    <!-- 상품목록 끝 -->
+                    
+                    <!-- 페이징 시작 -->
                     <div class="product__pagination">
 	                    <c:choose>
 	                    <c:when test="${empty category }">
@@ -197,6 +207,8 @@
 		                </c:otherwise>
 		                </c:choose>
                     </div>
+                    <!-- 페이징 끝 -->
+                    
                 </div>
             </div>
         </div>
@@ -206,6 +218,7 @@
 	<script>
 	let input = document.getElementById('searchBox');
 	
+	// input 태그 엔터 이벤트 핸들러
 	input.addEventListener("keydown", function(e) {
 		if(e.keyCode === 13) {
 			e.preventDefault();
@@ -213,13 +226,20 @@
 		}
 	});
 	
+	
+	// 검색 버튼 핸들러
 	function searchFunc() {
 		let keyword = document.getElementById('searchBox').value;
 		window.location.href = "searchList.do?keyword=" + keyword;
 	}
 	
+	function sorting() {
+		let sort = document.querySelector('#sort');
+		let sortValue = sort.options[sort.selectedIndex].value;
+	}
+	
 	//recommendList(`${category }`)
-	function recommendList(category) {
+	/* function recommendList(category) {
 		fetch('goodsListJson.do?category='+category)
 			.then(result => result.json())
 			.then(result => {
@@ -260,7 +280,7 @@
             `
     
     document.querySelector('#list').insertAdjacentHTML("beforeend", list);
-	}
+	} */
 	
 	</script>
 
