@@ -9,9 +9,15 @@
 		WHERE  order_code = #{ordersCode}
 		and d.goods_code=g.goods_code
 	</select>
-	<insert id="insertDetail" parameterType="detail">
-		INSERT INTO detail(detail_code, order_code, goods_code, quantity, detail_price)
-		VALUES(detail_seq.nextval, #{ordersCode}, #{goodsCode}, #{quantity}, #{detailPrice})
+	<insert id="insertDetail" parameterType="String">
+		INSERT INTO detail (detail_code, order_code, goods_code, quantity, detail_price)
+		SELECT detail_seq.NEXTVAL, #{orderCode}, c.goods_code, c.quantity, g.price
+		FROM   cart c
+		LEFT JOIN  goods g
+		ON c.goods_code = g.goods_code
+		WHERE c.member_code = (SELECT member_code
+        		                FROM orders
+            		            WHERE order_code = #{orderCode});
 	</insert>
 
 </mapper>

@@ -35,4 +35,6 @@ public class GoodsListJson implements Control {
 
 	}
 
+
 }
+

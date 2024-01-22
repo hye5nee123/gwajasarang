@@ -11,5 +11,7 @@ public class MemberVO {
 	private String memberPhone;
 	private String memberAddress;
 	private String email;
+	private String memberAddressDetail;
+	private int memberPostcode;
 	
 }
