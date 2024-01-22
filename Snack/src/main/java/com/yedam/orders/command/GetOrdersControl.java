@@ -16,17 +16,18 @@ public class GetOrdersControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String ordersCode = req.getParameter("orderCode");
 		OrdersService svc = new OrdersServiceImpl();
+
+		String ordersCode = req.getParameter("orderCode");
 		OrdersVO vo = svc.getOrders(ordersCode);
-		
+
 		req.setAttribute("vo", vo);
 		RequestDispatcher rd = req.getRequestDispatcher("orders/getOrders.tiles");
-				try {
-					rd.forward(req, resp);
-				} catch (ServletException | IOException e) {
-					e.printStackTrace();
-				}
+		try {
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

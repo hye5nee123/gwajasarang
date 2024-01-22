@@ -16,13 +16,13 @@ public class mainPageControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-//		String category = req.getParameter("category");
-//		
-//		GoodsService svc = new GoodsServiceImpl();
-//		List<GoodsVO> recommendList = svc.recommendList(category);
-//		
-//		req.setAttribute("category", category);
-//		req.setAttribute("recommendList", recommendList);
+		String category = req.getParameter("category");
+		
+		GoodsService svc = new GoodsServiceImpl();
+		List<GoodsVO> recommendList = svc.recommendList(null, 12);
+		
+		req.setAttribute("category", category);
+		req.setAttribute("recommendList", recommendList);
 
 		try {
 			req.getRequestDispatcher("mainpage/mainPage.tiles").forward(req, resp);

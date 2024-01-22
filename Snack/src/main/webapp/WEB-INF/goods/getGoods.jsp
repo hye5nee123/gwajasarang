@@ -86,11 +86,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2>Snack Shop</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <a href="../Snack/">Home</a>
+                            <a href="../Snack/goodsList.do">Shop</a>
+                            <span>${vo.goodsName }</span>
                         </div>
                     </div>
                 </div>
@@ -110,14 +110,14 @@
                                 src="images/${vo.thumbImage }" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="bootstrap/img/product/details/product-details-2.jpg"
+<!--                             <img data-imgbigurl="bootstrap/img/product/details/product-details-2.jpg"
                                 src="bootstrap/img/product/details/thumb-1.jpg" alt="">
                             <img data-imgbigurl="bootstrap/img/product/details/product-details-3.jpg"
                                 src="bootstrap/img/product/details/thumb-2.jpg" alt="">
                             <img data-imgbigurl="bootstrap/img/product/details/product-details-5.jpg"
                                 src="bootstrap/img/product/details/thumb-3.jpg" alt="">
                             <img data-imgbigurl="bootstrap/img/product/details/product-details-4.jpg"
-                                src="bootstrap/img/product/details/thumb-4.jpg" alt="">
+                                src="bootstrap/img/product/details/thumb-4.jpg" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -125,17 +125,17 @@
                     <div class="product__details__text">
                         <h3>${vo.goodsName }</h3>
                         <div class="product__details__rating">
-                            <i class="fa fa-star"></i>
+<!--                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
+                            <span>(18 reviews)</span> -->
                         </div>
                         <div class="product__details__price">${vo.price }원</div>
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+<!--                         <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                             vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p> -->
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -238,7 +238,7 @@
     <!-- Product Details Section End -->
 
     <!-- Related Product Section Begin -->
-    <section class="related-product">
+<!--    <section class="related-product">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -248,7 +248,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="bootstrap/img/product/product-1.jpg">
                             <ul class="product__item__pic__hover">
@@ -307,7 +307,7 @@
                             <h5>$30.00</h5>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
