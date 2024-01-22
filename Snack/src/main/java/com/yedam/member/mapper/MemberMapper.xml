@@ -19,7 +19,7 @@
   
   <insert id="insertMember" parameterType="member">
   	insert into member
-  	values(concat('M-', lpad(member_seq.nextval, 5, 0)), #{id}, #{pw}, #{memberName}, #{memberPhone}, #{memberAddress}, #{email})
+  	values(concat('M-', lpad(member_seq.nextval, 5, 0)), #{id}, #{pw}, #{memberName}, #{memberPhone}, #{memberAddress}, #{email}, #{memberAddressDetail}, #{memberPostcode})
   </insert>
   
   <select id="selectId" resultType="int" parameterType="String">
@@ -27,6 +27,6 @@
   </select>
   
   <update id="updateMember" parameterType="member">
-  	update member set member_phone = #{memberPhone}, member_address = #{memberAddress} where id = #{id}
+  	update member set member_phone = #{memberPhone}, member_address = #{memberAddress}, member_address_detail = #{memberAddressDetail}, member_postcode = #{memberPostcode} where id = #{id}
   </update>
 </mapper>

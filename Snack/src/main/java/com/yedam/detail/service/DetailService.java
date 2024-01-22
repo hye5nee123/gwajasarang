@@ -6,5 +6,5 @@ import com.yedam.detail.vo.DetailVO;
 
 public interface DetailService {
 	public List<DetailVO> detailList(String detailCode);
-	public boolean addDetail(DetailVO vo);
+	public boolean addDetail(String orderCode);
 }

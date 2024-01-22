@@ -6,5 +6,5 @@ import com.yedam.detail.vo.DetailVO;
 
 public interface DetailMapper {
 	List<DetailVO> selectDetail(String detailCode);
-	int insertDetail(DetailVO vo);
+	int insertDetail(String orderCode);
 }

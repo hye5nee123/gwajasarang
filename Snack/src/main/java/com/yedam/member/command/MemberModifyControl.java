@@ -18,11 +18,15 @@ public class MemberModifyControl  implements Control{
 		String id = req.getParameter("id");
 		String phone = req.getParameter("phone");
 		String address = req.getParameter("address");
+		String addressDetail = req.getParameter("addressDetail");
+		String postcode = req.getParameter("postcode");
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
 		vo.setMemberPhone(phone);		
-		vo.setMemberAddress(address);		
+		vo.setMemberAddress(address);	
+		vo.setMemberAddressDetail(addressDetail);	
+		vo.setMemberPostcode(Integer.parseInt(postcode));	
 		
 		
 		MemberService svc = new MemberServiceImpl();

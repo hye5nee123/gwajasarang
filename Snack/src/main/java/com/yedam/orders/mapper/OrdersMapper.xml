@@ -25,7 +25,7 @@
 	</update>
 	<insert id="insertOrders" parameterType="orders">
     INSERT INTO orders 
-    VALUES(#{order_code}, #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
+    VALUES(concat('O-', lpad(orders_seq.nextval, 5, 0)), #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price})
   </insert>
   
   <select id="OrdersListPaging" resultType="orders">

@@ -20,8 +20,8 @@ public class DetailServiceImpl implements DetailService{
 	}
 
 	@Override
-	public boolean addDetail(DetailVO vo) {
-		return mapper.insertDetail(vo) == 1;
+	public boolean addDetail(String orderCode) {
+		return mapper.insertDetail(orderCode) >= 1;
 	}
 
 }

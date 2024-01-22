@@ -25,9 +25,9 @@ public class DetailListJson implements Control {
 			e.printStackTrace();
 		}
 		
-		String ordersCode = req.getParameter("ordersCode");
+		String orderCode = req.getParameter("orderCode");
 		DetailService svc = new DetailServiceImpl();
-		List<DetailVO> list = svc.detailList(ordersCode);
+		List<DetailVO> list = svc.detailList(orderCode);
 		
 		Gson gson = new GsonBuilder().create();
 		
