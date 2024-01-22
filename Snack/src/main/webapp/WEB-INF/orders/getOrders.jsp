@@ -71,10 +71,6 @@
 				
 				<ul id="detailList">
 				</ul>
-				<div class="checkout__order__subtotal">
-					
-				</div>
-				
 			</div>
 		</div>
 	</div>

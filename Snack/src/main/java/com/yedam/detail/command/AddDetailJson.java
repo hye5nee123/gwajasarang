@@ -19,39 +19,39 @@ public class AddDetailJson implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
+
 		try {
 			req.setCharacterEncoding("utf-8");
 			resp.setContentType("text/json;charset=utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+
 		DetailVO vo = new DetailVO();
-		
+
 		String detailCode = req.getParameter("detailCode");
 		String ordersCode = req.getParameter("ordersCode");
 		String goodsCode = req.getParameter("goodsCode");
 		String quantity = req.getParameter("quantity");
 		String detailPrice = req.getParameter("detailPrice");
-		
+
 		vo.setDetailCode(detailCode);
 		vo.setOrderCode(ordersCode);
 		vo.setGoodsCode(goodsCode);
 		vo.setQuantity(Integer.parseInt(quantity));
 		vo.setDetailPrice(Integer.parseInt(detailPrice));
-		
+
 		DetailService svc = new DetailServiceImpl();
 		Map<String, Object> map = new HashMap<>();
-		
-		if(svc.addDetail(vo)) {
+
+		if (svc.addDetail(ordersCode)) {
 			map.put("retCode", "OK");
 		} else {
 			map.put("retCode", "NG");
 		}
-		
+
 		Gson gson = new GsonBuilder().create();
-		
+
 		try {
 			resp.getWriter().print(gson.toJson(map));
 		} catch (IOException e) {
