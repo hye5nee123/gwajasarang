@@ -110,14 +110,17 @@
 								</div>
 								<ul>
 								</ul>
+								<div class="checkout__input">
 								<div class="checkout__order__products">
-									상품금액 <span id="orderTotalPrice"></span>
+									상품금액<span><input type="text" class="inputbox" id="totalPrice" name="totalPrice" readonly style="width:100px; height:30px; text-align:right" ></span>
+									<br>
 								</div>
-								<div class="checkout__order__subtotal">
-									배송비 <span id="checkFee"></span>
+								<div class="checkout__order__subtotal" >
+									배송비<span><input type="text" class="inputbox" id="deliveryFee" name="deliveryFee" readonly style="width:100px; height:30px; text-align:right"></span>
 								</div>
 								<div class="checkout__order__total">
 									총금액 <span id="checkTotalPrice"></span>
+								</div>
 								</div>
 								<button type="submit" class="site-btn">주문하기</button>
 							</div>
@@ -156,12 +159,12 @@ function showCartList(logCode) {
 		
 		if(totalPrice >= 30000){
 			fee = 0;
-			$('#checkFee').text(fee);
+			$('#deliveryFee').val(fee);
 		} else {
 			fee = 3000;
-			$('#checkFee').text(fee);
+			$('#deliveryFee').val(fee);
 		}
-		$('#orderTotalPrice').text(totalPrice);
+		$('#totalPrice').val(totalPrice);
 		$('#checkTotalPrice').text(totalPrice+fee);
 		
 	})
