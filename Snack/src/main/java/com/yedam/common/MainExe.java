@@ -8,12 +8,8 @@ public class MainExe {
 
 	public static void main(String[] args) {
 		
-		String reviewCode = "2";
-		
-		ReviewService svc = new ReviewServiceImpl();
-		ReviewVO vo = svc.getReview(Integer.parseInt(reviewCode));
-	
-		System.out.println(vo);
+		String orderCodeStr = "O-" + String.format("%05d",20);
+		System.out.println(orderCodeStr);
 	}
 
 }

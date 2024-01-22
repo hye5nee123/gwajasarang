@@ -2,6 +2,8 @@ package com.yedam.orders.command;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,40 +17,41 @@ public class AddOrdersControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		OrdersVO vo = new OrdersVO();
-		
+
 		req.getMethod().equals("GET");
 		String orderAddress = req.getParameter("orderAddress");
 		String orderName = req.getParameter("orderName");
 		String orderPhone = req.getParameter("orderPhone");
 		String memo = req.getParameter("memo");
 		String deliveryFee = req.getParameter("deliveryFee");
-		String totalPrice = req.getParameter("total_price");
-		String orderDate = req.getParameter("orderDate");
+		String totalPrice = req.getParameter("totalPrice");
 		String orderAddressDetail = req.getParameter("orderAddressDetail");
 		String orderPostcode = req.getParameter("orderPostcode");
-		
+		String memberCode = req.getParameter("memberCode");
+
 		vo.setOrderAddress(orderAddress);
 		vo.setOrderName(orderName);
 		vo.setOrderPhone(orderPhone);
+		vo.setMemberCode(memberCode);
 		vo.setMemo(memo);
 		vo.setDeliveryFee(Integer.parseInt(deliveryFee));
 		vo.setTotalPrice(Integer.parseInt(totalPrice));
-		vo.setOrderDate(orderDate);
 		vo.setOrderAddressDetail(orderAddressDetail);
 		vo.setOrderPostcode(orderPostcode);
-		
-		OrdersService svc = new OrdersServiceImpl();
-		try {
 
-			if (svc.addOrders(vo)) {
-				resp.sendRedirect("boardList.do");
-			} else {
-				resp.sendRedirect("boardForm.do");
-			}
-		} catch (IOException e) {
+		OrdersService svc = new OrdersServiceImpl();
+		svc.addOrders(vo);
+		String orderCode = vo.getOrderCode();
+		//String orderCodeStr = "O-" + String.format("%05d", orderCode);
+		req.setAttribute("orderCode", orderCode);
+
+		RequestDispatcher rd = req.getRequestDispatcher("orders/getOrders.tiles");
+		try {
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

@@ -36,7 +36,7 @@ public class EFrontController extends HttpServlet {
 		map.put("/checkout.do", new CheckoutFormControl());
 
 		// 주문 디테일로 이동.
-		map.put("/addOrder.do", new AddOrdersControl());
+		//map.put("/addOrder.do", new AddOrdersControl());
 		return map;
 	}
 

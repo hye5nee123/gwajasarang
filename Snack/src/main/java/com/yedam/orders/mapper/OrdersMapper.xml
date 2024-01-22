@@ -24,10 +24,12 @@
 		where order_code=#{orderCode}
 	</update>
 	<insert id="insertOrders" parameterType="orders">
+    <selectKey resultType="String" keyProperty="orderCode" order="BEFORE">
+        SELECT concat('O-', lpad(orders_seq.nextval, 5, 0)) FROM dual
+    </selectKey>
     INSERT INTO orders 
-    VALUES(concat('O-', lpad(orders_seq.nextval, 5, 0)), #{member_code}, #{order_date}, #{order_address}, #{order_name}, #{order_phone}, #{memo}, #{delivery_fee}, #{total_price}, #{order_address_detail}, #{order_postcode})
+    VALUES(#{orderCode}, #{memberCode}, sysdate, #{orderAddress}, #{orderName}, #{orderPhone}, #{memo}, #{deliveryFee}, #{totalPrice}, #{orderAddressDetail}, #{orderPostcode})
   </insert>
-  
   <select id="OrdersListPaging" resultType="orders">
        select b.* from
         (select rownum rn, a.*from
@@ -46,6 +48,8 @@
   <select id="selectCount" resultType="int" parameterType="String">
 	select count(*) from orders where member_code = #{memberCode}
   </select>
+  
+  
   
 </mapper>
 

@@ -56,7 +56,8 @@
 		<div class="container">
 			<div class="checkout__form">
 				<h4>결제정보</h4>
-				<form action="#">
+				<form action="addorders.do" method="post">
+				<input type="text" name="memberCode" value="${logCode }">
 					<div class="row">
 						<div class="col-lg-8 col-md-6">
 							<div class="row">
@@ -65,7 +66,7 @@
 										<p>
 											주문자명<span>*</span>
 										</p>
-										<input type="text" name="orderName" id="orderName" value="${vo.memberName }" readonly>
+										<input type="text" id="orderName" value="${vo.memberName }" readonly>
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -73,7 +74,7 @@
 										<p>
 											수령자명<span>*</span>
 										</p>
-										<input type="text" class="inputbox" name="receiverName" value="${vo.memberName }">
+										<input type="text" class="inputbox" name="orderName" value="${vo.memberName }">
 									</div>
 								</div>
 							</div>
@@ -81,19 +82,19 @@
 								<p>
 									주소<span>*</span>
 								</p>
-								<input type="text" class="inputbox" id="sample4_postcode" placeholder="우편번호">
+								<input type="text" class="inputbox" id="sample4_postcode" name="orderPostcode" value="${vo.memberPostcode}">
 								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-								<input type="text" class="inputbox" id="sample4_jibunAddress" placeholder="지번주소">
-								<input type="text" class="inputbox" id="sample4_roadAddress" placeholder="도로명주소">
+								<input type="hidden" class="inputbox" id="sample4_jibunAddress" placeholder="지번주소">
+								<input type="text" class="inputbox" id="sample4_roadAddress" name="orderAddress" value="${vo.memberAddress }">
 								<span id="guide" style="color: #999; display: none"></span>
-								<input type="text" class="inputbox" id="sample4_detailAddress" placeholder="상세주소">
+								<input type="text" class="inputbox" id="sample4_detailAddress" name="orderAddressDetail" value="${vo.memberAddressDetail }">
 								<input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
 							</div>
 							<div class="checkout__input">
 								<p>
 									연락처<span>*</span>
 								</p>
-								<input type="text" class="inputbox" name="receiverPhone" value="${vo.memberPhone }">
+								<input type="text" class="inputbox" name="orderPhone" value="${vo.memberPhone }">
 							</div>
 							<div class="checkout__input">
 								<p>
