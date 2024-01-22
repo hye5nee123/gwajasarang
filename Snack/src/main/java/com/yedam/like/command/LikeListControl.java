@@ -17,15 +17,13 @@ public class LikeListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String memberCode = req.getParameter("memberCode");
-		
+		String memberCode = req.getParameter("membercode");
+
 		LikeService svc = new LikeServiceImpl();
-		List<LikeVO> LikeInfo = svc.selectList(memberCode);
+		List<LikeVO> list = svc.selectList(memberCode);
+		req.setAttribute("list", list);
 		
-		req.setAttribute("LikeVO", LikeInfo);
-		req.setAttribute("memberCode", memberCode);
-		
-		RequestDispatcher rd = req.getRequestDispatcher("like/likeList.tiles");
+		RequestDispatcher rd = req.getRequestDispatcher("/like/likeList.tiles");
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {

@@ -8,7 +8,6 @@ import com.yedam.common.DataSource;
 import com.yedam.like.mapper.LikeMapper;
 import com.yedam.like.service.LikeService;
 import com.yedam.like.vo.LikeVO;
-import com.yedam.member.mapper.MemberMapper;
 
 
 public class LikeServiceImpl implements LikeService {
@@ -21,18 +20,17 @@ public class LikeServiceImpl implements LikeService {
 	}
 
 	@Override
-	public String addLike(LikeVO vo) {
+	public boolean addLike(LikeVO vo) {
 		// 찜목록 데이터 체크
 	    LikeVO checkLike = mapper.checkLike(vo);
 	    if (checkLike != null) {
-	        return 2; 
+	        return false; 
 	    }
-	    return mapper.insertLike(vo);
+	    return mapper.insertLike(vo) == 1;
 	}
 
 	@Override
 	public boolean remLike(String goodsCode, String memberCode) {
-		return mapper.deleteLike(goodsCode, memberCode) == 1;
+		return false;
 	}
-	
 }

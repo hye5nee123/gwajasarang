@@ -26,14 +26,14 @@ public class LikeAddControl implements Control {
 		vo.setMemberCode(memberCode);
 		vo.setGoodsCode(goodsCode);
 		
+		
 		LikeService svc = new LikeServiceImpl();
 		Map<String, Object> map = new HashMap<>();
 		
+		boolean result = svc.addLike(vo);
 		
-		if(svc.addLike(vo) == 1) {
+		if (result) {
 			map.put("retCode", "OK");
-		} else if (svc.addLike(vo) == 2){
-			map.put("retCode", "CK");
 		} else {
 			map.put("retCode", "NG");
 		}
