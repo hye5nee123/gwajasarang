@@ -44,4 +44,9 @@ public class ReviewServiceImpl implements ReviewService{
 		return mapper.selectListPaging(goodsCode, page);
 	}
 
+	@Override
+	public int getTotalCnt(String goodsCode) {
+		return mapper.selectCount(goodsCode);
+	}
+
 }

@@ -18,13 +18,11 @@ public class ModReviewControl implements Control {
 		ReviewVO vo = new ReviewVO();
 	
 		String reviewCode = req.getParameter("reviewCode");
-		String goodsCode = req.getParameter("goodsCode");
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String stars = req.getParameter("stars");
 		
 		vo.setReviewCode(Integer.parseInt(reviewCode));
-		vo.setGoodsCode(goodsCode);
 		vo.setTitle(title);
 		vo.setContent(content);
 		vo.setStars(Integer.parseInt(stars));

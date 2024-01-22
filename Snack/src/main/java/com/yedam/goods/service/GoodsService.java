@@ -9,4 +9,5 @@ public interface GoodsService {
 	public GoodsVO getGoods(String gcode);
 	public List<GoodsVO> searchList(String keyword, int page);
 	public int totalCnt(String category, String keyword);
+	public List<GoodsVO> recommendList(String category);
 }

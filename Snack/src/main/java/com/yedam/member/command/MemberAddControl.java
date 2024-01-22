@@ -23,6 +23,8 @@ public class MemberAddControl implements Control {
 		String name = req.getParameter("name");
 		String phone = req.getParameter("phone");
 		String address = req.getParameter("address");
+		String addressDetail = req.getParameter("addressDetail");
+		String postcode = req.getParameter("postcode");
 		String email = req.getParameter("email");
 		
 		vo.setId(id);
@@ -31,6 +33,8 @@ public class MemberAddControl implements Control {
 		vo.setMemberPhone(phone);
 		vo.setMemberAddress(address);
 		vo.setEmail(email);
+		vo.setMemberAddressDetail(addressDetail);
+		vo.setMemberPostcode(Integer.parseInt(postcode));
 		
 		MemberService svc = new MemberServiceImpl();
 		try {

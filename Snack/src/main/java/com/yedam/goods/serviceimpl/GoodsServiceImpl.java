@@ -34,4 +34,9 @@ public class GoodsServiceImpl implements GoodsService{
 		return mapper.selectCount(category, keyword);
 	}
 
+	@Override
+	public List<GoodsVO> recommendList(String category) {
+		return mapper.selectRecommend(category);
+	}
+
 }

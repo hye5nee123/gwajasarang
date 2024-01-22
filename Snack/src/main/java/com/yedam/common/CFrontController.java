@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
 
+import com.yedam.like.command.LikeListJson;
 import com.yedam.main.command.mainPageControl;
 import com.yedam.member.command.LikeListControl;
 import com.yedam.member.command.LikeListForm;
@@ -37,8 +38,8 @@ public class CFrontController extends HttpServlet{
 		map.put("/memberListForm.do", new MemberListForm());
 		map.put("/memberModify.do", new MemberModifyControl());
 		map.put("/memberModifyForm.do", new MemberModifyForm());
-		map.put("/LikeList.do", new LikeListControl());
-		map.put("/LikeListForm.do", new LikeListForm());
+		map.put("/likeList.do", new LikeListControl());
+		map.put("/likeListJson.do", new LikeListJson());
 		return map;
 	}
 }
