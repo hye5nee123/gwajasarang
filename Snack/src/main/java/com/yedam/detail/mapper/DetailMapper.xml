@@ -4,9 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yedam.detail.mapper.DetailMapper">
 	<select id="selectDetail" parameterType="String" resultType="detail">
-		SELECT *
-		FROM   detail
+		SELECT d.*, g.goods_name
+		FROM   detail d, goods g
 		WHERE  order_code = #{ordersCode}
+		and d.goods_code=g.goods_code
 	</select>
 	<insert id="insertDetail" parameterType="String">
 		INSERT INTO detail (detail_code, order_code, goods_code, quantity, detail_price)

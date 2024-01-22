@@ -9,4 +9,5 @@ public class DetailVO {
 	private String goodsCode;
 	private int quantity;
 	private int detailPrice;
+	private String goodsName;
 }
