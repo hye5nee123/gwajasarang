@@ -29,8 +29,10 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     
-    <style>
+    <style> 
     	.heart-icon{border:0;}
+    	.heart-icon:hover{background:#7fad39;}
+    	.heart-icon:hover .icon_heart_alt:before{color:#fff;}
     </style>
 </head>
 
@@ -179,7 +181,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">상품리뷰<span>(1) </span></a>
+                                    aria-selected="false">상품리뷰<span></span></a>
                             </li>
                         </ul>
                         <div class="tab-content">

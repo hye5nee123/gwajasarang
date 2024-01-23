@@ -25,10 +25,10 @@
 				</if>
 				</where> 
 				
-				<if test = 'sort != null and sort != ""'>
+				<if test = 'sort == "price"'>
 				order by ${sort} desc
 				</if>
-				<if test = 'sort == null'>
+				<if test = 'sort == null or sort == ""'>
 				order by goods_name
 				</if>
 		        ) a
@@ -84,10 +84,10 @@
 		select count(*) 
 		  from goods
 		<where>
-		<if test = 'category != null'>
+		<if test = 'category != null and category != ""'>
 		category = #{category}
 		</if>
-		<if test = 'keyword != null'>
+		<if test = 'keyword != null and keyword != ""'>
 		and goods_name like '%'||#{keyword}||'%'
 		</if>
 		</where>

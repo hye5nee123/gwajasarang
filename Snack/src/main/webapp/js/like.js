@@ -33,19 +33,57 @@ $('.btn_like').on('click', function () {
 });
 
 // 좋아요 삭제
-$(".icon_close").on('click', function() {
-	let cartCode = $(this).data("cartcode");
-	console.log(cartCode);
-	fetch("removeCart.do?cartCode=" + cartCode)
-	//응답 결과 받는 구문(controller)
+$('.btn_close').on('click', function (){
+	alert("삭제하시겠습니까?");
+	let goodsCode = $('.btn_close').data('goodscode');
+	let memberCode = $('.btn_close').data('membercode');
+	console.log('goodsCode:' + goodsCode + ', ' + 'memberCode:' + memberCode);
+	fetch("removeLike.do?memberCode=" + memberCode + '&goodsCode=' + goodsCode)
 	.then(result => result.json())
 	.then(result => {
 		if (result.retCode == "OK") {
-			alert('삭제됨');
-			// event.target.closest("tr").remove();
+			alert('삭제완료');
 			location.reload();
 		} else {
-			alert('삭제 중 오류 발생')
+			alert('삭제 중 오류 발생.');
 		}
 	})
 })
+
+// 전체선택 
+$('.like_table thead').find('input').on('click', function() {
+	$('.like_table tbody').find(':checkbox').prop('checked', this.checked);
+});
+
+// 전체삭제
+/*$('#delBtn').on('click', async function() {
+	if ($('input[type="checkbox"]:checked').length === 0) {
+		alert('삭제할 항목을 선택해주세요.');
+		return;
+	}
+	if (confirm('선택한 항목을 삭제하시겠습니까?')) {
+		let deletePromises = [];
+		$('input[type="checkbox"]:checked').forEach(checkedItem => {
+			let deletePromise = fetch(`removeLike.do?goodsCode=${goodsCode}&memberCode=${memberCode}`, {
+				method: 'GET'
+			})
+				.then(result => result.json())
+				.then(result => {
+					if (result.retCode !== 'OK') {
+						console.error('삭제 중 오류 발생:', result.errorMessage);
+					}
+				})
+				.catch(error => {
+					console.error('삭제 중 오류 발생:', error);
+				});
+			deletePromises.push(deletePromise);
+		});
+		// 모든 삭제 작업이 완료될 때까지 기다림
+		await Promise.all(deletePromises);
+		// 화면에서 삭제
+		checkedItems.forEach(checkedItem => {
+			checkedItem.closest('tr').remove();
+		});
+		alert('삭제완료');
+	}
+});*/
