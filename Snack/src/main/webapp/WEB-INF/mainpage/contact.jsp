@@ -80,7 +80,9 @@
 <!-- Contact Section End -->
 
 <!-- Kakao Map API Begin -->
-<div id="map" style="width:100%;height:500px;"></div>
+<div class="container">
+	<div id="map" style="width:100%;height:500px;"></div>
+</div>
 <!-- Kakao Map API End -->
 
 <!-- Js Plugins -->
