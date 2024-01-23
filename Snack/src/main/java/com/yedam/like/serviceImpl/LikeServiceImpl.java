@@ -31,6 +31,6 @@ public class LikeServiceImpl implements LikeService {
 
 	@Override
 	public boolean remLike(String goodsCode, String memberCode) {
-		return false;
+		return mapper.deleteLike(goodsCode, memberCode) == 1;
 	}
 }

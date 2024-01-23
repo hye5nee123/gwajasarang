@@ -60,7 +60,7 @@
                            		<li class="notice"><a href="#">주문정보</a></li>
                            	</c:when>
                            	<c:otherwise>
-                           		<li><a href="../Snack/memberListForm.do?memberCode=${logCode}">회원정보</a></li>
+                           		<li><a href="../Snack/memberSelect.do?memberCode=${logCode}">회원정보</a></li>
                            		<li><a href="../Snack/ordersList.do?memberCode=${logCode}">주문정보</a></li>
                            	</c:otherwise>
 			        	</c:choose> 
@@ -71,8 +71,8 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="../Snack/cartList.do?memberCode=${logCode }"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>                        
+                        <li><a href="../Snack/likeList.do?&membercode=${logCode}"><i class="fa fa-heart"></i></a></li>
+                        <li><a href="../Snack/cartList.do?memberCode=${logCode }"><i class="fa fa-shopping-bag"></i></a></li>                        
                     </ul>
                 </div>
             </div>
