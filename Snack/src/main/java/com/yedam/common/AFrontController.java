@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 
 import com.yedam.detail.command.AddDetailJson;
 import com.yedam.detail.command.DetailListJson;
+import com.yedam.main.command.ContactPageControl;
 import com.yedam.review.command.AddReviewControl;
 import com.yedam.review.command.AddReviewFormControl;
 import com.yedam.review.command.GetReviewAjax;
@@ -48,6 +49,8 @@ public class AFrontController extends HttpServlet{
 		map.put("/detailListJson.do", new DetailListJson());
 		map.put("/addDetailJson.do", new AddDetailJson());
 		
+		// Contact
+		map.put("/contact.do", new ContactPageControl());		
 		return map;
 	}
 }

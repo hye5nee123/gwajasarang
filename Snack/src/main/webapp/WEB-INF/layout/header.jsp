@@ -64,7 +64,7 @@
                            		<li><a href="../Snack/ordersList.do?memberCode=${logCode}">주문정보</a></li>
                            	</c:otherwise>
 			        	</c:choose> 
-                        <li><a href="#">회사소개</a></li>
+                        <li><a href="../Snack/contact.do">회사소개</a></li>
                     </ul>
                 </nav>
             </div>
