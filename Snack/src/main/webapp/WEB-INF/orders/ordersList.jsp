@@ -5,9 +5,7 @@
 
 
 <style>
-.ordercodeH:hover {
-		background-color: gold;
-
+.ordercodeH:hover {background-color: gold;}
 .order_tbl{border-top:2px solid #7fad39;}
 .order_tbl td a{color:#111;}
 .product__pagination{text-align:center;}
@@ -124,11 +122,5 @@
 function getOrder((orderCode){
 	location.href="getOrders.do?orderCode=" + orderCode
 }
-
-<!--$('table tbody tr').on('click', function() {
-	$('table tbody tr').addClass('active');
-		
-	}
-})
-"getOrders.do?orderCode=${vo.orderCode }" -->}
+}
 </script>
