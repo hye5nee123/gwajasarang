@@ -135,7 +135,7 @@
 ## 💬 Branch, 커밋 메시지
 
 ### Branch
-- `develop` , `main` , `feature/*`
+- `develop` , `main` , `name`
 ```
 • develop : 개발용
 • main : 배포용
