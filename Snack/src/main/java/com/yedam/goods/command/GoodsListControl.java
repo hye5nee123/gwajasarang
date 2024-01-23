@@ -38,6 +38,7 @@ public class GoodsListControl implements Control {
 		
 		// 결과 저장 후 페이지 이동
 		req.setAttribute("category", category);
+		req.setAttribute("sort", sort);
 		req.setAttribute("goodsList", goodsList);
 		req.setAttribute("recommendList", recommendList);
 		req.setAttribute("total", total);
