@@ -364,10 +364,10 @@
 			.then(result => {
 				console.log('cartCode:' + result)
 				if(result != null){
-					alert('이미 장바구니에 담긴 상품입니다.')
-					//if(confirm('이미 장바구니에 담긴 상품입니다. 수량을 추가하시겠습니까?')){
-					//	addQuantityFunc(result, $('#quantityValue').val())
-					//}
+					//alert('이미 장바구니에 담긴 상품입니다.')
+					if(confirm('이미 장바구니에 담긴 상품입니다. 수량을 추가하시겠습니까?')){
+						addQuantityFunc(result, $('#quantityValue').val())
+					}
 				}
 				else{
 					if(confirm('장바구니에 상품을 추가하시겠습니까?')){

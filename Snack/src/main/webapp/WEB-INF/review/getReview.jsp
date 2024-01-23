@@ -49,7 +49,7 @@
 					</div>
 					<div class="checkout__input">
 						<p>작성일자</p>
-						<input type="" value="${vo.reviewDate}" readonly>
+						<input type="text" value="${vo.reviewDate}" readonly>
 					</div>
 					<div class="checkout__input">
 						<input type="button" value="수정" onclick="modFunc(`${vo.reviewCode}`)">
@@ -89,7 +89,7 @@ function delFunc(logCode, memberCode, reviewCode) {
 		            console.log(result);
 		            if (result.retCode == 'OK') {
 		                alert('상품평이 삭제되었습니다.');
-		                window.location.href = "getOrders.do"
+		                window.location.href = "ordersList.do?memberCode="+logCode
 		            } else if (result.retCode == 'NG') {
 		                alert('상품평 삭제에 실패하였습니다.');
 		            }
