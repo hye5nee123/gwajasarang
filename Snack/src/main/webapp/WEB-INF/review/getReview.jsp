@@ -53,7 +53,7 @@
 					</div>
 					<div class="checkout__input">
 						<input type="button" value="수정" onclick="modFunc(`${vo.reviewCode}`)">
-						<input type="button" value="삭제" onclick="delFunc(`${logCode}`, `${vo.memberCode}`, `${vo.reviewCode}`))">
+						<input type="button" value="삭제" onclick="delFunc(`${logCode}`, `${vo.memberCode}`, `${vo.reviewCode}`)">
 						<input type="button" value="목록으로" onclick="history.back()">
 
 					</div>
@@ -77,7 +77,7 @@ function delFunc(logCode, memberCode, reviewCode) {
 	}
 	else if (logCode == memberCode) {
 		if (confirm("상품평을 삭제하시겠습니까?")) {
-			fetch('/remReviewJson.do', {
+			fetch('remReviewJson.do', {
 				method: 'post',
 		        headers: {
 		            'Content-Type': 'application/x-www-form-urlencoded'
@@ -97,8 +97,6 @@ function delFunc(logCode, memberCode, reviewCode) {
 	    	}		
 		}
 	}
-
-}
 
 for (i = 0; i < `${vo.stars }`; i++) {
 	$('.stars2').append($('<i class="fa fa-star" />'))

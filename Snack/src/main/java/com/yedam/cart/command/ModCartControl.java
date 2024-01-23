@@ -20,11 +20,11 @@ public class ModCartControl implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String cartCode = req.getParameter("cartCode");
 		String quantity = req.getParameter("quantity");
-
 		CartVO vo = new CartVO();
+		
 		vo.setCartCode(Integer.parseInt(cartCode));
 		vo.setQuantity(Integer.parseInt(quantity));
-
+		
 		CartService svc = new CartServiceImpl();
 		Map<String, Object> map = new HashMap<>();
 		
