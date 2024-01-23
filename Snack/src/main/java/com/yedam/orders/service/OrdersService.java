@@ -7,7 +7,7 @@ import com.yedam.orders.vo.OrdersVO;
 
 public interface OrdersService {
 	public List<OrdersVO> ordersList(String memberCode); //목록
-    public List<OrdersVO> OrdersListPaging(String memberCode,int page);
+    public List<OrdersVO> OrdersListPaging(String memberCode,int page);//페이징
 	public OrdersVO getOrders(String ordersCode);
 
 	

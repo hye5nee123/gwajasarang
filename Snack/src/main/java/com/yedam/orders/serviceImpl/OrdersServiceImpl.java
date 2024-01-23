@@ -63,7 +63,6 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 	@Override
 	public int getTotalCnt(String memberCode) {
-		// TODO Auto-generated method stub
 		return mapper.selectCount(memberCode);
 	}
 	@Override
