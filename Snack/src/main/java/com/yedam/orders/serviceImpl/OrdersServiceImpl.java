@@ -54,10 +54,8 @@ public class OrdersServiceImpl implements OrdersService {
 	public boolean addOrders(OrdersVO vo) {
 		// TODO Auto-generated method stub
 		mapper.insertOrders(vo);
-		cartMapper.deleteCartAll(vo.getMemberCode());
-		return detailMapper.insertDetail(vo.getOrderCode()) == 1;	
-		
-		
+		detailMapper.insertDetail(vo.getOrderCode());
+		return cartMapper.deleteCartAll(vo.getMemberCode()) == 1;	
 	}
 	@Override
 	public List<OrdersVO> OrdersListPaging(String memberCode, int page) {
