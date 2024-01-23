@@ -143,11 +143,11 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" id="quantityValue"value="1">
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
+                        <a href="#" class="primary-btn" id="addCartBtn">장바구니 담기</a>
                         <button type="button" class="heart-icon btn_like" data-membercode="${sessionScope.logCode}" data-goodscode="${vo.goodsCode}">
 							<span class="icon_heart_alt"></span>
 						</button>
@@ -336,6 +336,88 @@
 	}
 	
 	$('#reviewList').load('reviewListAjax.do?goodsCode=${vo.goodsCode}')
+	
+	
+	let getGoodsCode = `${vo.goodsCode}`
+	let memberCode = `${logCode}`
+	
+	// 장바구니에 상품 추가
+	$('#addCartBtn').on('click', function(){
+		console.log(getGoodsCode, memberCode, $('#quantityValue').val());
+		
+		// 비회원 상품추가 불가능
+		if(memberCode ==''){
+			alert('장바구니 담기는 로그인 후 가능합니다.')
+		}
+		else{
+			// 장바구니에 이미 담았는지 체크
+			fetch('checkCart.do', {
+				method: "post",
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				body:'goodsCode=' + getGoodsCode + '&memberCode=' + memberCode 
+			})
+			.then(result => result.json())
+			.then(result => {
+				console.log('cartCode:' + result)
+				if(result != null){
+					alert('이미 장바구니에 담긴 상품입니다.')
+					//if(confirm('이미 장바구니에 담긴 상품입니다. 수량을 추가하시겠습니까?')){
+					//	addQuantityFunc(result, $('#quantityValue').val())
+					//}
+				}
+				else{
+					if(confirm('장바구니에 상품을 추가하시겠습니까?')){
+						addCartFunc(getGoodsCode, memberCode, $('#quantityValue').val())
+					}
+				}
+			})
+		
+		}// end of if else
+		
+	})
+	
+	// 카트 추가 함수
+	function addCartFunc(goodsCode, memberCode, quantity) {
+		fetch('addCart.do', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: 'goodsCode=' + goodsCode + '&memberCode=' + memberCode + '&quantity=' + quantity
+		})
+		.then(result => result.json())
+		.then(result => {
+			console.log(result)
+			if (result.retCode == "OK") {
+				alert('상품이 장바구니에 담겼습니다.');
+			} else {
+				alert('수정 중 오류 발생')
+			}
+		})
+	}
+	
+	// 카트 수량 추가 함수
+	function addQuantityFunc(cartCode, quantity){
+		console.log(cartCode, quantity)
+		fetch('modCart.do', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: 'cartCode=' + cartCode + '&quantity=' + quantity
+		})
+		.then(result => result.json())
+		.then(result => {
+			console.log(result)
+			if (result.retCode == "OK") {
+				alert('상품이 장바구니에 담겼습니다.');
+			} else {
+				alert('수정 중 오류 발생')
+			}
+		})
+	}
 	</script>
 
 </body>

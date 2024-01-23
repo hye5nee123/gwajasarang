@@ -13,4 +13,6 @@ public class ReviewVO {
 	private int stars;
 	private String reviewDate;
 	private int rn;
+	private int detailCode;
+	private String goodsName;
 }

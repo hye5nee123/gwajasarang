@@ -26,7 +26,7 @@ public class BFrontController extends HttpServlet{
 
 		map.put("/modifyOrders.do", new ModifyControl()); 
 		//map.put("/pagingListJson.do", new PagingListJson()); 	//페이징
-		//map.put("/addorders.do", new AddOrdersControl()); 		//추가
+		map.put("/addorders.do", new AddOrdersControl()); 		//추가
 		
 		
 		return map;

@@ -9,7 +9,7 @@ public interface CartService {
 	public List<CartVO> selectCartList(String memberCode);
 
 	// 카트 등록.
-	public boolean addCart(int cartCode);
+	public boolean addCart(CartVO vo);
 
 	// 카트 삭제
 	public boolean remCart(int cartCode);
@@ -18,5 +18,8 @@ public interface CartService {
 	public boolean modCart(CartVO vo);
 
 	// 주문 상세.
-	public boolean addOrder(int cartCode);
+	//public boolean addOrder(int cartCode);
+	
+	// 카트 담기 여부확인
+	public Integer checkCart(String goodsCode, String memberCode);
 }

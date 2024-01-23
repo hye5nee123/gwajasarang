@@ -18,7 +18,6 @@ public class AddOrdersControl implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		OrdersVO vo = new OrdersVO();
 
-		req.getMethod().equals("GET");
 		String orderAddress = req.getParameter("orderAddress");
 		String orderName = req.getParameter("orderName");
 		String orderPhone = req.getParameter("orderPhone");

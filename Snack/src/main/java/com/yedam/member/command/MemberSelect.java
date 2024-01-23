@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.common.Control;
 import com.yedam.member.service.MemberService;
@@ -17,6 +18,7 @@ public class MemberSelect implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		
+		// HttpSession session = (String)session.setAttribute("memberCode");
 		String memberCode = req.getParameter("memberCode");
 		
 		MemberService svc = new MemberServiceImpl();
@@ -30,5 +32,4 @@ public class MemberSelect implements Control {
 			e.printStackTrace();
 		} 	
 	}
-
 }

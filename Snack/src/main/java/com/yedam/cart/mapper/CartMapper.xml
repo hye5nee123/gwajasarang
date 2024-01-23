@@ -11,18 +11,24 @@
 		ON c.goods_code = g.goods_code
 		WHERE c.member_code = #{memberCode}
 	</select>
+	<select id="selectCnt">
+		SELECT cart_code
+		FROM   cart
+		WHERE  goods_code = #{goodsCode}
+		AND    member_code = #{memberCode}
+	</select>
 	<insert id="insertCart" parameterType="cart">
-		insert into cart values
-		(cart_seq.nextval, #{quantity}, #{memberCode},
-		#{goodsCode})
+		insert into cart (cart_code, quantity, member_code, goods_code)
+		values  (cart_seq.nextval, #{quantity}, #{memberCode}, #{goodsCode})
 	</insert>
 	<delete id="deleteCart" parameterType="int">
 		delete from cart where
 		cart_code = #{cartCode}
 	</delete>
 	<update id="updateCart" parameterType="cart">
-		update cart set quantity =
-		#{quantity} where cart_code = #{cartCode}
+		update cart
+		set quantity = quantity + #{quantity}
+		where cart_code = #{cartCode}
 	</update>
 	<insert id="addOrder" parameterType="string">
 		INSERT INTO detail (detail_code, order_code, goods_code, quantity,
@@ -32,5 +38,8 @@
 		LEFT JOIN goods g
 		ON c.goods_code = g.goods_code;
 	</insert>
+	<delete id="deleteCartAll">
+		delete from cart where member_code = #{memberCode}
+	</delete>
 </mapper>
 
