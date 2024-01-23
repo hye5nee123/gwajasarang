@@ -143,11 +143,11 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" id="quantityValue"value="1">
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
+                        <a href="#" class="primary-btn" id="addCartBtn">장바구니 담기</a>
                         <button type="button" class="heart-icon btn_like" data-membercode="${sessionScope.logCode}" data-goodscode="${vo.goodsCode}">
 							<span class="icon_heart_alt"></span>
 						</button>
@@ -336,6 +336,39 @@
 	}
 	
 	$('#reviewList').load('reviewListAjax.do?goodsCode=${vo.goodsCode}')
+	
+	
+	let getGoodsCode = `${vo.goodsCode}`
+	let memberCode = `${logCode}`
+	
+	$('#addCartBtn').on('click', function(){
+		console.log(getGoodsCode, memberCode, $('#quantityValue').val());
+		
+		if(memberCode ==''){
+			alert('장바구니 담기는 로그인 후 가능합니다.')
+		}
+		else{
+			fetch('addCart.do', {
+				method: 'post',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				body: 'goodsCode=' + getGoodsCode + '&memberCode=' + memberCode + '&quantity=' + $('#quantityValue').val()
+			})
+			.then(result => result.json())
+			.then(result => {
+				console.log(result)
+				if (result.retCode == "OK") {
+					alert('상품이 장바구니에 담겼습니다.');
+				} else {
+					alert('수정 중 오류 발생')
+				}
+			})
+		}
+		
+	})
+	
+	
 	</script>
 
 </body>

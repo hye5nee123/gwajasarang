@@ -57,7 +57,7 @@
 			<div class="checkout__form">
 				<h4>결제정보</h4>
 				<form action="addorders.do" method="post">
-				<input type="text" name="memberCode" value="${logCode }">
+				<input type="hidden" name="memberCode" value="${logCode }">
 					<div class="row">
 						<div class="col-lg-8 col-md-6">
 							<div class="row">

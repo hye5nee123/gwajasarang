@@ -15,13 +15,18 @@ public class DetailServiceImpl implements DetailService{
 	DetailMapper mapper = session.getMapper(DetailMapper.class);
 	
 	@Override
-	public List<DetailVO> detailList(String detailCode) {
-		return mapper.selectDetail(detailCode);
+	public List<DetailVO> detailList(String orderCode) {
+		return mapper.selectDetail(orderCode);
 	}
 
 	@Override
 	public boolean addDetail(String orderCode) {
 		return mapper.insertDetail(orderCode) >= 1;
+	}
+
+	@Override
+	public DetailVO getDetail(String detailCode) {
+		return mapper.selectOne(detailCode);
 	}
 
 }

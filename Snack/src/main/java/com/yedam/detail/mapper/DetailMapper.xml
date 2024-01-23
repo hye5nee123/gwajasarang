@@ -3,13 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yedam.detail.mapper.DetailMapper">
-	<select id="selectDetail" parameterType="String" resultType="detail">
+	<select id="selectDetail" resultType="detail">
+		SELECT d.*, g.goods_name, r.review_code
+		FROM   (detail d LEFT OUTER JOIN review r ON r.detail_code = d.detail_code), goods g
+		WHERE  d.goods_code = g.goods_code
+		AND    d.order_code= #{orderCode}
+		ORDER BY 1
+	</select>
+	<select id="selectOne" resultType="detail">
 		SELECT d.*, g.goods_name
 		FROM   detail d, goods g
-		WHERE  order_code = #{ordersCode}
-		and d.goods_code=g.goods_code
+		WHERE  d.goods_code = g.goods_code
+		AND	   d.detail_code = #{detailCode}
 	</select>
-	<insert id="insertDetail" parameterType="String">
+	<insert id="insertDetail">
 		INSERT INTO detail (detail_code, order_code, goods_code, quantity, detail_price)
 		SELECT detail_seq.NEXTVAL, #{orderCode}, c.goods_code, c.quantity, g.price
 		FROM   cart c
@@ -19,5 +26,4 @@
         		                FROM orders
             		            WHERE order_code = #{orderCode})
 	</insert>
-
 </mapper>
