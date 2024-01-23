@@ -20,9 +20,9 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public boolean addCart(int cartCode) {
+	public boolean addCart(CartVO vo) {
 		// TODO Auto-generated method stub
-		return mapper.addCart(cartCode) == 1;
+		return mapper.insertCart(vo) == 1;
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class CartServiceImpl implements CartService {
 		return mapper.updateCart(vo) == 1;
 	}
 
-	public boolean addOrder(int orderCode) {
-		return mapper.addCart(orderCode) >= 1;
-	}
+//	public boolean addOrder(int orderCode) {
+//		return mapper.addCart(orderCode) >= 1;
+//	}
 
 }
