@@ -228,6 +228,7 @@
     </section>
     <!-- Product Section End -->
 
+	<script src="js/like.js"></script>
 	<script>
 	let input = document.getElementById('searchBox');
 	

@@ -7,9 +7,10 @@
 	.like_table{margin-top:50px; text-align:center; border-top:2px solid #7fad39;}
 	.like_table td{vertical-align:middle;}
 	.like_table td a{color:#1c1c1c;}
-	.btn_close{position:relative; border:0; backround:0;}
-	.btn_close span{display:block; text-indenxt:100%;}
-	.btn_close span:before{content:''; display:block; position:aboslute; left:0; top:0; width:; height:; background:ulr();}
+	.btn_close{position:relative; border:0; background:0; font-size:0;}
+	.btn_close span{display:block; width:24px; height:24px; line-height:24px; overflow:hidden;}
+	.btn_close span:before{content:'\4d'; display:block; position:absolute; left:0; top:0; color:#b2b2b2; font-size:24px; cursor:pointer;}
+	.button_box{text-align:center;}
 </style>
 
 <!-- Hero Section Begin -->
@@ -82,12 +83,10 @@
             <div class="like_table">
 	            <table class="table">
 	            	<colgroup>
-	            		<col span="1" width=5%;>
 	            		<col span="1" width=20%;>
 	            	</colgroup>
 	            	<thead>
 	            		<tr>
-	            			<th><input type="checkbox" checked></th>
 	            			<th>이미지</th>
 	            			<th>제품명</th>
 	            			<th>금액</th>
@@ -97,11 +96,10 @@
 					<tbody>	
 						<c:forEach var="vo" items="${list}">
 							<tr>
-								<td><input type="checkbox" class="selCheck"></td>
 								<td><a href="../Snack/getGoods.do?gcode=${vo.goodsCode}"><img src="images/${vo.thumbImage}" alt="${vo.goodsName}" style="width:150px;"></a></td>
 								<td><a href="../Snack/getGoods.do?gcode=${vo.goodsCode}">${vo.goodsName}</a></td>
 								<td>${vo.price}</td>
-								<td><button type="button" class="btn_close"><span>삭제</span></button></td>
+								<td><button type="button" class="btn_close" data-goodscode="${vo.goodsCode}" data-membercode="${logCode}"><span class="icon_close">삭제</span></button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -110,3 +108,5 @@
         </div>
     </div>
 </section>
+
+<script src="js/like.js"></script>

@@ -13,11 +13,15 @@
   </select>
   
   <select id="selectOne" resultType="member" parameterType="String">
-    select * from member where member_code=#{memberCode}
+    select * 
+      from member 
+     where member_code=#{memberCode}
   </select>
 
   <select id="selectList" resultType="member">
-	select * from member order by member_code
+	select * 
+	  from member 
+	 order by member_code
   </select>
   
   <insert id="insertMember" parameterType="member">
@@ -25,7 +29,12 @@
   	values(concat('M-', lpad(member_seq.nextval, 5, 0)), 
   	       #{id}, 
   	       #{pw},
-  	       #{memberName}, #{memberPhone}, #{memberAddress}, #{email}, #{memberAddressDetail}, #{memberPostcode})
+  	       #{memberName}, 
+  	       #{memberPhone}, 
+  	       #{memberAddress}, 
+  	       #{email}, 
+  	       #{memberAddressDetail}, 
+  	       #{memberPostcode})
   </insert>
   
   <select id="selectId" resultType="int" parameterType="String">
@@ -37,7 +46,8 @@
   	       member_phone = #{memberPhone}, 
   	       member_address = #{memberAddress}, 
   	       member_address_detail = #{memberAddressDetail}, 
-  	       member_postcode = #{memberPostcode} 
+  	       member_postcode = #{memberPostcode},
+  	       email = #{email}
   	where id = #{id}
   </update>
   
