@@ -38,7 +38,7 @@
     <div class="container">
         <div class="checkout__form">
             <h4>회원수정</h4>
-            <form name="join" action="memberModify.do">
+            <form name="join" id="joinForm" action="memberModify.do">
             	<input type="hidden" name="checked_id" value="" />
 	            <div class="checkout__input">
 	                <p>아이디<span>*</span></p>
@@ -50,7 +50,7 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>비밀번호<span>*</span></p>
-	                <input type="password" id="pw" name="pw">
+	                <input type="password" id="pw" name="pw">	                
 	                <em></em>
 	            </div>
 	            <div class="checkout__input">
@@ -94,6 +94,13 @@
 </section>
 
 <script>
+	 document.querySelector('#joinForm').onsubmit = function (){		
+		if($("#pw").val() != ${vo.pw}){
+			alert('비밀번호가 맞지 않습니다');
+			return false;
+		}		
+	}
+
 	$("input").on('blur', emptyCheck)
 	
 	function emptyCheck(){
