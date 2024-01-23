@@ -72,27 +72,27 @@
         <div class="row">
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="images/main/과자.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/과자.jpg" onclick="location.href='goodsList.do?category=과자'">
                         <h5><a href="goodsList.do?category=과자">과자</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="images/main/비스킷.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/비스킷.jpg" onclick="location.href='goodsList.do?category=비스킷/크래커'">
                         <h5><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="images/main/쿠키.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/쿠키.jpg" onclick="location.href='goodsList.do?category=쿠키/파이'">
                         <h5><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="images/main/유기농.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/유기농.jpg" onclick="location.href='goodsList.do?category=유기농/전통과자'">
                         <h5><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="images/main/초콜릿.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/초콜릿.jpg" onclick="location.href='goodsList.do?category=초콜릿'">
                         <h5><a href="goodsList.do?category=초콜릿">초콜릿</a></h5>
                     </div>
                 </div>
@@ -125,15 +125,15 @@
         	<c:forEach var="vo" items="${recommendList }">
             <div class="col-lg-3 col-md-4 col-sm-6 mix ${vo.category } fresh-meat">
                 <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="images/${vo.thumbImage }">
+                    <div class="featured__item__pic set-bg" data-setbg="images/${vo.thumbImage }" onclick="location.href='getGoods.do?gcode=${vo.goodsCode }'">
                         <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+<!--                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li> -->
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="#">${vo.goodsName }</a></h6>
+                        <h6><a href="getGoods.do?gcode=${vo.goodsCode }">${vo.goodsName }</a></h6>
                         <h5>${vo.price }원</h5>
                     </div>
                 </div>

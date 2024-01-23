@@ -155,8 +155,8 @@
 						</button>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            <li><b>배송비</b> <span>3,000원 <samp></samp></span></li>
+                            <li><b></b> <span>* 3만원 이상 주문 시 무료배송</span></li>
                             <li><b>Share on</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -225,11 +225,8 @@
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <p><strong>총 내용량 : </strong>${vo.weight }g / <strong>칼로리 : </strong>${vo.calorie }kcal</p>
-                                    <p><strong>포장단위 : </strong>${vo.unit }</p>
-                                    <p><strong>알레르기 정보 : </strong>${vo.allergy }</p>
-                                    <p><strong>나트륨 : </strong>${vo.na }mg / <strong>탄수화물 : </strong>${vo.carbo }g</p>
-                                    <p><strong>당류 : </strong>${vo.sugar }g / <strong>포화지방 : </strong>${vo.sfat }g / <strong>단백질 : </strong>${vo.protein }g</p>
+                                    <p style="text-align: center"><img src="images/notice/배송안내.jpg"><p><br>
+                                    <p style="text-align: center"><img src="images/notice/교환반품안내.jpg"><p><br>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
@@ -364,10 +361,10 @@
 			.then(result => {
 				console.log('cartCode:' + result)
 				if(result != null){
-					alert('이미 장바구니에 담긴 상품입니다.')
-					//if(confirm('이미 장바구니에 담긴 상품입니다. 수량을 추가하시겠습니까?')){
-					//	addQuantityFunc(result, $('#quantityValue').val())
-					//}
+					//alert('이미 장바구니에 담긴 상품입니다.')
+					if(confirm('이미 장바구니에 담긴 상품입니다. 수량을 추가하시겠습니까?')){
+						addQuantityFunc(result, $('#quantityValue').val())
+					}
 				}
 				else{
 					if(confirm('장바구니에 상품을 추가하시겠습니까?')){
