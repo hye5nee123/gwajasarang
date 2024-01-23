@@ -5,8 +5,14 @@
 	.button_box{margin:0 auto !important; text-align:center;}
 	em.warning{font-style:normal; margin-top:15px; color:red; font-size:14px;}
 	div.row{justify-content:space-between; margin:0;}
+	.checkout__input input{color:#111;}
 	#id{flex:0 0 83%;}
 	#id_check{flex:0 0 15%; padding:0 15px; font-size:14px; color:#fff; background:#6f6f6f; border:0;}
+	.address_box{margin-bottom:10px;}
+	#sample4_roadAddress{margin-bottom:10px;}
+	.address_box:after{content:''; display:block; clear:both;}
+	.checkout__input input[name="postcode"]{flat:left; width:83%;}
+	.checkout__input .btn_address{float:right; width:15%; padding-left:0; color:#fff; font-size:14px; background:#6f6f6f; border-radius:0;}
 </style>
 
 <section class="breadcrumb-section set-bg" data-setbg="bootstrap/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
@@ -62,9 +68,11 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>주소<span>*</span></p>
-	                <input type="text" id="sample4_postcode" name="postcode" placeholder="우편번호">
+	                <div class="address_box">
+		                <input type="text" id="sample4_postcode" name="postcode" placeholder="우편번호">
+						<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="btn_address"><br>
+	                </div>
 	                <em></em>
-					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
 					<input type="text" id="sample4_roadAddress" name="address" placeholder="도로명주소">
 					<em></em>

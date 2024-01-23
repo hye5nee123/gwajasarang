@@ -16,6 +16,7 @@ public class MemberModifyControl  implements Control{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		
 		String id = req.getParameter("id");
+		String email = req.getParameter("email");
 		String phone = req.getParameter("phone");
 		String address = req.getParameter("address");
 		String addressDetail = req.getParameter("addressDetail");
@@ -23,7 +24,8 @@ public class MemberModifyControl  implements Control{
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
-		vo.setMemberPhone(phone);		
+		vo.setMemberPhone(phone);	
+		vo.setEmail(email);	
 		vo.setMemberAddress(address);	
 		vo.setMemberAddressDetail(addressDetail);	
 		vo.setMemberPostcode(Integer.parseInt(postcode));	

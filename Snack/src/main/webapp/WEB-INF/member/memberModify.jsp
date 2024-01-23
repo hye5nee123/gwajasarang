@@ -6,10 +6,16 @@
 	.button_box{margin:0 auto !important; text-align:center;}
 	em.warning{font-style:normal; margin-top:15px; color:red; font-size:14px;}
 	div.row{justify-content:space-between; margin:0;}
+	.checkout__input input{color:#111;}
 	#id{flex:0 0 83%;}
 	#id_check{flex:0 0 15%; padding:0 15px; font-size:14px; color:#fff; background:#6f6f6f; border:0;}
 	.button_box #listBtn{margin-left:5px; color:#fff; background:#6f6f6f;}
 	.w100{flex:0 0 100% !important; width:100% !important;}
+	#sample4_roadAddress{margin-bottom:10px;}
+	.address_box{margin-bottom:10px;}
+	.address_box:after{content:''; display:block; clear:both;}
+	.checkout__input input[name="postcode"]{flat:left; width:83%;}
+	.checkout__input .btn_address{float:right; width:15%; padding-left:0; color:#fff; font-size:14px; background:#6f6f6f; border-radius:0;}
 </style>
 
 <section class="breadcrumb-section set-bg" data-setbg="bootstrap/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
@@ -61,9 +67,11 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>주소<span>*</span></p>
-	                <input type="text" id="sample4_postcode" name="postcode" value="${vo.memberPostcode}">
+	                <div class="address_box">
+	                	<input type="text" id="sample4_postcode" name="postcode" value="${vo.memberPostcode}">
+						<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="btn_address">
+	                </div>
 	                <em></em>
-					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
 					<input type="text" id="sample4_roadAddress" name="address" value="${vo.memberAddress}">
 					<em></em>
@@ -74,7 +82,7 @@
 	            </div>
 	            <div class="checkout__input">
 	                <p>이메일</p>
-	                <input type="text" id="email" name="email" value="${vo.email}" readonly>
+	                <input type="text" id="email" name="email" value="${vo.email}">
 	            </div>
 	            <div  class="button_box">            
 		            <button type="submit" id="addBtn" class="site-btn btn-lg">수정완료</button>
@@ -86,6 +94,20 @@
 </section>
 
 <script>
+	$("input").on('blur', emptyCheck)
+	
+	function emptyCheck(){
+		if(event.target.id == "email"){
+			return;
+		}
+		if(event.target.value == ''){
+			$(this).parents('.checkout__input').find('em').html("필수입력값입니다.").addClass('warning');
+			event.target.focus();
+		} else{
+			$(this).parents('.checkout__input').find('em').html("");
+		}
+	}
+
 	function listFun(){
 		document.forms.join.action = "memberListForm.do";
 		document.forms.join.submit();
