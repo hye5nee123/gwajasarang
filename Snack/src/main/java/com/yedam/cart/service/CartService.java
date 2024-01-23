@@ -19,4 +19,7 @@ public interface CartService {
 
 	// 주문 상세.
 	//public boolean addOrder(int cartCode);
+	
+	// 카트 담기 여부확인
+	public Integer checkCart(String goodsCode, String memberCode);
 }

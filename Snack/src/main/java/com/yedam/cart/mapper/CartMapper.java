@@ -2,6 +2,8 @@ package com.yedam.cart.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yedam.cart.vo.CartVO;
 
 public interface CartMapper {
@@ -19,4 +21,7 @@ public interface CartMapper {
 	
 	//카트 전체 삭제
 	int deleteCartAll(String memberCode);
+	
+	//카트 담기 여부 확인
+	Integer selectCnt(@Param("goodsCode") String goodCode, @Param("memberCode") String memberCode);
 }
