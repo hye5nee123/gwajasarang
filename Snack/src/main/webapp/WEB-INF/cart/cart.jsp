@@ -28,7 +28,6 @@
 					<table>
 						<thead>
 							<tr>
-								<input type="checkbox" name="selectAll" style="padding: 100px">
 								<th class="shoping__product">Products</th>
 								<th>Price</th>
 								<th>Quantity</th>

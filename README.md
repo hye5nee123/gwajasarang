@@ -14,10 +14,11 @@
 
 - 회원가입
 - 로그인(아이디 조회,비밀번호 찾기)
+- 좋아요(찜기능)
 - 전체 목록 출력
 - 검색(상세검색,키워드 검색)
 - 장바구니(수량조정,삭제,추가)
-- 주문(배송지 API) 
+- 주문(지도 API) 
 - 모든 기능 DB 연결
 <br>
 
@@ -131,24 +132,39 @@
 
 <br>
 
-## 💬 Branch, 커밋 메시지
+## 💬 Branch, 커밋 메시지,PR
 
 ### Branch
-- `develop` , `main` , `feature/*`
+- `develop` , `main` , `name`
 ```
 • develop : 개발용
-• main : 배포용
-• name : 작업용
+• main    : 배포용
+• name    : 작업용
 ```
 
 ### 커밋 메시지
 > Type
 - 구현 기능, 부족한 부분 적기(프로젝트 진행을 위한 진도 파악 위해서)
-- mapper.xml 파일은 위아래 띄어쓰기 없음
-- 각자 Controller만 건드리기(ex)Controller 뒤에 A,B,C를 붙여 개인별로 따로 사용하고 배포 전
+
+
+### PR 규칙.
+```
+• (생략가능)9:00에 전원 개인 브랜치 commit > push 후 develop에 PR 요청(충돌 사항 잔디에 공유) 후 develop에서 pull 받아 run as 실행
+• mapper.xml 파일은 위아래 띄어쓰기 없음
+• 각자 Controller만 건드리기(ex)Controller 뒤에 A,B,C를 붙여 개인별로 따로 사용하고 배포 전
   main Controller로 취합(git과 Eclipse 오류,충돌을 줄이고자 회의 후 결정)
+• 개인 작업후 18:00에 개인 브랜치 commit > push 후 develop에 PR 요청.
+```
+  # 🥺 그외
 
+<br>
+<br>
 
+  ### 실행 안 될때
+```
+- project > clean 2번정도 부탁드립니다.
 
-  ##🤟 추가 사항, 수정 사항은 문의 부탁드립니다~~ 
+- project > update maven 부탁드립니다.
 
+- Build Path > Configure Build Path > Classpath > AddLibrary > Server Runtime > Apache Tomcat > finish > aplly
+```

@@ -14,7 +14,6 @@ function cartList(logCode) {
 				let tr = `      <tr>
                 
                 <td class="shoping__cart__item">
-                <div><input type="checkbox" name="select" style="size=100px" data-></div>
                                         <img src="images/${cart.thumbImage}" alt="인디언" style="width : 80px">
                                         <h5>${cart.goodsName}</h5>
                                     </td>
