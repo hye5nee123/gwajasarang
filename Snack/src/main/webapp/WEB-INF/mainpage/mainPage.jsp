@@ -22,10 +22,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
-                            <li><a href="#">사탕/껌</a></li>
-                            <li><a href="#">시리얼</a></li>
-                            <li><a href="#">베이커리/잼</a></li>
-                            <li><a href="#">과자/간식세트</a></li>
+                            <li><a href="goodsList.do?category=사탕/껌">사탕/껌</a></li>
+                            <li><a href="goodsList.do?category=시리얼">시리얼</a></li>
+                            <li><a href="goodsList.do?category=베이커리/잼">베이커리/잼</a></li>
+                            <li><a href="goodsList.do?category=과자/간식세트">과자/간식세트</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,27 +72,27 @@
         <div class="row">
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-1.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/과자.jpg">
                         <h5><a href="goodsList.do?category=과자">과자</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-2.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/비스킷.jpg">
                         <h5><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-3.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/쿠키.jpg">
                         <h5><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-4.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/유기농.jpg">
                         <h5><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="bootstrap/img/categories/cat-5.jpg">
+                    <div class="categories__item set-bg" data-setbg="images/main/초콜릿.jpg">
                         <h5><a href="goodsList.do?category=초콜릿">초콜릿</a></h5>
                     </div>
                 </div>
@@ -250,7 +250,7 @@
 <!-- Featured Section End -->
 
 <!-- Banner Begin -->
-<div class="banner">
+<!-- <div class="banner">
     <div class="container mb-5">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -265,7 +265,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Banner End -->
 
 <script>

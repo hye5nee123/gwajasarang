@@ -21,10 +21,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
-                            <li><a href="#">사탕/껌</a></li>
-                            <li><a href="#">시리얼</a></li>
-                            <li><a href="#">베이커리/잼</a></li>
-                            <li><a href="#">과자/간식세트</a></li>
+                            <li><a href="goodsList.do?category=사탕/껌">사탕/껌</a></li>
+                            <li><a href="goodsList.do?category=시리얼">시리얼</a></li>
+                            <li><a href="goodsList.do?category=베이커리/잼">베이커리/잼</a></li>
+                            <li><a href="goodsList.do?category=과자/간식세트">과자/간식세트</a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,10 +89,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
-                            <li><a href="#">사탕/껌</a></li>
-                            <li><a href="#">시리얼</a></li>
-                            <li><a href="#">베이커리/잼</a></li>
-                            <li><a href="#">과자/간식세트</a></li>
+                            <li><a href="goodsList.do?category=사탕/껌">사탕/껌</a></li>
+                            <li><a href="goodsList.do?category=시리얼">시리얼</a></li>
+                            <li><a href="goodsList.do?category=베이커리/잼">베이커리/잼</a></li>
+                            <li><a href="goodsList.do?category=과자/간식세트">과자/간식세트</a></li>
                             </ul>
                         </div>
                     </div>
@@ -132,16 +132,18 @@
                     </div>
                     <!-- 추천상품 끝 -->
                     
-                    
+                    <!-- 정렬순서 시작 -->
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <form method="GET" action="goodsList.do">
+                                    <input type="hidden" name="category" value="${category }">
+                                    <input type="hidden" name="page" value="1">
                                     <span>Sort By</span>
                                     <select id="sort" name="sort" onchange="this.form.submit()">
-                                        <option value="null">이름순</option>
-                                        <option value="price" <c:if test="${sort=='price' }">selected</c:if>>가격순<option>
+                                        <option value="">이름순</option>
+                                        <option value="price">가격순<option>
                                     </select>
                                     </form>
                                 </div>
@@ -159,6 +161,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 정렬순서 끝 -->
                     
                     <!-- 상품목록 시작 -->
                     <div class="row">
@@ -184,41 +187,16 @@
                     
                     <!-- 페이징 시작 -->
                     <div class="product__pagination">
-	                    <c:choose>
-	                    <c:when test="${empty category and empty sort}">
-		                    <c:if test="${dto.prev }">
-		                        <a href="goodsList.do?page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
-		                    </c:if>
-		                     <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
-		                        <a href="goodsList.do?page=${i }">${i }</a>
-		                    </c:forEach>
-		                     <c:if test="${dto.next }">
-		                        <a href="goodsList.do?page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
-		                    </c:if>
-		                </c:when>
-		                <c:when test="${not empty sort}">
-		                	<c:if test="${dto.prev }">
-		                        <a href="goodsList.do?sort=${sort }&page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
-		                    </c:if>
-		                     <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
-		                        <a href="goodsList.do?sort=${sort }&page=${i }">${i }</a>
-		                    </c:forEach>
-		                     <c:if test="${dto.next }">
-		                        <a href="goodsList.do?sort=${sort }&page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
-		                    </c:if>
-		                </c:when>
-		                <c:otherwise>
+	                   
 		                  	<c:if test="${dto.prev }">
-		                        <a href="goodsList.do?category=${category }&page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
+		                        <a href="goodsList.do?category=${category }&sort=${sort }&page=${dto.startPage - 1 }"><i class="fa fa-long-arrow-left"></i></a>
 		                    </c:if>
 		                     <c:forEach var="i" begin="${dto.startPage }" end="${dto.lastPage }">
-		                        <a href="goodsList.do?category=${category }&page=${i }">${i }</a>
+		                        <a href="goodsList.do?category=${category }&sort=${sort }&page=${i }">${i }</a>
 		                    </c:forEach>
 		                     <c:if test="${dto.next }">
-		                        <a href="goodsList.do?category=${category }&page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
+		                        <a href="goodsList.do?category=${category }&sort=${sort }&page=${dto.lastPage + 1 }"><i class="fa fa-long-arrow-right"></i></a>
 		                    </c:if>
-		                </c:otherwise>
-		                </c:choose>
                     </div>
                     <!-- 페이징 끝 -->
                     
