@@ -34,7 +34,8 @@
 	
 	<insert id="insertOrders" parameterType="orders">
     <selectKey resultType="String" keyProperty="orderCode" order="BEFORE">
-        SELECT concat('O-', lpad(orders_seq.nextval, 5, 0)) FROM dual
+        SELECT concat('O-', lpad(orders_seq.nextval, 5, 0)) 
+        FROM dual
     </selectKey>
     INSERT INTO orders 
     VALUES(#{orderCode}, #{memberCode}, sysdate, #{orderAddress}, #{orderName}, #{orderPhone}, #{memo}, #{deliveryFee}, #{totalPrice}, #{orderAddressDetail}, #{orderPostcode})
@@ -55,7 +56,9 @@
   </select>
   
   <select id="selectCount" resultType="int" parameterType="String">
-	select count(*) from orders where member_code = #{memberCode}
+	select count(*) 
+	from orders 
+	where member_code = #{memberCode}
   </select>
 </mapper>
 
