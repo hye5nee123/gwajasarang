@@ -55,6 +55,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+                            <li><a href="goodsList.do?category=사탕/껌">사탕/껌</a></li>
+                            <li><a href="goodsList.do?category=시리얼">시리얼</a></li>
+                            <li><a href="goodsList.do?category=베이커리/잼">베이커리/잼</a></li>
+                            <li><a href="goodsList.do?category=과자/간식세트">과자/간식세트</a></li>
                         </ul>
                     </div>
                 </div>
@@ -154,17 +158,17 @@
 							<span class="icon_heart_alt"></span>
 						</button>
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
+<!--                             <li><b>Availability</b> <span>In Stock</span></li> -->
                             <li><b>배송비</b> <span>3,000원 <samp></samp></span></li>
                             <li><b></b> <span>* 3만원 이상 주문 시 무료배송</span></li>
-                            <li><b>Share on</b>
+<!--                             <li><b>Share on</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                     <a href="#"><i class="fa fa-pinterest"></i></a>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

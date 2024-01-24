@@ -22,6 +22,7 @@ public class SearchListControl implements Control {
 		String keyword = req.getParameter("keyword");
 		String page = req.getParameter("page");
 		page = (page == null)? "1" : page;
+		String sort = req.getParameter("sort");
 		
 		GoodsService svc = new GoodsServiceImpl();
 		List<GoodsVO> searchList = svc.searchList(keyword, Integer.parseInt(page));
@@ -30,6 +31,7 @@ public class SearchListControl implements Control {
 		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
 		
 		req.setAttribute("keyword", keyword);
+		req.setAttribute("sort", sort);
 		req.setAttribute("searchList", searchList);
 		req.setAttribute("total", total);
 		req.setAttribute("dto", dto);

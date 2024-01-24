@@ -49,6 +49,10 @@
                             <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
                             <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
                             <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+                            <li><a href="goodsList.do?category=사탕/껌">사탕/껌</a></li>
+                            <li><a href="goodsList.do?category=시리얼">시리얼</a></li>
+                            <li><a href="goodsList.do?category=베이커리/잼">베이커리/잼</a></li>
+                            <li><a href="goodsList.do?category=과자/간식세트">과자/간식세트</a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,12 +111,16 @@
                         <div class="sidebar__item">
                             <h4>Category</h4>
                             <ul>
-                                <li><a href="goodsList.do?category=과자">과자</a></li>
-                                <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
-                                <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
-                                <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
-                                <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
-                                <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+	                            <li><a href="goodsList.do?category=과자">과자</a></li>
+	                            <li><a href="goodsList.do?category=비스킷/크래커">비스킷/크래커</a></li>
+	                            <li><a href="goodsList.do?category=쿠키/파이">쿠키/파이</a></li>
+	                            <li><a href="goodsList.do?category=유기농/전통과자">유기농/전통과자</a></li>
+	                            <li><a href="goodsList.do?category=초콜릿">초콜릿</a></li>
+	                            <li><a href="goodsList.do?category=젤리/캐러멜">젤리/캐러멜</a></li>
+	                            <li><a href="goodsList.do?category=사탕/껌">사탕/껌</a></li>
+	                            <li><a href="goodsList.do?category=시리얼">시리얼</a></li>
+	                            <li><a href="goodsList.do?category=베이커리/잼">베이커리/잼</a></li>
+	                            <li><a href="goodsList.do?category=과자/간식세트">과자/간식세트</a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,16 +135,20 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
+                                    <form method="GET" action="searchList.do">
+                                    <input type="hidden" name="category" value="${category }">
+                                    <input type="hidden" name="page" value="1">
                                     <span>Sort By</span>
-                                    <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
+                                    <select id="sort" name="sort" onchange="this.form.submit()">
+                                        <option value="">이름순</option>
+                                        <option value="price">가격순<option>
                                     </select>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span>${total }</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
