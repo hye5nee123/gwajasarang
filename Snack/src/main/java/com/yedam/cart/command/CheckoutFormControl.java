@@ -7,8 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.cart.service.CartService;
-import com.yedam.cart.serviceImpl.CartServiceImpl;
 import com.yedam.common.Control;
 import com.yedam.member.service.MemberService;
 import com.yedam.member.serviceImpl.MemberServiceImpl;
@@ -20,11 +18,13 @@ public class CheckoutFormControl implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String memberCode = req.getParameter("memberCode");
 		req.setAttribute("memberCode", memberCode);
-
+		
+		//service 호출.
 		MemberService svc = new MemberServiceImpl();
+		//단건조회.
 		MemberVO vo = svc.showMember(memberCode);
 		
-		CartService svc1 = new CartServiceImpl();
+		//결과 저장.
 		req.setAttribute("vo", vo);
 		
 		// 페이지 이동(forward)

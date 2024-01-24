@@ -18,28 +18,33 @@ public class AddCartControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		CartVO vo = new CartVO();
+		//1. 파라미터 받기.
 		String goodsCode = req.getParameter("goodsCode");
 		String memberCode = req.getParameter("memberCode");
 		String quantity = req.getParameter("quantity");
-
+		
+		
+		
+		//2. vo에 담기.
+		CartVO vo = new CartVO();
 		vo.setGoodsCode(goodsCode);
 		vo.setMemberCode(memberCode);
 		vo.setQuantity(Integer.parseInt(quantity));
 		
+		//3.service 호출.
 		CartService svc = new CartServiceImpl();
-		Map<String, Object> map = new HashMap<>();
+		boolean result = svc.addCart(vo);
 		
-		if (svc.addCart(vo)) {
+		//4. 결과 저장.
+		Map<String, Object> map = new HashMap<>();
+		if (result) {
 			map.put("retCode", "OK");
 		} else {
 			map.put("retCode", "NG");
 		}
-
+		//5. 결과 전송(Json변환 해서).
 		Gson gson = new GsonBuilder().create();
-		
 		try {
-//			json형식으로 보내겠다.
 			resp.getWriter().print(gson.toJson(map));
 		} catch (IOException e) {
 			e.printStackTrace();

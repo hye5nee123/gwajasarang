@@ -1,8 +1,6 @@
 package com.yedam.cart.command;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,8 +23,10 @@ public class CheckCartJson implements Control {
 		
 		Gson gson = new GsonBuilder().create();
 		
+		//map 없이 바로 넘기기 가능.
 		try {
 			resp.getWriter().print(gson.toJson(cartCode));
+			// == resp.getWriter().print(cartCode);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

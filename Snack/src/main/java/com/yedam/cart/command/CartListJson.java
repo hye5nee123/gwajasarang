@@ -17,7 +17,7 @@ public class CartListJson implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
+		//json으로 결과 보낼 때 필요(페이지 이동시 필요X)
 		resp.setContentType("text/json;charset=utf-8");
 		
 		String memberCode = req.getParameter("memberCode");

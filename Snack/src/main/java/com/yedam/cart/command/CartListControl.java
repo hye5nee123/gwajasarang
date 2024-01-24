@@ -15,8 +15,6 @@ public class CartListControl implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String memberCode = req.getParameter("memberCode");
 		req.setAttribute("memberCode", memberCode);
-		resp.setContentType("text/json;charset=utf-8");
-
 		RequestDispatcher rd = req.getRequestDispatcher("cart/cart.tiles");
 		try {
 			rd.forward(req, resp);

@@ -7,8 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.cart.service.CartService;
-import com.yedam.cart.serviceImpl.CartServiceImpl;
 import com.yedam.common.Control;
 
 public class OrderResultForm implements Control {
