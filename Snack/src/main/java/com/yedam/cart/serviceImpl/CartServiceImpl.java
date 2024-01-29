@@ -36,10 +36,15 @@ public class CartServiceImpl implements CartService {
 		// TODO Auto-generated method stub
 		return mapper.updateCart(vo) == 1;
 	}
-
+	
 	@Override
 	public Integer checkCart(String goodsCode, String memberCode) {
 		return mapper.selectCnt(goodsCode, memberCode);
+	}
+
+	@Override
+	public boolean modCartQuantity(CartVO vo) {
+		return mapper.updateCartQuantity(vo) == 1;
 	}
 
 //	public boolean addOrder(int orderCode) {

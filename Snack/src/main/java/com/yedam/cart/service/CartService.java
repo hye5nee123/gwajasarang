@@ -16,6 +16,9 @@ public interface CartService {
 
 	// 카트 수정
 	public boolean modCart(CartVO vo);
+	
+	// 카트 수량 수정(이미 카트에 있는 상품)
+	public boolean modCartQuantity(CartVO vo);
 
 	// 주문 상세.
 	//public boolean addOrder(int cartCode);

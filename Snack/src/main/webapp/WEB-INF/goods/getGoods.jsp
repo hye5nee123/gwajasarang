@@ -404,7 +404,7 @@
 	// 카트 수량 추가 함수
 	function addQuantityFunc(cartCode, quantity){
 		console.log(cartCode, quantity)
-		fetch('modCart.do', {
+		fetch('modCartQuantity.do', {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'

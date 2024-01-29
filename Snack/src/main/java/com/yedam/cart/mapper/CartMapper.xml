@@ -27,6 +27,11 @@
 	</delete>
 	<update id="updateCart" parameterType="cart">
 		update cart
+		set quantity = #{quantity}
+		where cart_code = #{cartCode}
+	</update>
+	<update id="updateCartQuantity" parameterType="cart">
+		update cart
 		set quantity = quantity + #{quantity}
 		where cart_code = #{cartCode}
 	</update>

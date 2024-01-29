@@ -16,8 +16,11 @@ public interface CartMapper {
 	//카트 수량 추가.
 	int insertCart(CartVO vo);
 	
-	//카트 수량 수정.
+	//카트 수정.
 	int updateCart(CartVO vo);
+	
+	//카트 수량 수정(이미 카트에 담긴 상품)
+	int updateCartQuantity(CartVO vo);
 	
 	//카트 전체 삭제
 	int deleteCartAll(String memberCode);
